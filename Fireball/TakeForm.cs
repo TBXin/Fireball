@@ -8,11 +8,10 @@ using Fireball.Managers;
 
 namespace Fireball
 {
-    public partial class TakeForm : Form
+    partial class TakeForm : Form
     {
         private TakeScreenAction action;
         private Boolean isMouseDown;
-        private Rectangle screenRectangle;
         private Image srcImage;
 
         private Image helpImage;
@@ -27,7 +26,7 @@ namespace Fireball
         private Point selectionEnd;
         private Point prevMousePosition;
 
-        private SolidBrush fadeBrush = new SolidBrush(Color.FromArgb(100, Color.Black));
+        //private SolidBrush fadeBrush = new SolidBrush(Color.FromArgb(100, Color.Black));
         private SolidBrush selectionFillBrush = new SolidBrush(Color.FromArgb(100, 51, 153, 255));
         private Pen selectionBorderPen = new Pen(new SolidBrush(Color.FromArgb(51, 153, 255)), 1);
 
@@ -48,7 +47,6 @@ namespace Fireball
 
             action = TakeScreenAction.Selection;
             srcImage = ScreenManager.GetScreenshot(Screen.PrimaryScreen);
-            screenRectangle = new Rectangle(0, 0, srcImage.Width, srcImage.Height);
 
             helpImage = GetHelpImage(srcImage.Width, 65);
 
