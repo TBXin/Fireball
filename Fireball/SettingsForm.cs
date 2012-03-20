@@ -12,6 +12,7 @@ namespace Fireball
     {
         private Settings settings;
         private Boolean isVisible;
+        private IPlugin activePlugin;
 
         #region :: Ctor ::
         public SettingsForm()
@@ -175,7 +176,29 @@ namespace Fireball
 
         private void CaptureArea()
         {
-            MessageBox.Show("Area");
+            using (TakeForm takeForm = new TakeForm())
+            {
+                if (takeForm.ShowDialog() == DialogResult.OK)
+                {
+                    Image image = takeForm.GetSelection();
+
+                    if (image == null)
+                        return;
+
+                    tray.BalloonTipIcon = ToolTipIcon.Info;
+                    tray.BalloonTipTitle = String.Format("Fireball: {0}", activePlugin.Name);
+                    tray.BalloonTipText = "Uploading...";
+                    tray.ShowBalloonTip(1000);
+
+                    string url = activePlugin.Upload(image);
+                    Clipboard.SetDataObject(url, true, 5, 500);
+
+                    tray.BalloonTipIcon = ToolTipIcon.Info;
+                    tray.BalloonTipTitle = String.Format("Fireball: {0}", activePlugin.Name);
+                    tray.BalloonTipText = url;
+                    tray.ShowBalloonTip(1000);
+                }
+            }
         }
 
         private void CaptureScreen()
@@ -202,7 +225,8 @@ namespace Fireball
             if (item == null) 
                 return;
 
-            bPluginSettings.Enabled = item.Plugin.HasSettings;
+            activePlugin = item.Plugin;
+            bPluginSettings.Enabled = activePlugin.HasSettings;
         }
         #endregion
 
@@ -218,7 +242,7 @@ namespace Fireball
         }
         #endregion
 
-        #region :: Tray Menu Events ::
+        #region :: Tray Events ::
         private void TraySubCaptureAreaClick(object sender, EventArgs e)
         {
             CaptureArea();
@@ -242,6 +266,11 @@ namespace Fireball
         private void TraySubExitClick(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void TrayBalloonTipClicked(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(tray.BalloonTipText);
         }
         #endregion
     }

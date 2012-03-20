@@ -26,15 +26,19 @@ namespace Fireball.Plugin
                 try
                 {
                     Assembly asm = Assembly.LoadFile(dll);
+
                     if (asm != null)
                     {
                         objType = asm.GetType("Fireball.Plugin.PluginBody");
                     }
 
-                    IPlugin plugin = Activator.CreateInstance(objType) as IPlugin;
+                    if (objType != null)
+                    {
+                        IPlugin plugin = Activator.CreateInstance(objType) as IPlugin;
 
-                    if (plugin != null)
-                        Plugins.Add(plugin);
+                        if (plugin != null)
+                            Plugins.Add(plugin);
+                    }
                 }
                 catch (Exception)
                 {
