@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Helper.cs" />
     <Compile Include="Core\Hotkey.cs" />
     <Compile Include="Core\Settings.cs" />
     <Compile Include="Core\TakeScreenAction.cs" />

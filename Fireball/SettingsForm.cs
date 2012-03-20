@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using Fireball.Core;
@@ -17,6 +18,49 @@ namespace Fireball
 
             Icon = tray.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             settings = SettingsManager.Load();
+
+            StringBuilder hotkeyRegisterErrorBuilder = new StringBuilder();
+
+            if (settings.CaptureScreenHotey.GetCanRegister(this))
+            {
+                settings.CaptureScreenHotey.Register(this);
+                settings.CaptureScreenHotey.Pressed += CaptureScreenHotey_Pressed;
+            }
+            else
+            {
+                hotkeyRegisterErrorBuilder.AppendFormat(" - Can't register capture screen hotkey ({0})\n", settings.CaptureScreenHotey);
+            }
+
+            if (settings.CaptureAreaHotkey.GetCanRegister(this))
+            {
+                settings.CaptureAreaHotkey.Register(this);
+                settings.CaptureAreaHotkey.Pressed += CaptureAreaHotkey_Pressed;
+            }
+            else
+            {
+                hotkeyRegisterErrorBuilder.AppendFormat(" - Can't register capture area hotkey ({0})\n", settings.CaptureAreaHotkey);
+            }
+
+            if (hotkeyRegisterErrorBuilder.Length > 0)
+            {
+                MessageBox.Show(
+                    String.Format(
+                        "Failed to register hotkeys!\n{0}", 
+                        hotkeyRegisterErrorBuilder), 
+                    "Information", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Information);
+            }
+        }
+
+        private void CaptureAreaHotkey_Pressed(object sender, System.ComponentModel.HandledEventArgs e)
+        {
+            MessageBox.Show("Area");
+        }
+
+        private void CaptureScreenHotey_Pressed(object sender, System.ComponentModel.HandledEventArgs e)
+        {
+            MessageBox.Show("Screen");
         }
 
         private void PopulateSettings()
@@ -46,19 +90,56 @@ namespace Fireball
                 hkArea.HotkeyModifiers |= Keys.Alt;
         }
 
-        private void SaveSettings()
+        private Boolean SaveSettings()
         {
-            settings.CaptureScreenHotey.KeyCode = hkScreen.Hotkey;
-            settings.CaptureScreenHotey.Control = (hkScreen.HotkeyModifiers & Keys.Control) == Keys.Control;
-            settings.CaptureScreenHotey.Shift = (hkScreen.HotkeyModifiers & Keys.Shift) == Keys.Shift;
-            settings.CaptureScreenHotey.Alt = (hkScreen.HotkeyModifiers & Keys.Alt) == Keys.Alt;
+            try
+            {
+                if (hkScreen.Hotkey == Keys.None && settings.CaptureScreenHotey.Registered)
+                {
+                    settings.CaptureScreenHotey.Unregister();
+                }
+                else
+                {
+                    settings.CaptureScreenHotey.KeyCode = (Keys)Enum.Parse(typeof(Keys), hkScreen.Hotkey.ToString());
+                    settings.CaptureScreenHotey.Control = (hkScreen.HotkeyModifiers & Keys.Control) == Keys.Control;
+                    settings.CaptureScreenHotey.Shift = (hkScreen.HotkeyModifiers & Keys.Shift) == Keys.Shift;
+                    settings.CaptureScreenHotey.Alt = (hkScreen.HotkeyModifiers & Keys.Alt) == Keys.Alt;
 
-            settings.CaptureAreaHotkey.KeyCode = hkArea.Hotkey;
-            settings.CaptureAreaHotkey.Control = (hkArea.HotkeyModifiers & Keys.Control) == Keys.Control;
-            settings.CaptureAreaHotkey.Shift = (hkArea.HotkeyModifiers & Keys.Shift) == Keys.Shift;
-            settings.CaptureAreaHotkey.Alt = (hkArea.HotkeyModifiers & Keys.Alt) == Keys.Alt;
+                    if (!settings.CaptureScreenHotey.Registered && settings.CaptureScreenHotey.KeyCode != Keys.None)
+                        settings.CaptureScreenHotey.Register(this);
+                }
+            }
+            catch (Exception)
+            {
+                Helper.InfoBoxShow("Failed to register capture screen hotkey!");
+                return false;
+            }
+
+            try
+            {
+                if (hkScreen.Hotkey == Keys.None && settings.CaptureAreaHotkey.Registered)
+                {
+                    settings.CaptureAreaHotkey.Unregister();
+                }
+                else
+                {
+                    settings.CaptureAreaHotkey.KeyCode = (Keys)Enum.Parse(typeof(Keys), hkArea.Hotkey.ToString());
+                    settings.CaptureAreaHotkey.Control = (hkArea.HotkeyModifiers & Keys.Control) == Keys.Control;
+                    settings.CaptureAreaHotkey.Shift = (hkArea.HotkeyModifiers & Keys.Shift) == Keys.Shift;
+                    settings.CaptureAreaHotkey.Alt = (hkArea.HotkeyModifiers & Keys.Alt) == Keys.Alt;
+
+                    if (!settings.CaptureAreaHotkey.Registered && settings.CaptureScreenHotey.KeyCode != Keys.None)
+                        settings.CaptureAreaHotkey.Register(this);
+                }
+            }
+            catch (Exception)
+            {
+                Helper.InfoBoxShow("Failed to register capture area hotkey!");
+                return false;
+            }
 
             SettingsManager.Save(settings);
+            return true;
         }
 
         protected override void SetVisibleCore(bool value)
@@ -108,8 +189,8 @@ namespace Fireball
 
         private void BApplyClick(object sender, EventArgs e)
         {
-            SaveSettings();
-            Close();
+            if (SaveSettings())
+                Close();
         }
 
         private void BCancelClick(object sender, EventArgs e)
