@@ -1,0 +1,13 @@
+*.suo
+*.vsp
+
+#ReSharper
+/_ReSharper.*
+
+#obj
+/*/obj
+
+#bin
+/*/bin/Debug/
+/*/bin/Release/
+!/*/bin/Debug/*.dll
