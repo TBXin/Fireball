@@ -217,6 +217,7 @@
             this.bApply.Text = "Apply && Close";
             this.bApply.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bApply.UseVisualStyleBackColor = true;
+            this.bApply.Click += new System.EventHandler(this.BApplyClick);
             // 
             // bCancel
             // 
