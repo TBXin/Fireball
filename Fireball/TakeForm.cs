@@ -30,9 +30,6 @@ namespace Fireball
         private SolidBrush selectionFillBrush = new SolidBrush(Color.FromArgb(100, 51, 153, 255));
         private Pen selectionBorderPen = new Pen(new SolidBrush(Color.FromArgb(51, 153, 255)), 1);
 
-        /*private SolidBrush sizePolygonBrush = new SolidBrush(Color.FromArgb(200, 51, 153, 255));
-        private Pen sizePolygonPen = new Pen(new SolidBrush(Color.FromArgb(51, 153, 255)));*/
-
         public TakeForm()
         {
             InitializeComponent();
@@ -70,7 +67,7 @@ namespace Fireball
                 }
                 catch { }
             }, 
-            null, 800, 50);
+            null, 1500, 50);
 
             MouseDown += TakeFormMouseDown;
             MouseUp += TakeFormMouseUp;
@@ -79,6 +76,14 @@ namespace Fireball
             Paint += TakeFormPaint;
 
             KeyDown += TakeFormKeyDown;
+        }
+
+        public Image GetSelection()
+        {
+            if (selection.Width == 0 || selection.Height == 0)
+                return null;
+
+            return ScreenManager.CropImage(srcImage, selection);
         }
 
         private Image GetHelpImage(int width, int height)
@@ -103,7 +108,11 @@ namespace Fireball
         {
             if (e.KeyCode == Keys.Escape)
             {
-                Close();
+                DialogResult = DialogResult.Cancel;
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                DialogResult = DialogResult.OK;
             }
         }
 
