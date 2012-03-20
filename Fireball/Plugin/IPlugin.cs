@@ -6,8 +6,8 @@ namespace Fireball.Plugin
     public interface IPlugin
     {
         String Name { get; }
-        Int32 Version { get; }
-        Boolean HasOptions { get; }
+        Single Version { get; }
+        Boolean HasSettings { get; }
         void ShowOptions();
         String Upload(Image image);
     }

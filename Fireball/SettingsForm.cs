@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Fireball.Core;
 using Fireball.Managers;
+using Fireball.Plugin;
 
 namespace Fireball
 {
@@ -51,6 +52,17 @@ namespace Fireball
                     "Information", 
                     MessageBoxButtons.OK, 
                     MessageBoxIcon.Information);
+            }
+
+            PluginManager.Load();
+
+            foreach (IPlugin plugin in PluginManager.Plugins)
+            {
+                PluginItem item = new PluginItem(plugin);
+                cPlugins.Items.Add(item);
+
+                if (settings.ActivePlugin.Equals(plugin.Name))
+                    cPlugins.SelectedItem = item;
             }
         }
         #endregion
@@ -152,6 +164,11 @@ namespace Fireball
                 return false;
             }
 
+            PluginItem selectedPlugin = cPlugins.SelectedItem as PluginItem;
+
+            if (selectedPlugin != null) 
+                settings.ActivePlugin = selectedPlugin.Plugin.Name;
+
             SettingsManager.Save(settings);
             return true;
         }
@@ -166,7 +183,7 @@ namespace Fireball
             MessageBox.Show("Screen");
         }
 
-        #region :: Buttons Events ::
+        #region :: Buttons & Combo Events ::
         private void BApplyClick(object sender, EventArgs e)
         {
             if (SaveSettings())
@@ -176,6 +193,16 @@ namespace Fireball
         private void BCancelClick(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void CPluginsSelectedIndexChanged(object sender, EventArgs e)
+        {
+            PluginItem item = cPlugins.SelectedItem as PluginItem;
+
+            if (item == null) 
+                return;
+
+            bPluginSettings.Enabled = item.Plugin.HasSettings;
         }
         #endregion
 

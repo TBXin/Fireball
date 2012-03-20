@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Fireball.Managers
 {
-    class FileManager
+    static class FileManager
     {
         public static String ApplicationFolder { get; private set; }
         public static String SettingsFile { get; private set; }

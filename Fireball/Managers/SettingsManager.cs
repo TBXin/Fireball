@@ -6,7 +6,7 @@ using Fireball.Core;
 
 namespace Fireball.Managers
 {
-    class SettingsManager
+    static class SettingsManager
     {
         public static Settings Load()
         {
