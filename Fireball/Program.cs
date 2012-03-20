@@ -14,7 +14,7 @@ namespace Fireball
         static void Main()
         {
             bool createdNew;
-            using (Mutex mutex = new Mutex(true, "Fireball, The Screenshooter", out createdNew))
+            using (new Mutex(true, "Fireball, The Screenshooter", out createdNew))
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);

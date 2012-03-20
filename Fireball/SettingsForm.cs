@@ -31,7 +31,8 @@ namespace Fireball
             }
             else
             {
-                hotkeyRegisterErrorBuilder.AppendFormat(" - Can't register capture screen hotkey ({0})\n", settings.CaptureScreenHotey);
+                if (settings.CaptureScreenHotey.KeyCode != Keys.None)
+                    hotkeyRegisterErrorBuilder.AppendFormat(" - Can't register capture screen hotkey ({0})\n", settings.CaptureScreenHotey);
             }
 
             if (settings.CaptureAreaHotkey.GetCanRegister(this))
@@ -41,7 +42,8 @@ namespace Fireball
             }
             else
             {
-                hotkeyRegisterErrorBuilder.AppendFormat(" - Can't register capture area hotkey ({0})\n", settings.CaptureAreaHotkey);
+                if (settings.CaptureScreenHotey.KeyCode != Keys.None)
+                    hotkeyRegisterErrorBuilder.AppendFormat(" - Can't register capture area hotkey ({0})\n", settings.CaptureAreaHotkey);
             }
 
             if (hotkeyRegisterErrorBuilder.Length > 0)
@@ -124,6 +126,7 @@ namespace Fireball
                 if (hkScreen.Hotkey == Keys.None && settings.CaptureScreenHotey.Registered)
                 {
                     settings.CaptureScreenHotey.Unregister();
+                    settings.CaptureScreenHotey.KeyCode = Keys.None;
                 }
                 else
                 {
@@ -144,9 +147,10 @@ namespace Fireball
 
             try
             {
-                if (hkScreen.Hotkey == Keys.None && settings.CaptureAreaHotkey.Registered)
+                if (hkArea.Hotkey == Keys.None && settings.CaptureAreaHotkey.Registered)
                 {
                     settings.CaptureAreaHotkey.Unregister();
+                    settings.CaptureAreaHotkey.KeyCode = Keys.None;
                 }
                 else
                 {
@@ -155,7 +159,7 @@ namespace Fireball
                     settings.CaptureAreaHotkey.Shift = (hkArea.HotkeyModifiers & Keys.Shift) == Keys.Shift;
                     settings.CaptureAreaHotkey.Alt = (hkArea.HotkeyModifiers & Keys.Alt) == Keys.Alt;
 
-                    if (!settings.CaptureAreaHotkey.Registered && settings.CaptureScreenHotey.KeyCode != Keys.None)
+                    if (!settings.CaptureAreaHotkey.Registered && settings.CaptureAreaHotkey.KeyCode != Keys.None)
                         settings.CaptureAreaHotkey.Register(this);
                 }
             }
@@ -174,36 +178,58 @@ namespace Fireball
             return true;
         }
 
+        private void ForwardImageToPlugin(Image image)
+        {
+            if (image == null)
+                return;
+
+            tray.BalloonTipIcon = ToolTipIcon.Info;
+            tray.BalloonTipTitle = String.Format("Fireball: {0}", activePlugin.Name);
+            tray.BalloonTipText = "Uploading...";
+            tray.ShowBalloonTip(1000);
+
+            string url = activePlugin.Upload(image);
+            Clipboard.SetDataObject(url, true, 5, 500);
+
+            tray.BalloonTipIcon = ToolTipIcon.Info;
+            tray.BalloonTipTitle = String.Format("Fireball: {0}", activePlugin.Name);
+            tray.BalloonTipText = url;
+            tray.ShowBalloonTip(1000);
+        }
+
         private void CaptureArea()
         {
-            using (TakeForm takeForm = new TakeForm())
+            if (activePlugin == null)
             {
-                if (takeForm.ShowDialog() == DialogResult.OK)
+                Helper.InfoBoxShow("Plugin not loaded, can't upload!");
+                return;
+            }
+
+            bool createdNew;
+            using (new System.Threading.Mutex(true, "Fireball TakeForm", out createdNew))
+            {
+                if (!createdNew) 
+                    return;
+
+                using (TakeForm takeForm = new TakeForm())
                 {
-                    Image image = takeForm.GetSelection();
-
-                    if (image == null)
-                        return;
-
-                    tray.BalloonTipIcon = ToolTipIcon.Info;
-                    tray.BalloonTipTitle = String.Format("Fireball: {0}", activePlugin.Name);
-                    tray.BalloonTipText = "Uploading...";
-                    tray.ShowBalloonTip(1000);
-
-                    string url = activePlugin.Upload(image);
-                    Clipboard.SetDataObject(url, true, 5, 500);
-
-                    tray.BalloonTipIcon = ToolTipIcon.Info;
-                    tray.BalloonTipTitle = String.Format("Fireball: {0}", activePlugin.Name);
-                    tray.BalloonTipText = url;
-                    tray.ShowBalloonTip(1000);
+                    if (takeForm.ShowDialog() == DialogResult.OK)
+                    {
+                        ForwardImageToPlugin(takeForm.GetSelection());
+                    }
                 }
             }
         }
 
         private void CaptureScreen()
         {
-            MessageBox.Show("Screen");
+            if (activePlugin == null)
+            {
+                Helper.InfoBoxShow("Plugin not loaded, can't upload!");
+                return;
+            }
+
+            ForwardImageToPlugin(ScreenManager.GetScreenshot(Screen.PrimaryScreen));
         }
 
         #region :: Buttons & Combo Events ::
@@ -233,12 +259,14 @@ namespace Fireball
         #region :: Hotkeys Events ::
         private void CaptureAreaHotkeyPressed(object sender, System.ComponentModel.HandledEventArgs e)
         {
-            CaptureArea();
+            if (!(hkArea.Focused || hkScreen.Focused))
+                CaptureArea();
         }
 
         private void CaptureScreenHoteyPressed(object sender, System.ComponentModel.HandledEventArgs e)
         {
-            CaptureScreen();
+            if (!(hkArea.Focused || hkScreen.Focused))
+                CaptureScreen();
         }
         #endregion
 
