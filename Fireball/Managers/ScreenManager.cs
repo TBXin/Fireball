@@ -24,7 +24,7 @@ namespace Fireball.Managers
 
             using (Graphics gfx = Graphics.FromImage(rtnImage))
             {
-                gfx.DrawImage(srcImage, -cropArea.X, -cropArea.Height);
+                gfx.DrawImage(srcImage, -cropArea.X, -cropArea.Y);
             }
 
             return rtnImage;
