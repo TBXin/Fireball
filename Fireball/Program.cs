@@ -15,7 +15,7 @@ namespace Fireball
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TakeForm());
+            Application.Run(new SettingsForm());
         }
     }
 }
