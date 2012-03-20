@@ -74,6 +74,27 @@ namespace Fireball.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap captureArea {
+            get {
+                object obj = ResourceManager.GetObject("captureArea", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap captureScreen {
+            get {
+                object obj = ResourceManager.GetObject("captureScreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap exit {
+            get {
+                object obj = ResourceManager.GetObject("exit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap settings {
             get {
                 object obj = ResourceManager.GetObject("settings", resourceCulture);

@@ -11,18 +11,69 @@ namespace Fireball
 {
     public partial class SettingsForm : Form
     {
+        private Boolean isVisible;
+
         public SettingsForm()
         {
             InitializeComponent();
 
-            Icon = Tray.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
-            Keys modifiers = Keys.Alt | Keys.Control | Keys.Shift;
+            Icon = tray.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+            /*Keys modifiers = Keys.Alt | Keys.Control | Keys.Shift;
 
             bool alt = (modifiers & Keys.Alt) == Keys.Alt;
             bool shift = (modifiers & Keys.Shift) == Keys.Shift;
             bool control = (modifiers & Keys.Control) == Keys.Control;
 
-            alt = alt;
+            alt = alt;*/
+        }
+
+        protected override void SetVisibleCore(bool value)
+        {
+            if (!isVisible)
+                value = false;
+
+            base.SetVisibleCore(value);
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (isVisible)
+            {
+                Hide();
+                isVisible = false;
+                e.Cancel = true;
+            }
+
+            base.OnFormClosing(e);
+        }
+
+        private void TraySubCaptureAreaClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TraySubCaptureScreenClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TraySubSettingsClick(object sender, EventArgs e)
+        {
+            if (!isVisible)
+            {
+                isVisible = true;
+                Show();
+            }
+        }
+
+        private void TraySubExitClick(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void BCancelClick(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
