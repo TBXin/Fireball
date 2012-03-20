@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-
 using Fireball.Core;
 using Fireball.Managers;
 
@@ -23,14 +17,6 @@ namespace Fireball
 
             Icon = tray.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             settings = SettingsManager.Load();
-
-            /*Keys modifiers = Keys.Alt | Keys.Control | Keys.Shift;
-
-            bool alt = (modifiers & Keys.Alt) == Keys.Alt;
-            bool shift = (modifiers & Keys.Shift) == Keys.Shift;
-            bool control = (modifiers & Keys.Control) == Keys.Control;
-
-            alt = alt;*/
         }
 
         private void PopulateSettings()
@@ -123,7 +109,7 @@ namespace Fireball
         private void BApplyClick(object sender, EventArgs e)
         {
             SaveSettings();
-            //Close();
+            Close();
         }
 
         private void BCancelClick(object sender, EventArgs e)

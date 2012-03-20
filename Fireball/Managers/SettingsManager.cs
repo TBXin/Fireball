@@ -32,18 +32,16 @@ namespace Fireball.Managers
             XAttribute ctrlAttribute = captureScreenNode.Attribute("Ctrl");
             XAttribute shiftAttribute = captureScreenNode.Attribute("Shift");
             XAttribute altAttribute = captureScreenNode.Attribute("Alt");
-            XAttribute windowAttribute = captureScreenNode.Attribute("Window");
             XAttribute keyAttribute = captureScreenNode.Attribute("Key");
 
-            if (ctrlAttribute == null || shiftAttribute == null || altAttribute == null || windowAttribute == null ||
-                keyAttribute == null)
+            if (ctrlAttribute == null || shiftAttribute == null || altAttribute == null || keyAttribute == null)
                 return rtnSettings;
 
             rtnSettings.CaptureScreenHotey = new Hotkey(
                 Convert.ToBoolean(ctrlAttribute.Value),
                 Convert.ToBoolean(shiftAttribute.Value),
                 Convert.ToBoolean(altAttribute.Value),
-                Convert.ToBoolean(windowAttribute.Value),
+                false,
                 (Keys) Enum.Parse(typeof (Keys), keyAttribute.Value));
             #endregion
             #region :: CaptureAreaHotkey ::
@@ -53,18 +51,16 @@ namespace Fireball.Managers
             ctrlAttribute = captureAreaNode.Attribute("Ctrl");
             shiftAttribute = captureAreaNode.Attribute("Shift");
             altAttribute = captureAreaNode.Attribute("Alt");
-            windowAttribute = captureAreaNode.Attribute("Window");
             keyAttribute = captureAreaNode.Attribute("Key");
 
-            if (ctrlAttribute == null || shiftAttribute == null || altAttribute == null || windowAttribute == null ||
-                keyAttribute == null)
+            if (ctrlAttribute == null || shiftAttribute == null || altAttribute == null || keyAttribute == null)
                 return rtnSettings;
 
             rtnSettings.CaptureAreaHotkey = new Hotkey(
                 Convert.ToBoolean(ctrlAttribute.Value),
                 Convert.ToBoolean(shiftAttribute.Value),
                 Convert.ToBoolean(altAttribute.Value),
-                Convert.ToBoolean(windowAttribute.Value),
+                false,
                 (Keys) Enum.Parse(typeof (Keys), keyAttribute.Value));
             #endregion
 
@@ -85,17 +81,15 @@ namespace Fireball.Managers
             XElement root = new XElement("SettingsFile");
             root.Add(
                 new XElement("CaptureScreenHotkey",
-                    new XAttribute("Key", settings.CaptureScreenHotey.KeyCode),
+                    new XAttribute("Key", settings.CaptureScreenHotey.KeyCode.ToString()),
                     new XAttribute("Ctrl", settings.CaptureScreenHotey.Control),
                     new XAttribute("Shift", settings.CaptureScreenHotey.Shift),
-                    new XAttribute("Alt", settings.CaptureScreenHotey.Alt),
-                    new XAttribute("Win", settings.CaptureScreenHotey.Windows)),
+                    new XAttribute("Alt", settings.CaptureScreenHotey.Alt)),
                 new XElement("CaptureAreaHotkey",
-                    new XAttribute("Key", settings.CaptureAreaHotkey.KeyCode),
+                    new XAttribute("Key", settings.CaptureAreaHotkey.KeyCode.ToString()),
                     new XAttribute("Ctrl", settings.CaptureAreaHotkey.Control),
                     new XAttribute("Shift", settings.CaptureAreaHotkey.Shift),
-                    new XAttribute("Alt", settings.CaptureAreaHotkey.Alt),
-                    new XAttribute("Win", settings.CaptureAreaHotkey.Windows)),
+                    new XAttribute("Alt", settings.CaptureAreaHotkey.Alt)),
                 new XElement("ActivePlugin", settings.ActivePlugin));
 
             xdoc.Add(root);

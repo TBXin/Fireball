@@ -39,14 +39,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.hkArea = new Fireball.UI.HotkeyControl();
-            this.hkScreen = new Fireball.UI.HotkeyControl();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.bPluginSettings = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cPlugins = new System.Windows.Forms.ComboBox();
             this.bApply = new System.Windows.Forms.Button();
             this.bCancel = new System.Windows.Forms.Button();
+            this.hkArea = new Fireball.UI.HotkeyControl();
+            this.hkScreen = new Fireball.UI.HotkeyControl();
             this.trayMenu.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -141,26 +141,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Capture area:";
             // 
-            // hkArea
-            // 
-            this.hkArea.Hotkey = System.Windows.Forms.Keys.None;
-            this.hkArea.HotkeyModifiers = System.Windows.Forms.Keys.None;
-            this.hkArea.Location = new System.Drawing.Point(108, 44);
-            this.hkArea.Name = "hkArea";
-            this.hkArea.Size = new System.Drawing.Size(244, 21);
-            this.hkArea.TabIndex = 2;
-            this.hkArea.Text = "None";
-            // 
-            // hkScreen
-            // 
-            this.hkScreen.Hotkey = System.Windows.Forms.Keys.None;
-            this.hkScreen.HotkeyModifiers = System.Windows.Forms.Keys.None;
-            this.hkScreen.Location = new System.Drawing.Point(108, 17);
-            this.hkScreen.Name = "hkScreen";
-            this.hkScreen.Size = new System.Drawing.Size(244, 21);
-            this.hkScreen.TabIndex = 0;
-            this.hkScreen.Text = "None";
-            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
@@ -232,6 +212,26 @@
             this.bCancel.UseVisualStyleBackColor = true;
             this.bCancel.Click += new System.EventHandler(this.BCancelClick);
             // 
+            // hkArea
+            // 
+            this.hkArea.Hotkey = System.Windows.Forms.Keys.None;
+            this.hkArea.HotkeyModifiers = System.Windows.Forms.Keys.None;
+            this.hkArea.Location = new System.Drawing.Point(108, 44);
+            this.hkArea.Name = "hkArea";
+            this.hkArea.Size = new System.Drawing.Size(244, 21);
+            this.hkArea.TabIndex = 2;
+            this.hkArea.Text = "None";
+            // 
+            // hkScreen
+            // 
+            this.hkScreen.Hotkey = System.Windows.Forms.Keys.None;
+            this.hkScreen.HotkeyModifiers = System.Windows.Forms.Keys.None;
+            this.hkScreen.Location = new System.Drawing.Point(108, 17);
+            this.hkScreen.Name = "hkScreen";
+            this.hkScreen.Size = new System.Drawing.Size(244, 21);
+            this.hkScreen.TabIndex = 0;
+            this.hkScreen.Text = "None";
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,11 +260,9 @@
         #endregion
 
         private System.Windows.Forms.NotifyIcon tray;
-        private UI.HotkeyControl hkScreen;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        private UI.HotkeyControl hkArea;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cPlugins;
@@ -277,5 +275,7 @@
         private System.Windows.Forms.ToolStripMenuItem traySubCaptureArea;
         private System.Windows.Forms.ToolStripMenuItem traySubCaptureScreen;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private UI.HotkeyControl hkArea;
+        private UI.HotkeyControl hkScreen;
     }
 }
