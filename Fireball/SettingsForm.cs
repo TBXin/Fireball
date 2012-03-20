@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Text;
 using System.Drawing;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fireball.Core;
 using Fireball.Managers;
 using Fireball.Plugin;
-
 namespace Fireball
 {
     public partial class SettingsForm : Form
@@ -188,13 +189,19 @@ namespace Fireball
             tray.BalloonTipText = "Uploading...";
             tray.ShowBalloonTip(1000);
 
-            string url = activePlugin.Upload(image);
-            Clipboard.SetDataObject(url, true, 5, 500);
+            string url = string.Empty;
 
-            tray.BalloonTipIcon = ToolTipIcon.Info;
-            tray.BalloonTipTitle = String.Format("Fireball: {0}", activePlugin.Name);
-            tray.BalloonTipText = url;
-            tray.ShowBalloonTip(1000);
+            Task uploadTask = new Task(() => { url = activePlugin.Upload(image); });
+            uploadTask.ContinueWith(arg =>
+            {
+                Clipboard.SetDataObject(url, true, 5, 500);
+
+                tray.BalloonTipIcon = ToolTipIcon.Info;
+                tray.BalloonTipTitle = String.Format("Fireball: {0}", activePlugin.Name);
+                tray.BalloonTipText = url;
+                tray.ShowBalloonTip(1000);
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+            uploadTask.Start();
         }
 
         private void CaptureArea()
@@ -206,7 +213,7 @@ namespace Fireball
             }
 
             bool createdNew;
-            using (new System.Threading.Mutex(true, "Fireball TakeForm", out createdNew))
+            using (new Mutex(true, "Fireball TakeForm", out createdNew))
             {
                 if (!createdNew) 
                     return;
