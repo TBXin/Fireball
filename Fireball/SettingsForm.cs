@@ -12,6 +12,7 @@ namespace Fireball
         private Settings settings;
         private Boolean isVisible;
 
+        #region :: Ctor ::
         public SettingsForm()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace Fireball
             if (settings.CaptureScreenHotey.GetCanRegister(this))
             {
                 settings.CaptureScreenHotey.Register(this);
-                settings.CaptureScreenHotey.Pressed += CaptureScreenHotey_Pressed;
+                settings.CaptureScreenHotey.Pressed += CaptureScreenHoteyPressed;
             }
             else
             {
@@ -34,7 +35,7 @@ namespace Fireball
             if (settings.CaptureAreaHotkey.GetCanRegister(this))
             {
                 settings.CaptureAreaHotkey.Register(this);
-                settings.CaptureAreaHotkey.Pressed += CaptureAreaHotkey_Pressed;
+                settings.CaptureAreaHotkey.Pressed += CaptureAreaHotkeyPressed;
             }
             else
             {
@@ -52,16 +53,29 @@ namespace Fireball
                     MessageBoxIcon.Information);
             }
         }
+        #endregion
 
-        private void CaptureAreaHotkey_Pressed(object sender, System.ComponentModel.HandledEventArgs e)
+        #region :: Overrides ::
+        protected override void SetVisibleCore(bool value)
         {
-            MessageBox.Show("Area");
+            if (!isVisible)
+                value = false;
+
+            base.SetVisibleCore(value);
         }
 
-        private void CaptureScreenHotey_Pressed(object sender, System.ComponentModel.HandledEventArgs e)
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            MessageBox.Show("Screen");
+            if (isVisible)
+            {
+                Hide();
+                isVisible = false;
+                e.Cancel = true;
+            }
+
+            base.OnFormClosing(e);
         }
+        #endregion
 
         private void PopulateSettings()
         {
@@ -142,34 +156,50 @@ namespace Fireball
             return true;
         }
 
-        protected override void SetVisibleCore(bool value)
+        private void CaptureArea()
         {
-            if (!isVisible)
-                value = false;
-
-            base.SetVisibleCore(value);
+            MessageBox.Show("Area");
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
+        private void CaptureScreen()
         {
-            if (isVisible)
-            {
-                Hide();
-                isVisible = false;
-                e.Cancel = true;
-            }
-
-            base.OnFormClosing(e);
+            MessageBox.Show("Screen");
         }
 
+        #region :: Buttons Events ::
+        private void BApplyClick(object sender, EventArgs e)
+        {
+            if (SaveSettings())
+                Close();
+        }
+
+        private void BCancelClick(object sender, EventArgs e)
+        {
+            Close();
+        }
+        #endregion
+
+        #region :: Hotkeys Events ::
+        private void CaptureAreaHotkeyPressed(object sender, System.ComponentModel.HandledEventArgs e)
+        {
+            CaptureArea();
+        }
+
+        private void CaptureScreenHoteyPressed(object sender, System.ComponentModel.HandledEventArgs e)
+        {
+            CaptureScreen();
+        }
+        #endregion
+
+        #region :: Tray Menu Events ::
         private void TraySubCaptureAreaClick(object sender, EventArgs e)
         {
-
+            CaptureArea();
         }
 
         private void TraySubCaptureScreenClick(object sender, EventArgs e)
         {
-
+            CaptureScreen();
         }
 
         private void TraySubSettingsClick(object sender, EventArgs e)
@@ -186,16 +216,6 @@ namespace Fireball
         {
             Application.Exit();
         }
-
-        private void BApplyClick(object sender, EventArgs e)
-        {
-            if (SaveSettings())
-                Close();
-        }
-
-        private void BCancelClick(object sender, EventArgs e)
-        {
-            Close();
-        }
+        #endregion
     }
 }
