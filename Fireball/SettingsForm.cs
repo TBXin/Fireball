@@ -309,6 +309,11 @@ namespace Fireball
         #endregion
 
         #region :: Tray Events ::
+        private void TrayDoubleClick(object sender, EventArgs e)
+        {
+            TraySubSettingsClick(this, new EventArgs());
+        }
+
         private void TraySubCaptureAreaClick(object sender, EventArgs e)
         {
             CaptureArea();

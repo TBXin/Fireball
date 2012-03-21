@@ -31,11 +31,18 @@
             this.components = new System.ComponentModel.Container();
             this.tray = new System.Windows.Forms.NotifyIcon(this.components);
             this.trayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.traySubCaptureArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.traySubCaptureScreen = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.traySubSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.traySubExit = new System.Windows.Forms.ToolStripMenuItem();
             this.lCaptureScreen = new System.Windows.Forms.Label();
             this.gHotkeys = new System.Windows.Forms.GroupBox();
+            this.hkArea = new Fireball.UI.HotkeySelectControl();
+            this.hkScreen = new Fireball.UI.HotkeySelectControl();
             this.lCaptureArea = new System.Windows.Forms.Label();
             this.gPlugins = new System.Windows.Forms.GroupBox();
+            this.bPluginSettings = new System.Windows.Forms.Button();
             this.lActive = new System.Windows.Forms.Label();
             this.cPlugins = new System.Windows.Forms.ComboBox();
             this.cAutoStart = new System.Windows.Forms.CheckBox();
@@ -45,16 +52,9 @@
             this.lAuthor = new System.Windows.Forms.Label();
             this.lVersion = new System.Windows.Forms.Label();
             this.lName = new System.Windows.Forms.Label();
-            this.bPluginSettings = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bCancel = new System.Windows.Forms.Button();
             this.bApply = new System.Windows.Forms.Button();
-            this.traySubCaptureArea = new System.Windows.Forms.ToolStripMenuItem();
-            this.traySubCaptureScreen = new System.Windows.Forms.ToolStripMenuItem();
-            this.traySubSettings = new System.Windows.Forms.ToolStripMenuItem();
-            this.traySubExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.hkArea = new Fireball.UI.HotkeySelectControl();
-            this.hkScreen = new Fireball.UI.HotkeySelectControl();
             this.trayMenu.SuspendLayout();
             this.gHotkeys.SuspendLayout();
             this.gPlugins.SuspendLayout();
@@ -71,6 +71,7 @@
             this.tray.Text = "Fireball";
             this.tray.Visible = true;
             this.tray.BalloonTipClicked += new System.EventHandler(this.TrayBalloonTipClicked);
+            this.tray.DoubleClick += new System.EventHandler(this.TrayDoubleClick);
             // 
             // trayMenu
             // 
@@ -83,10 +84,42 @@
             this.trayMenu.Name = "contextMenuStrip1";
             this.trayMenu.Size = new System.Drawing.Size(154, 98);
             // 
+            // traySubCaptureArea
+            // 
+            this.traySubCaptureArea.Image = global::Fireball.Properties.Resources.captureArea;
+            this.traySubCaptureArea.Name = "traySubCaptureArea";
+            this.traySubCaptureArea.Size = new System.Drawing.Size(153, 22);
+            this.traySubCaptureArea.Text = "Capture area";
+            this.traySubCaptureArea.Click += new System.EventHandler(this.TraySubCaptureAreaClick);
+            // 
+            // traySubCaptureScreen
+            // 
+            this.traySubCaptureScreen.Image = global::Fireball.Properties.Resources.captureScreen;
+            this.traySubCaptureScreen.Name = "traySubCaptureScreen";
+            this.traySubCaptureScreen.Size = new System.Drawing.Size(153, 22);
+            this.traySubCaptureScreen.Text = "Capture screen";
+            this.traySubCaptureScreen.Click += new System.EventHandler(this.TraySubCaptureScreenClick);
+            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(150, 6);
+            // 
+            // traySubSettings
+            // 
+            this.traySubSettings.Image = global::Fireball.Properties.Resources.settings;
+            this.traySubSettings.Name = "traySubSettings";
+            this.traySubSettings.Size = new System.Drawing.Size(153, 22);
+            this.traySubSettings.Text = "Settings";
+            this.traySubSettings.Click += new System.EventHandler(this.TraySubSettingsClick);
+            // 
+            // traySubExit
+            // 
+            this.traySubExit.Image = global::Fireball.Properties.Resources.exit;
+            this.traySubExit.Name = "traySubExit";
+            this.traySubExit.Size = new System.Drawing.Size(153, 22);
+            this.traySubExit.Text = "Exit";
+            this.traySubExit.Click += new System.EventHandler(this.TraySubExitClick);
             // 
             // lCaptureScreen
             // 
@@ -113,6 +146,34 @@
             this.gHotkeys.TabStop = false;
             this.gHotkeys.Text = "Hotkeys:";
             // 
+            // hkArea
+            // 
+            this.hkArea.Alt = false;
+            this.hkArea.Ctrl = false;
+            this.hkArea.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.hkArea.Hotkey = System.Windows.Forms.Keys.None;
+            this.hkArea.Location = new System.Drawing.Point(9, 78);
+            this.hkArea.MinimumSize = new System.Drawing.Size(258, 23);
+            this.hkArea.Name = "hkArea";
+            this.hkArea.Shift = false;
+            this.hkArea.Size = new System.Drawing.Size(311, 23);
+            this.hkArea.TabIndex = 5;
+            this.hkArea.Win = false;
+            // 
+            // hkScreen
+            // 
+            this.hkScreen.Alt = false;
+            this.hkScreen.Ctrl = false;
+            this.hkScreen.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.hkScreen.Hotkey = System.Windows.Forms.Keys.None;
+            this.hkScreen.Location = new System.Drawing.Point(9, 36);
+            this.hkScreen.MinimumSize = new System.Drawing.Size(258, 23);
+            this.hkScreen.Name = "hkScreen";
+            this.hkScreen.Shift = false;
+            this.hkScreen.Size = new System.Drawing.Size(311, 23);
+            this.hkScreen.TabIndex = 4;
+            this.hkScreen.Win = false;
+            // 
             // lCaptureArea
             // 
             this.lCaptureArea.AutoSize = true;
@@ -136,6 +197,20 @@
             this.gPlugins.TabIndex = 3;
             this.gPlugins.TabStop = false;
             this.gPlugins.Text = "Plugins:";
+            // 
+            // bPluginSettings
+            // 
+            this.bPluginSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bPluginSettings.Image = global::Fireball.Properties.Resources.settings;
+            this.bPluginSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bPluginSettings.Location = new System.Drawing.Point(250, 19);
+            this.bPluginSettings.Name = "bPluginSettings";
+            this.bPluginSettings.Size = new System.Drawing.Size(70, 23);
+            this.bPluginSettings.TabIndex = 5;
+            this.bPluginSettings.TabStop = false;
+            this.bPluginSettings.Text = "Settings";
+            this.bPluginSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bPluginSettings.UseVisualStyleBackColor = true;
             // 
             // lActive
             // 
@@ -241,20 +316,6 @@
             this.lName.TabIndex = 1;
             this.lName.Text = "Fireball";
             // 
-            // bPluginSettings
-            // 
-            this.bPluginSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bPluginSettings.Image = global::Fireball.Properties.Resources.settings;
-            this.bPluginSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bPluginSettings.Location = new System.Drawing.Point(250, 19);
-            this.bPluginSettings.Name = "bPluginSettings";
-            this.bPluginSettings.Size = new System.Drawing.Size(70, 23);
-            this.bPluginSettings.TabIndex = 5;
-            this.bPluginSettings.TabStop = false;
-            this.bPluginSettings.Text = "Settings";
-            this.bPluginSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.bPluginSettings.UseVisualStyleBackColor = true;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Fireball.Properties.Resources.fireball_logo;
@@ -293,66 +354,6 @@
             this.bApply.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bApply.UseVisualStyleBackColor = true;
             this.bApply.Click += new System.EventHandler(this.BApplyClick);
-            // 
-            // traySubCaptureArea
-            // 
-            this.traySubCaptureArea.Image = global::Fireball.Properties.Resources.captureArea;
-            this.traySubCaptureArea.Name = "traySubCaptureArea";
-            this.traySubCaptureArea.Size = new System.Drawing.Size(153, 22);
-            this.traySubCaptureArea.Text = "Capture area";
-            this.traySubCaptureArea.Click += new System.EventHandler(this.TraySubCaptureAreaClick);
-            // 
-            // traySubCaptureScreen
-            // 
-            this.traySubCaptureScreen.Image = global::Fireball.Properties.Resources.captureScreen;
-            this.traySubCaptureScreen.Name = "traySubCaptureScreen";
-            this.traySubCaptureScreen.Size = new System.Drawing.Size(153, 22);
-            this.traySubCaptureScreen.Text = "Capture screen";
-            this.traySubCaptureScreen.Click += new System.EventHandler(this.TraySubCaptureScreenClick);
-            // 
-            // traySubSettings
-            // 
-            this.traySubSettings.Image = global::Fireball.Properties.Resources.settings;
-            this.traySubSettings.Name = "traySubSettings";
-            this.traySubSettings.Size = new System.Drawing.Size(153, 22);
-            this.traySubSettings.Text = "Settings";
-            this.traySubSettings.Click += new System.EventHandler(this.TraySubSettingsClick);
-            // 
-            // traySubExit
-            // 
-            this.traySubExit.Image = global::Fireball.Properties.Resources.exit;
-            this.traySubExit.Name = "traySubExit";
-            this.traySubExit.Size = new System.Drawing.Size(153, 22);
-            this.traySubExit.Text = "Exit";
-            this.traySubExit.Click += new System.EventHandler(this.TraySubExitClick);
-            // 
-            // hkArea
-            // 
-            this.hkArea.Alt = false;
-            this.hkArea.Ctrl = false;
-            this.hkArea.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.hkArea.Hotkey = System.Windows.Forms.Keys.None;
-            this.hkArea.Location = new System.Drawing.Point(9, 78);
-            this.hkArea.MinimumSize = new System.Drawing.Size(258, 23);
-            this.hkArea.Name = "hkArea";
-            this.hkArea.Shift = false;
-            this.hkArea.Size = new System.Drawing.Size(311, 23);
-            this.hkArea.TabIndex = 5;
-            this.hkArea.Win = false;
-            // 
-            // hkScreen
-            // 
-            this.hkScreen.Alt = false;
-            this.hkScreen.Ctrl = false;
-            this.hkScreen.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.hkScreen.Hotkey = System.Windows.Forms.Keys.None;
-            this.hkScreen.Location = new System.Drawing.Point(9, 36);
-            this.hkScreen.MinimumSize = new System.Drawing.Size(258, 23);
-            this.hkScreen.Name = "hkScreen";
-            this.hkScreen.Shift = false;
-            this.hkScreen.Size = new System.Drawing.Size(311, 23);
-            this.hkScreen.TabIndex = 4;
-            this.hkScreen.Win = false;
             // 
             // SettingsForm
             // 
