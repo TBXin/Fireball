@@ -95,6 +95,13 @@ namespace Fireball.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap fireball_logo {
+            get {
+                object obj = ResourceManager.GetObject("fireball_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap settings {
             get {
                 object obj = ResourceManager.GetObject("settings", resourceCulture);

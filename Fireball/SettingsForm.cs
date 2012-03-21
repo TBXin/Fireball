@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Fireball.Core;
 using Fireball.Managers;
 using Fireball.Plugin;
+
 namespace Fireball
 {
     public partial class SettingsForm : Form
@@ -21,7 +22,9 @@ namespace Fireball
             InitializeComponent();
 
             Icon = tray.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+            lVersion.Text = String.Format("Version: {0}", Application.ProductVersion);
             settings = SettingsManager.Load();
+            cAutoStart.Checked = settings.StartWithComputer;
 
             StringBuilder hotkeyRegisterErrorBuilder = new StringBuilder();
 
@@ -175,6 +178,8 @@ namespace Fireball
             if (selectedPlugin != null) 
                 settings.ActivePlugin = selectedPlugin.Plugin.Name;
 
+            settings.StartWithComputer = cAutoStart.Checked;
+
             SettingsManager.Save(settings);
             return true;
         }
@@ -239,7 +244,7 @@ namespace Fireball
             ForwardImageToPlugin(ScreenManager.GetScreenshot(Screen.PrimaryScreen));
         }
 
-        #region :: Buttons & Combo Events ::
+        #region :: Form Controlls Events ::
         private void BApplyClick(object sender, EventArgs e)
         {
             if (SaveSettings())
@@ -260,6 +265,11 @@ namespace Fireball
 
             activePlugin = item.Plugin;
             bPluginSettings.Enabled = activePlugin.HasSettings;
+        }
+
+        private void CAutoStartCheckedChanged(object sender, EventArgs e)
+        {
+            Helper.SetStartup(cAutoStart.Checked);
         }
         #endregion
 

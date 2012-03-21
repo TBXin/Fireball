@@ -24,6 +24,7 @@ namespace Fireball.Managers
             XElement captureScreenNode = root.Element("CaptureScreenHotkey");
             XElement captureAreaNode = root.Element("CaptureAreaHotkey");
             XElement activePlugin = root.Element("ActivePlugin");
+            XElement startWithComputer = root.Element("StartWithComputer");
 
             #region :: CaptureScreenHotkey ::
             if (captureScreenNode == null)
@@ -69,6 +70,10 @@ namespace Fireball.Managers
 
             rtnSettings.ActivePlugin = activePlugin.Value;
 
+            if (startWithComputer == null)
+                return rtnSettings;
+
+            rtnSettings.StartWithComputer = Convert.ToBoolean(startWithComputer.Value);
             return rtnSettings;
         }
 
@@ -90,7 +95,8 @@ namespace Fireball.Managers
                     new XAttribute("Ctrl", settings.CaptureAreaHotkey.Control),
                     new XAttribute("Shift", settings.CaptureAreaHotkey.Shift),
                     new XAttribute("Alt", settings.CaptureAreaHotkey.Alt)),
-                new XElement("ActivePlugin", settings.ActivePlugin));
+                new XElement("ActivePlugin", settings.ActivePlugin),
+                new XElement("StartWithComputer", settings.StartWithComputer));
 
             xdoc.Add(root);
             xdoc.Save(FileManager.SettingsFile);

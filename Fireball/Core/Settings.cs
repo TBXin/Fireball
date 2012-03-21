@@ -7,6 +7,7 @@ namespace Fireball.Core
         public Hotkey CaptureScreenHotey { get; set; }
         public Hotkey CaptureAreaHotkey { get; set; }
         public String ActivePlugin { get; set; }
+        public Boolean StartWithComputer { get; set; }
 
         public Settings()
         {
