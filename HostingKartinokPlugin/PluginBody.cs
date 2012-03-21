@@ -74,6 +74,7 @@ namespace Fireball.Plugin
             webRequest.ContentType = "multipart/form-data; boundary=" + boundary;
             webRequest.Method = "POST";
             webRequest.KeepAlive = true;
+            webRequest.Proxy = null;
             webRequest.Credentials = CredentialCache.DefaultCredentials;
 
             // Получаем поток нашего запроса, куда мы будем писать данные

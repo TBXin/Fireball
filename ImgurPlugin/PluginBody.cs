@@ -37,7 +37,7 @@ namespace Fireball.Plugin
             if (imageData == null)
                 return string.Empty;
 
-            using (WebClient w = new WebClient())
+            using (WebClient w = new WebClient { Proxy = null })
             {
                 NameValueCollection values = new NameValueCollection
                 {
