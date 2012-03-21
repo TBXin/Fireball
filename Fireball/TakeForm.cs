@@ -33,7 +33,6 @@ namespace Fireball
         public TakeForm()
         {
             InitializeComponent();
-            TopMost = true;
 
             #if DEBUG
             TopMost = false;

@@ -36,10 +36,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ControlBox = false;
             this.Cursor = System.Windows.Forms.Cursors.Cross;
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TakeForm";
+            this.ShowInTaskbar = false;
+            this.TopMost = true;
             this.ResumeLayout(false);
 
         }
