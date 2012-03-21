@@ -8,7 +8,7 @@ namespace Fireball.Core
 {
     public class Hotkey : IMessageFilter
     {
-        #region Interop
+        #region :: Interop ::
 
         [DllImport("user32.dll", SetLastError = true)]
         private static extern int RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, Keys vk);
