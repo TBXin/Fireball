@@ -155,25 +155,37 @@ namespace Fireball
 
         private void TakeFormMouseDown(object sender, MouseEventArgs e)
         {
-            if (action == TakeScreenAction.Selection && e.Button == MouseButtons.Left)
+            if(e.Button != MouseButtons.Left)
+                return;
+
+            Point clickLocation = new Point(e.X, e.Y);
+            isMouseDown = true;
+
+            if(selection.Contains(clickLocation))
             {
-                isMouseDown = true;
+                // Перетаскивание выделения
+                action = TakeScreenAction.MoveSelection;
+                selectionEnd = new Point(e.X, e.Y);
+            }
+            else
+            {
+                // Создание выделения
+                action = TakeScreenAction.Selection;
                 selection = Rectangle.Empty;
-                Invalidate();
                 selectionStart = new Point(e.X, e.Y);
+                Invalidate();
             }
         }
 
         private void TakeFormMouseUp(object sender, MouseEventArgs e)
         {
-            if (action == TakeScreenAction.Selection)
-            {
-                isMouseDown = false;
-            }
+            isMouseDown = false;
         }
 
         private void TakeFormMouseMove(object sender, MouseEventArgs e)
         {
+            Cursor = selection.Contains(e.Location) ? Cursors.SizeAll : Cursors.Cross;
+
             if (action == TakeScreenAction.Selection && isMouseDown)
             {
                 prevMousePosition = new Point(selectionEnd.X, selectionEnd.Y);
@@ -188,6 +200,21 @@ namespace Fireball
                 selectionInvalidateRectangle.Inflate(
                     Math.Abs(prevMousePosition.X - selectionEnd.X) + 1,
                     Math.Abs(prevMousePosition.Y - selectionEnd.Y) + 1);
+
+                Invalidate(selectionInvalidateRectangle);
+            }
+            else if (action == TakeScreenAction.MoveSelection && isMouseDown)
+            {
+                prevMousePosition = new Point(selectionEnd.X, selectionEnd.Y);
+                selectionEnd = new Point(e.X, e.Y);
+
+                selection.X += (selectionEnd.X - prevMousePosition.X);
+                selection.Y += (selectionEnd.Y - prevMousePosition.Y);
+
+                selectionInvalidateRectangle = new Rectangle(selection.X, selection.Y, selection.Width, selection.Height);
+                selectionInvalidateRectangle.Inflate(
+                    Math.Abs(selectionEnd.X - prevMousePosition.X) + 5,
+                    Math.Abs(selectionEnd.Y - prevMousePosition.Y) + 5);
 
                 Invalidate(selectionInvalidateRectangle);
             }

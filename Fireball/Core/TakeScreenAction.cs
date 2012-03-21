@@ -2,6 +2,7 @@
 {
     enum TakeScreenAction
     {
-        Selection
+        Selection,
+        MoveSelection
     }
 }
