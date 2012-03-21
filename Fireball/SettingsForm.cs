@@ -185,7 +185,9 @@ namespace Fireball
 
             settings.StartWithComputer = cAutoStart.Checked;
 
+            Helper.SetStartup(cAutoStart.Checked);
             SettingsManager.Save(settings);
+
             return true;
         }
 
@@ -288,11 +290,6 @@ namespace Fireball
 
             activePlugin = item.Plugin;
             bPluginSettings.Enabled = activePlugin.HasSettings;
-        }
-
-        private void CAutoStartCheckedChanged(object sender, EventArgs e)
-        {
-            Helper.SetStartup(cAutoStart.Checked);
         }
         #endregion
 

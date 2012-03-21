@@ -246,7 +246,6 @@
             this.cAutoStart.TabStop = false;
             this.cAutoStart.Text = "Start Fireball when computer starts";
             this.cAutoStart.UseVisualStyleBackColor = true;
-            this.cAutoStart.CheckedChanged += new System.EventHandler(this.CAutoStartCheckedChanged);
             // 
             // mainTabControl
             // 

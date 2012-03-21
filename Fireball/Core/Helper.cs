@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using Microsoft.Win32;
 
 namespace Fireball.Core
@@ -25,17 +26,22 @@ namespace Fireball.Core
 
             if (enable)
             {
-                if (startupKey.GetValue(AppName) == null)
+                string runPath = String.Format("\"{0}\"", Application.ExecutablePath);
+                object value = startupKey.GetValue(AppName);
+
+                // ReSharper disable ConditionIsAlwaysTrueOrFalse
+                if (value == null || ( value != null && !value.Equals(runPath)))
                 {
                     startupKey.Close();
                     startupKey = Registry.CurrentUser.OpenSubKey(RunKey, true);
 
                     if (startupKey != null)
                     {
-                        startupKey.SetValue(AppName, Application.ExecutablePath);
+                        startupKey.SetValue(AppName, runPath);
                         startupKey.Close();
                     }
                 }
+                // ReSharper restore ConditionIsAlwaysTrueOrFalse
             }
             else
             {
