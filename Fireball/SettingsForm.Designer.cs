@@ -208,7 +208,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(342, 209);
+            this.tabPage2.Size = new System.Drawing.Size(342, 207);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "About";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -216,7 +216,7 @@
             // lAuthor
             // 
             this.lAuthor.AutoSize = true;
-            this.lAuthor.Location = new System.Drawing.Point(140, 135);
+            this.lAuthor.Location = new System.Drawing.Point(140, 155);
             this.lAuthor.Name = "lAuthor";
             this.lAuthor.Size = new System.Drawing.Size(90, 13);
             this.lAuthor.TabIndex = 3;
@@ -225,7 +225,7 @@
             // lVersion
             // 
             this.lVersion.AutoSize = true;
-            this.lVersion.Location = new System.Drawing.Point(141, 39);
+            this.lVersion.Location = new System.Drawing.Point(141, 59);
             this.lVersion.Name = "lVersion";
             this.lVersion.Size = new System.Drawing.Size(46, 13);
             this.lVersion.TabIndex = 2;
@@ -235,7 +235,7 @@
             // 
             this.lName.AutoSize = true;
             this.lName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lName.Location = new System.Drawing.Point(140, 20);
+            this.lName.Location = new System.Drawing.Point(140, 40);
             this.lName.Name = "lName";
             this.lName.Size = new System.Drawing.Size(70, 19);
             this.lName.TabIndex = 1;
@@ -258,7 +258,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Fireball.Properties.Resources.fireball_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 20);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 40);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(128, 128);
             this.pictureBox1.TabIndex = 0;

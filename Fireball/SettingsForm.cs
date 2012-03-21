@@ -28,6 +28,20 @@ namespace Fireball
             settings = SettingsManager.Load();
             PopulateSettings();
 
+            PluginManager.Load();
+
+            foreach (IPlugin plugin in PluginManager.Plugins)
+            {
+                PluginItem item = new PluginItem(plugin);
+                cPlugins.Items.Add(item);
+
+                if (settings.ActivePlugin.Equals(plugin.Name))
+                    cPlugins.SelectedItem = item;
+            }
+
+            if (cPlugins.SelectedItem == null && cPlugins.Items.Count > 0)
+                cPlugins.SelectedIndex = 0;
+
             StringBuilder hotkeyRegisterErrorBuilder = new StringBuilder();
 
             if (settings.CaptureScreenHotey.GetCanRegister(this))
@@ -61,17 +75,6 @@ namespace Fireball
                     "Information", 
                     MessageBoxButtons.OK, 
                     MessageBoxIcon.Information);
-            }
-
-            PluginManager.Load();
-
-            foreach (IPlugin plugin in PluginManager.Plugins)
-            {
-                PluginItem item = new PluginItem(plugin);
-                cPlugins.Items.Add(item);
-
-                if (settings.ActivePlugin.Equals(plugin.Name))
-                    cPlugins.SelectedItem = item;
             }
         }
         #endregion
@@ -121,6 +124,7 @@ namespace Fireball
             {
                 if (hkScreen.Hotkey == Keys.None && settings.CaptureScreenHotey.Registered)
                 {
+                    settings.CaptureScreenHotey.Pressed -= CaptureScreenHoteyPressed;
                     settings.CaptureScreenHotey.Unregister();
                     settings.CaptureScreenHotey.KeyCode = Keys.None;
                 }
@@ -133,7 +137,10 @@ namespace Fireball
                     settings.CaptureScreenHotey.Alt = hkScreen.Alt;
 
                     if (!settings.CaptureScreenHotey.Registered && settings.CaptureScreenHotey.KeyCode != Keys.None)
+                    {
                         settings.CaptureScreenHotey.Register(this);
+                        settings.CaptureScreenHotey.Pressed += CaptureScreenHoteyPressed;
+                    }
                 }
             }
             catch (Exception)
@@ -146,6 +153,7 @@ namespace Fireball
             {
                 if (hkArea.Hotkey == Keys.None && settings.CaptureAreaHotkey.Registered)
                 {
+                    settings.CaptureAreaHotkey.Pressed -= CaptureAreaHotkeyPressed;
                     settings.CaptureAreaHotkey.Unregister();
                     settings.CaptureAreaHotkey.KeyCode = Keys.None;
                 }
@@ -158,7 +166,10 @@ namespace Fireball
                     settings.CaptureAreaHotkey.Alt = hkArea.Alt;
 
                     if (!settings.CaptureAreaHotkey.Registered && settings.CaptureAreaHotkey.KeyCode != Keys.None)
+                    {
                         settings.CaptureAreaHotkey.Register(this);
+                        settings.CaptureAreaHotkey.Pressed += CaptureAreaHotkeyPressed;
+                    }
                 }
             }
             catch (Exception)
@@ -193,8 +204,7 @@ namespace Fireball
             Task uploadTask = new Task(() =>
             {
                 isUploading = true;
-                Thread.Sleep(5000);
-                //url = activePlugin.Upload(image);
+                url = activePlugin.Upload(image);
             });
 
             uploadTask.ContinueWith(arg =>
