@@ -12,6 +12,7 @@ namespace Fireball
 {
     public partial class SettingsForm : Form
     {
+        private bool isUploading;
         private Settings settings;
         private Boolean isVisible;
         private IPlugin activePlugin;
@@ -23,8 +24,9 @@ namespace Fireball
 
             Icon = tray.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             lVersion.Text = String.Format("Version: {0}", Application.ProductVersion);
+
             settings = SettingsManager.Load();
-            cAutoStart.Checked = settings.StartWithComputer;
+            PopulateSettings();
 
             StringBuilder hotkeyRegisterErrorBuilder = new StringBuilder();
 
@@ -99,28 +101,18 @@ namespace Fireball
         private void PopulateSettings()
         {
             hkScreen.Hotkey = settings.CaptureScreenHotey.KeyCode;
-            hkScreen.HotkeyModifiers = Keys.None;
-
-            if (settings.CaptureScreenHotey.Control)
-                hkScreen.HotkeyModifiers |= Keys.Control;
-
-            if (settings.CaptureScreenHotey.Shift)
-                hkScreen.HotkeyModifiers |= Keys.Shift;
-
-            if (settings.CaptureScreenHotey.Alt)
-                hkScreen.HotkeyModifiers |= Keys.Alt;
+            hkScreen.Win = settings.CaptureScreenHotey.Win;
+            hkScreen.Ctrl = settings.CaptureScreenHotey.Ctrl;
+            hkScreen.Shift = settings.CaptureScreenHotey.Shift;
+            hkScreen.Alt = settings.CaptureScreenHotey.Alt;
 
             hkArea.Hotkey = settings.CaptureAreaHotkey.KeyCode;
-            hkArea.HotkeyModifiers = Keys.None;
+            hkArea.Win = settings.CaptureAreaHotkey.Win;
+            hkArea.Ctrl = settings.CaptureAreaHotkey.Ctrl;
+            hkArea.Shift = settings.CaptureAreaHotkey.Shift;
+            hkArea.Alt = settings.CaptureAreaHotkey.Alt;
 
-            if (settings.CaptureAreaHotkey.Control)
-                hkArea.HotkeyModifiers |= Keys.Control;
-
-            if (settings.CaptureAreaHotkey.Shift)
-                hkArea.HotkeyModifiers |= Keys.Shift;
-
-            if (settings.CaptureAreaHotkey.Alt)
-                hkArea.HotkeyModifiers |= Keys.Alt;
+            cAutoStart.Checked = settings.StartWithComputer;
         }
 
         private Boolean SaveSettings()
@@ -134,10 +126,11 @@ namespace Fireball
                 }
                 else
                 {
-                    settings.CaptureScreenHotey.KeyCode = (Keys)Enum.Parse(typeof(Keys), hkScreen.Hotkey.ToString());
-                    settings.CaptureScreenHotey.Control = (hkScreen.HotkeyModifiers & Keys.Control) == Keys.Control;
-                    settings.CaptureScreenHotey.Shift = (hkScreen.HotkeyModifiers & Keys.Shift) == Keys.Shift;
-                    settings.CaptureScreenHotey.Alt = (hkScreen.HotkeyModifiers & Keys.Alt) == Keys.Alt;
+                    settings.CaptureScreenHotey.KeyCode = hkScreen.Hotkey;
+                    settings.CaptureScreenHotey.Win = hkScreen.Win;
+                    settings.CaptureScreenHotey.Ctrl = hkScreen.Ctrl;
+                    settings.CaptureScreenHotey.Shift = hkScreen.Shift;
+                    settings.CaptureScreenHotey.Alt = hkScreen.Alt;
 
                     if (!settings.CaptureScreenHotey.Registered && settings.CaptureScreenHotey.KeyCode != Keys.None)
                         settings.CaptureScreenHotey.Register(this);
@@ -158,10 +151,11 @@ namespace Fireball
                 }
                 else
                 {
-                    settings.CaptureAreaHotkey.KeyCode = (Keys)Enum.Parse(typeof(Keys), hkArea.Hotkey.ToString());
-                    settings.CaptureAreaHotkey.Control = (hkArea.HotkeyModifiers & Keys.Control) == Keys.Control;
-                    settings.CaptureAreaHotkey.Shift = (hkArea.HotkeyModifiers & Keys.Shift) == Keys.Shift;
-                    settings.CaptureAreaHotkey.Alt = (hkArea.HotkeyModifiers & Keys.Alt) == Keys.Alt;
+                    settings.CaptureAreaHotkey.KeyCode = hkArea.Hotkey;
+                    settings.CaptureAreaHotkey.Win = hkArea.Win;
+                    settings.CaptureAreaHotkey.Ctrl = hkArea.Ctrl;
+                    settings.CaptureAreaHotkey.Shift = hkArea.Shift;
+                    settings.CaptureAreaHotkey.Alt = hkArea.Alt;
 
                     if (!settings.CaptureAreaHotkey.Registered && settings.CaptureAreaHotkey.KeyCode != Keys.None)
                         settings.CaptureAreaHotkey.Register(this);
@@ -196,15 +190,22 @@ namespace Fireball
 
             string url = string.Empty;
 
-            Task uploadTask = new Task(() => { url = activePlugin.Upload(image); });
+            Task uploadTask = new Task(() =>
+            {
+                isUploading = true;
+                Thread.Sleep(5000);
+                //url = activePlugin.Upload(image);
+            });
+
             uploadTask.ContinueWith(arg =>
             {
                 Clipboard.SetDataObject(url, true, 5, 500);
 
                 tray.BalloonTipIcon = ToolTipIcon.Info;
                 tray.BalloonTipTitle = String.Format("Fireball: {0}", activePlugin.Name);
-                tray.BalloonTipText = url;
+                tray.BalloonTipText = String.IsNullOrEmpty(url) ? "empty" : url;
                 tray.ShowBalloonTip(1000);
+                isUploading = false;
             }, TaskScheduler.FromCurrentSynchronizationContext());
             uploadTask.Start();
         }
@@ -214,6 +215,12 @@ namespace Fireball
             if (activePlugin == null)
             {
                 Helper.InfoBoxShow("Plugin not loaded, can't upload!");
+                return;
+            }
+
+            if (isUploading)
+            {
+                tray.ShowBalloonTip(1000, "Fireball", "Wait until the upload is complete", ToolTipIcon.Warning);
                 return;
             }
 
@@ -235,6 +242,12 @@ namespace Fireball
 
         private void CaptureScreen()
         {
+            if (isUploading)
+            {
+                tray.ShowBalloonTip(1000, "Fireball", "Wait until the upload is complete", ToolTipIcon.Warning);
+                return;
+            }
+
             if (activePlugin == null)
             {
                 Helper.InfoBoxShow("Plugin not loaded, can't upload!");
@@ -276,14 +289,12 @@ namespace Fireball
         #region :: Hotkeys Events ::
         private void CaptureAreaHotkeyPressed(object sender, System.ComponentModel.HandledEventArgs e)
         {
-            if (!(hkArea.Focused || hkScreen.Focused))
-                CaptureArea();
+            CaptureArea();
         }
 
         private void CaptureScreenHoteyPressed(object sender, System.ComponentModel.HandledEventArgs e)
         {
-            if (!(hkArea.Focused || hkScreen.Focused))
-                CaptureScreen();
+            CaptureScreen();
         }
         #endregion
 

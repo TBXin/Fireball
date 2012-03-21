@@ -31,18 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.tray = new System.Windows.Forms.NotifyIcon(this.components);
             this.trayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.traySubCaptureArea = new System.Windows.Forms.ToolStripMenuItem();
-            this.traySubCaptureScreen = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.traySubSettings = new System.Windows.Forms.ToolStripMenuItem();
-            this.traySubExit = new System.Windows.Forms.ToolStripMenuItem();
             this.lCaptureScreen = new System.Windows.Forms.Label();
             this.gHotkeys = new System.Windows.Forms.GroupBox();
             this.lCaptureArea = new System.Windows.Forms.Label();
-            this.hkArea = new Fireball.UI.HotkeyControl();
-            this.hkScreen = new Fireball.UI.HotkeyControl();
             this.gPlugins = new System.Windows.Forms.GroupBox();
-            this.bPluginSettings = new System.Windows.Forms.Button();
             this.lActive = new System.Windows.Forms.Label();
             this.cPlugins = new System.Windows.Forms.ComboBox();
             this.cAutoStart = new System.Windows.Forms.CheckBox();
@@ -52,9 +45,16 @@
             this.lAuthor = new System.Windows.Forms.Label();
             this.lVersion = new System.Windows.Forms.Label();
             this.lName = new System.Windows.Forms.Label();
+            this.bPluginSettings = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bApply = new System.Windows.Forms.Button();
             this.bCancel = new System.Windows.Forms.Button();
+            this.bApply = new System.Windows.Forms.Button();
+            this.traySubCaptureArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.traySubCaptureScreen = new System.Windows.Forms.ToolStripMenuItem();
+            this.traySubSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.traySubExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.hkArea = new Fireball.UI.HotkeySelectControl();
+            this.hkScreen = new Fireball.UI.HotkeySelectControl();
             this.trayMenu.SuspendLayout();
             this.gHotkeys.SuspendLayout();
             this.gPlugins.SuspendLayout();
@@ -83,48 +83,16 @@
             this.trayMenu.Name = "contextMenuStrip1";
             this.trayMenu.Size = new System.Drawing.Size(154, 98);
             // 
-            // traySubCaptureArea
-            // 
-            this.traySubCaptureArea.Image = global::Fireball.Properties.Resources.captureArea;
-            this.traySubCaptureArea.Name = "traySubCaptureArea";
-            this.traySubCaptureArea.Size = new System.Drawing.Size(153, 22);
-            this.traySubCaptureArea.Text = "Capture area";
-            this.traySubCaptureArea.Click += new System.EventHandler(this.TraySubCaptureAreaClick);
-            // 
-            // traySubCaptureScreen
-            // 
-            this.traySubCaptureScreen.Image = global::Fireball.Properties.Resources.captureScreen;
-            this.traySubCaptureScreen.Name = "traySubCaptureScreen";
-            this.traySubCaptureScreen.Size = new System.Drawing.Size(153, 22);
-            this.traySubCaptureScreen.Text = "Capture screen";
-            this.traySubCaptureScreen.Click += new System.EventHandler(this.TraySubCaptureScreenClick);
-            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(150, 6);
             // 
-            // traySubSettings
-            // 
-            this.traySubSettings.Image = global::Fireball.Properties.Resources.settings;
-            this.traySubSettings.Name = "traySubSettings";
-            this.traySubSettings.Size = new System.Drawing.Size(153, 22);
-            this.traySubSettings.Text = "Settings";
-            this.traySubSettings.Click += new System.EventHandler(this.TraySubSettingsClick);
-            // 
-            // traySubExit
-            // 
-            this.traySubExit.Image = global::Fireball.Properties.Resources.exit;
-            this.traySubExit.Name = "traySubExit";
-            this.traySubExit.Size = new System.Drawing.Size(153, 22);
-            this.traySubExit.Text = "Exit";
-            this.traySubExit.Click += new System.EventHandler(this.TraySubExitClick);
-            // 
             // lCaptureScreen
             // 
             this.lCaptureScreen.AutoSize = true;
             this.lCaptureScreen.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lCaptureScreen.Location = new System.Drawing.Point(6, 20);
+            this.lCaptureScreen.Location = new System.Drawing.Point(9, 20);
             this.lCaptureScreen.Name = "lCaptureScreen";
             this.lCaptureScreen.Size = new System.Drawing.Size(96, 13);
             this.lCaptureScreen.TabIndex = 1;
@@ -134,13 +102,13 @@
             // 
             this.gHotkeys.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.gHotkeys.Controls.Add(this.lCaptureArea);
             this.gHotkeys.Controls.Add(this.hkArea);
-            this.gHotkeys.Controls.Add(this.lCaptureScreen);
             this.gHotkeys.Controls.Add(this.hkScreen);
+            this.gHotkeys.Controls.Add(this.lCaptureArea);
+            this.gHotkeys.Controls.Add(this.lCaptureScreen);
             this.gHotkeys.Location = new System.Drawing.Point(6, 6);
             this.gHotkeys.Name = "gHotkeys";
-            this.gHotkeys.Size = new System.Drawing.Size(330, 74);
+            this.gHotkeys.Size = new System.Drawing.Size(330, 110);
             this.gHotkeys.TabIndex = 2;
             this.gHotkeys.TabStop = false;
             this.gHotkeys.Text = "Hotkeys:";
@@ -149,37 +117,11 @@
             // 
             this.lCaptureArea.AutoSize = true;
             this.lCaptureArea.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lCaptureArea.Location = new System.Drawing.Point(6, 47);
+            this.lCaptureArea.Location = new System.Drawing.Point(9, 62);
             this.lCaptureArea.Name = "lCaptureArea";
             this.lCaptureArea.Size = new System.Drawing.Size(84, 13);
             this.lCaptureArea.TabIndex = 3;
             this.lCaptureArea.Text = "Capture area:";
-            // 
-            // hkArea
-            // 
-            this.hkArea.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.hkArea.Hotkey = System.Windows.Forms.Keys.None;
-            this.hkArea.HotkeyModifiers = System.Windows.Forms.Keys.None;
-            this.hkArea.Location = new System.Drawing.Point(108, 44);
-            this.hkArea.Name = "hkArea";
-            this.hkArea.Size = new System.Drawing.Size(212, 21);
-            this.hkArea.TabIndex = 2;
-            this.hkArea.TabStop = false;
-            this.hkArea.Text = "None";
-            // 
-            // hkScreen
-            // 
-            this.hkScreen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.hkScreen.Hotkey = System.Windows.Forms.Keys.None;
-            this.hkScreen.HotkeyModifiers = System.Windows.Forms.Keys.None;
-            this.hkScreen.Location = new System.Drawing.Point(108, 17);
-            this.hkScreen.Name = "hkScreen";
-            this.hkScreen.Size = new System.Drawing.Size(212, 21);
-            this.hkScreen.TabIndex = 0;
-            this.hkScreen.TabStop = false;
-            this.hkScreen.Text = "None";
             // 
             // gPlugins
             // 
@@ -188,26 +130,12 @@
             this.gPlugins.Controls.Add(this.bPluginSettings);
             this.gPlugins.Controls.Add(this.lActive);
             this.gPlugins.Controls.Add(this.cPlugins);
-            this.gPlugins.Location = new System.Drawing.Point(6, 86);
+            this.gPlugins.Location = new System.Drawing.Point(6, 122);
             this.gPlugins.Name = "gPlugins";
             this.gPlugins.Size = new System.Drawing.Size(330, 53);
             this.gPlugins.TabIndex = 3;
             this.gPlugins.TabStop = false;
             this.gPlugins.Text = "Plugins:";
-            // 
-            // bPluginSettings
-            // 
-            this.bPluginSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bPluginSettings.Image = global::Fireball.Properties.Resources.settings;
-            this.bPluginSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bPluginSettings.Location = new System.Drawing.Point(250, 19);
-            this.bPluginSettings.Name = "bPluginSettings";
-            this.bPluginSettings.Size = new System.Drawing.Size(70, 23);
-            this.bPluginSettings.TabIndex = 5;
-            this.bPluginSettings.TabStop = false;
-            this.bPluginSettings.Text = "Settings";
-            this.bPluginSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.bPluginSettings.UseVisualStyleBackColor = true;
             // 
             // lActive
             // 
@@ -234,8 +162,9 @@
             // 
             // cAutoStart
             // 
+            this.cAutoStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cAutoStart.AutoSize = true;
-            this.cAutoStart.Location = new System.Drawing.Point(15, 145);
+            this.cAutoStart.Location = new System.Drawing.Point(15, 183);
             this.cAutoStart.Name = "cAutoStart";
             this.cAutoStart.Size = new System.Drawing.Size(195, 17);
             this.cAutoStart.TabIndex = 6;
@@ -246,12 +175,15 @@
             // 
             // mainTabControl
             // 
+            this.mainTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.mainTabControl.Controls.Add(this.tabPage1);
             this.mainTabControl.Controls.Add(this.tabPage2);
             this.mainTabControl.Location = new System.Drawing.Point(12, 12);
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(350, 195);
+            this.mainTabControl.Size = new System.Drawing.Size(350, 233);
             this.mainTabControl.TabIndex = 7;
             // 
             // tabPage1
@@ -262,7 +194,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(342, 169);
+            this.tabPage1.Size = new System.Drawing.Size(342, 207);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -276,7 +208,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(342, 169);
+            this.tabPage2.Size = new System.Drawing.Size(342, 209);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "About";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -309,6 +241,20 @@
             this.lName.TabIndex = 1;
             this.lName.Text = "Fireball";
             // 
+            // bPluginSettings
+            // 
+            this.bPluginSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bPluginSettings.Image = global::Fireball.Properties.Resources.settings;
+            this.bPluginSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bPluginSettings.Location = new System.Drawing.Point(250, 19);
+            this.bPluginSettings.Name = "bPluginSettings";
+            this.bPluginSettings.Size = new System.Drawing.Size(70, 23);
+            this.bPluginSettings.TabIndex = 5;
+            this.bPluginSettings.TabStop = false;
+            this.bPluginSettings.Text = "Settings";
+            this.bPluginSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bPluginSettings.UseVisualStyleBackColor = true;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Fireball.Properties.Resources.fireball_logo;
@@ -318,24 +264,11 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // bApply
-            // 
-            this.bApply.Image = global::Fireball.Properties.Resources.apply;
-            this.bApply.Location = new System.Drawing.Point(143, 209);
-            this.bApply.Name = "bApply";
-            this.bApply.Size = new System.Drawing.Size(120, 30);
-            this.bApply.TabIndex = 5;
-            this.bApply.TabStop = false;
-            this.bApply.Text = "Apply && Close";
-            this.bApply.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.bApply.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bApply.UseVisualStyleBackColor = true;
-            this.bApply.Click += new System.EventHandler(this.BApplyClick);
-            // 
             // bCancel
             // 
+            this.bCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bCancel.Image = global::Fireball.Properties.Resources.cancel;
-            this.bCancel.Location = new System.Drawing.Point(262, 209);
+            this.bCancel.Location = new System.Drawing.Point(262, 247);
             this.bCancel.Name = "bCancel";
             this.bCancel.Size = new System.Drawing.Size(100, 30);
             this.bCancel.TabIndex = 4;
@@ -346,11 +279,86 @@
             this.bCancel.UseVisualStyleBackColor = true;
             this.bCancel.Click += new System.EventHandler(this.BCancelClick);
             // 
+            // bApply
+            // 
+            this.bApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bApply.Image = global::Fireball.Properties.Resources.apply;
+            this.bApply.Location = new System.Drawing.Point(143, 247);
+            this.bApply.Name = "bApply";
+            this.bApply.Size = new System.Drawing.Size(120, 30);
+            this.bApply.TabIndex = 5;
+            this.bApply.TabStop = false;
+            this.bApply.Text = "Apply && Close";
+            this.bApply.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bApply.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bApply.UseVisualStyleBackColor = true;
+            this.bApply.Click += new System.EventHandler(this.BApplyClick);
+            // 
+            // traySubCaptureArea
+            // 
+            this.traySubCaptureArea.Image = global::Fireball.Properties.Resources.captureArea;
+            this.traySubCaptureArea.Name = "traySubCaptureArea";
+            this.traySubCaptureArea.Size = new System.Drawing.Size(153, 22);
+            this.traySubCaptureArea.Text = "Capture area";
+            this.traySubCaptureArea.Click += new System.EventHandler(this.TraySubCaptureAreaClick);
+            // 
+            // traySubCaptureScreen
+            // 
+            this.traySubCaptureScreen.Image = global::Fireball.Properties.Resources.captureScreen;
+            this.traySubCaptureScreen.Name = "traySubCaptureScreen";
+            this.traySubCaptureScreen.Size = new System.Drawing.Size(153, 22);
+            this.traySubCaptureScreen.Text = "Capture screen";
+            this.traySubCaptureScreen.Click += new System.EventHandler(this.TraySubCaptureScreenClick);
+            // 
+            // traySubSettings
+            // 
+            this.traySubSettings.Image = global::Fireball.Properties.Resources.settings;
+            this.traySubSettings.Name = "traySubSettings";
+            this.traySubSettings.Size = new System.Drawing.Size(153, 22);
+            this.traySubSettings.Text = "Settings";
+            this.traySubSettings.Click += new System.EventHandler(this.TraySubSettingsClick);
+            // 
+            // traySubExit
+            // 
+            this.traySubExit.Image = global::Fireball.Properties.Resources.exit;
+            this.traySubExit.Name = "traySubExit";
+            this.traySubExit.Size = new System.Drawing.Size(153, 22);
+            this.traySubExit.Text = "Exit";
+            this.traySubExit.Click += new System.EventHandler(this.TraySubExitClick);
+            // 
+            // hkArea
+            // 
+            this.hkArea.Alt = false;
+            this.hkArea.Ctrl = false;
+            this.hkArea.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.hkArea.Hotkey = System.Windows.Forms.Keys.None;
+            this.hkArea.Location = new System.Drawing.Point(9, 78);
+            this.hkArea.MinimumSize = new System.Drawing.Size(258, 23);
+            this.hkArea.Name = "hkArea";
+            this.hkArea.Shift = false;
+            this.hkArea.Size = new System.Drawing.Size(311, 23);
+            this.hkArea.TabIndex = 5;
+            this.hkArea.Win = false;
+            // 
+            // hkScreen
+            // 
+            this.hkScreen.Alt = false;
+            this.hkScreen.Ctrl = false;
+            this.hkScreen.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.hkScreen.Hotkey = System.Windows.Forms.Keys.None;
+            this.hkScreen.Location = new System.Drawing.Point(9, 36);
+            this.hkScreen.MinimumSize = new System.Drawing.Size(258, 23);
+            this.hkScreen.Name = "hkScreen";
+            this.hkScreen.Shift = false;
+            this.hkScreen.Size = new System.Drawing.Size(311, 23);
+            this.hkScreen.TabIndex = 4;
+            this.hkScreen.Win = false;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 242);
+            this.ClientSize = new System.Drawing.Size(374, 280);
             this.Controls.Add(this.mainTabControl);
             this.Controls.Add(this.bCancel);
             this.Controls.Add(this.bApply);
@@ -394,8 +402,6 @@
         private System.Windows.Forms.ToolStripMenuItem traySubCaptureArea;
         private System.Windows.Forms.ToolStripMenuItem traySubCaptureScreen;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-        private UI.HotkeyControl hkArea;
-        private UI.HotkeyControl hkScreen;
         private System.Windows.Forms.CheckBox cAutoStart;
         private System.Windows.Forms.TabControl mainTabControl;
         private System.Windows.Forms.TabPage tabPage1;
@@ -404,5 +410,7 @@
         private System.Windows.Forms.Label lVersion;
         private System.Windows.Forms.Label lName;
         private System.Windows.Forms.Label lAuthor;
+        private UI.HotkeySelectControl hkScreen;
+        private UI.HotkeySelectControl hkArea;
     }
 }

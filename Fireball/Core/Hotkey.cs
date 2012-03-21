@@ -52,9 +52,9 @@ namespace Fireball.Core
         {
             KeyCode = keyCode;
             Shift = shift;
-            Control = control;
+            Ctrl = control;
             Alt = alt;
-            Windows = windows;
+            Win = windows;
 
             Application.AddMessageFilter(this);
         }
@@ -114,7 +114,7 @@ namespace Fireball.Core
             currentID = currentID + 1 % MaximumID;
 
             // Переводим модификаторы в unmanaged версию
-            uint modifiers = (Alt ? MOD_ALT : 0) | (Control ? MOD_CONTROL : 0) | (Shift ? MOD_SHIFT : 0) | (Windows ? MOD_WIN : 0);
+            uint modifiers = (Alt ? MOD_ALT : 0) | (Ctrl ? MOD_CONTROL : 0) | (Shift ? MOD_SHIFT : 0) | (Win ? MOD_WIN : 0);
 
             // Регистрируем хоткей
             if (RegisterHotKey(windowControlParam.Handle, id, modifiers, keyCode) == 0)
@@ -275,7 +275,7 @@ namespace Fireball.Core
             }
         }
 
-        public bool Control
+        public bool Ctrl
         {
             get { return control; }
             set
@@ -295,7 +295,7 @@ namespace Fireball.Core
             }
         }
 
-        public bool Windows
+        public bool Win
         {
             get { return windows; }
             set

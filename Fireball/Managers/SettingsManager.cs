@@ -30,38 +30,40 @@ namespace Fireball.Managers
             if (captureScreenNode == null)
                 return rtnSettings;
 
+            XAttribute winAttribute = captureScreenNode.Attribute("Win");
             XAttribute ctrlAttribute = captureScreenNode.Attribute("Ctrl");
             XAttribute shiftAttribute = captureScreenNode.Attribute("Shift");
             XAttribute altAttribute = captureScreenNode.Attribute("Alt");
             XAttribute keyAttribute = captureScreenNode.Attribute("Key");
 
-            if (ctrlAttribute == null || shiftAttribute == null || altAttribute == null || keyAttribute == null)
+            if (winAttribute == null || ctrlAttribute == null || shiftAttribute == null || altAttribute == null || keyAttribute == null)
                 return rtnSettings;
 
             rtnSettings.CaptureScreenHotey = new Hotkey(
                 Convert.ToBoolean(ctrlAttribute.Value),
                 Convert.ToBoolean(shiftAttribute.Value),
                 Convert.ToBoolean(altAttribute.Value),
-                false,
+                Convert.ToBoolean(winAttribute.Value),
                 (Keys) Enum.Parse(typeof (Keys), keyAttribute.Value));
             #endregion
             #region :: CaptureAreaHotkey ::
             if (captureAreaNode == null)
                 return rtnSettings;
 
+            winAttribute = captureAreaNode.Attribute("Win");
             ctrlAttribute = captureAreaNode.Attribute("Ctrl");
             shiftAttribute = captureAreaNode.Attribute("Shift");
             altAttribute = captureAreaNode.Attribute("Alt");
             keyAttribute = captureAreaNode.Attribute("Key");
 
-            if (ctrlAttribute == null || shiftAttribute == null || altAttribute == null || keyAttribute == null)
+            if (winAttribute == null || ctrlAttribute == null || shiftAttribute == null || altAttribute == null || keyAttribute == null)
                 return rtnSettings;
 
             rtnSettings.CaptureAreaHotkey = new Hotkey(
                 Convert.ToBoolean(ctrlAttribute.Value),
                 Convert.ToBoolean(shiftAttribute.Value),
                 Convert.ToBoolean(altAttribute.Value),
-                false,
+                Convert.ToBoolean(winAttribute.Value),
                 (Keys) Enum.Parse(typeof (Keys), keyAttribute.Value));
             #endregion
 
@@ -87,12 +89,14 @@ namespace Fireball.Managers
             root.Add(
                 new XElement("CaptureScreenHotkey",
                     new XAttribute("Key", settings.CaptureScreenHotey.KeyCode.ToString()),
-                    new XAttribute("Ctrl", settings.CaptureScreenHotey.Control),
+                    new XAttribute("Win", settings.CaptureScreenHotey.Win),
+                    new XAttribute("Ctrl", settings.CaptureScreenHotey.Ctrl),
                     new XAttribute("Shift", settings.CaptureScreenHotey.Shift),
                     new XAttribute("Alt", settings.CaptureScreenHotey.Alt)),
                 new XElement("CaptureAreaHotkey",
                     new XAttribute("Key", settings.CaptureAreaHotkey.KeyCode.ToString()),
-                    new XAttribute("Ctrl", settings.CaptureAreaHotkey.Control),
+                    new XAttribute("Win", settings.CaptureAreaHotkey.Win),
+                    new XAttribute("Ctrl", settings.CaptureAreaHotkey.Ctrl),
                     new XAttribute("Shift", settings.CaptureAreaHotkey.Shift),
                     new XAttribute("Alt", settings.CaptureAreaHotkey.Alt)),
                 new XElement("ActivePlugin", settings.ActivePlugin),
