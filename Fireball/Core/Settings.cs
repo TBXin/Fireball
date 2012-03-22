@@ -7,6 +7,7 @@ namespace Fireball.Core
         public Hotkey CaptureScreenHotey { get; set; }
         public Hotkey CaptureAreaHotkey { get; set; }
         public String ActivePlugin { get; set; }
+        public NotificationType Notification { get; set; }
         public Boolean StartWithComputer { get; set; }
 
         public Settings()
@@ -14,6 +15,7 @@ namespace Fireball.Core
             CaptureScreenHotey = new Hotkey();
             CaptureAreaHotkey = new Hotkey();
             ActivePlugin = String.Empty;
+            Notification = NotificationType.Tooltip;
         }
     }
 }

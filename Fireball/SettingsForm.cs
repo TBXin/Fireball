@@ -21,6 +21,7 @@ namespace Fireball
         public SettingsForm()
         {
             InitializeComponent();
+            PopulateNotificationTypes();
 
             Icon = tray.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             lVersion.Text = String.Format("Version: {0}", Application.ProductVersion);
@@ -68,13 +69,7 @@ namespace Fireball
 
             if (hotkeyRegisterErrorBuilder.Length > 0)
             {
-                MessageBox.Show(
-                    String.Format(
-                        "Failed to register hotkeys!\n{0}", 
-                        hotkeyRegisterErrorBuilder), 
-                    "Information", 
-                    MessageBoxButtons.OK, 
-                    MessageBoxIcon.Information);
+                Helper.InfoBoxShow(String.Format("Failed to register hotkeys!\n{0}", hotkeyRegisterErrorBuilder));
             }
         }
         #endregion
@@ -101,6 +96,16 @@ namespace Fireball
         }
         #endregion
 
+        private void PopulateNotificationTypes()
+        {
+            cNotification.Items.Clear();
+
+            foreach (object type in Enum.GetValues(typeof(NotificationType)))
+            {
+                cNotification.Items.Add(type);
+            }
+        }
+
         private void PopulateSettings()
         {
             hkScreen.Hotkey = settings.CaptureScreenHotey.KeyCode;
@@ -114,6 +119,9 @@ namespace Fireball
             hkArea.Ctrl = settings.CaptureAreaHotkey.Ctrl;
             hkArea.Shift = settings.CaptureAreaHotkey.Shift;
             hkArea.Alt = settings.CaptureAreaHotkey.Alt;
+
+            if (cNotification.Items.Contains(settings.Notification))
+                cNotification.SelectedItem = settings.Notification;
 
             cAutoStart.Checked = settings.StartWithComputer;
         }
@@ -183,6 +191,9 @@ namespace Fireball
             if (selectedPlugin != null) 
                 settings.ActivePlugin = selectedPlugin.Plugin.Name;
 
+            NotificationType notification = (NotificationType)cNotification.SelectedItem;
+            settings.Notification = notification;
+
             settings.StartWithComputer = cAutoStart.Checked;
 
             Helper.SetStartup(cAutoStart.Checked);
@@ -196,10 +207,20 @@ namespace Fireball
             if (image == null)
                 return;
 
-            tray.BalloonTipIcon = ToolTipIcon.Info;
-            tray.BalloonTipTitle = String.Format("Fireball: {0}", activePlugin.Name);
-            tray.BalloonTipText = "Uploading...";
-            tray.ShowBalloonTip(1000);
+            NotificationForm notificationForm = null;
+
+            if (settings.Notification == NotificationType.Tooltip)
+            {
+                tray.BalloonTipIcon = ToolTipIcon.Info;
+                tray.BalloonTipTitle = String.Format("Fireball: {0}", activePlugin.Name);
+                tray.BalloonTipText = "Uploading...";
+                tray.ShowBalloonTip(1000);
+            }
+            else if (settings.Notification == NotificationType.Window)
+            {
+                notificationForm = new NotificationForm(String.Format("Fireball: {0}", activePlugin.Name));
+                notificationForm.Show();
+            }
 
             string url = string.Empty;
 
@@ -211,12 +232,28 @@ namespace Fireball
 
             uploadTask.ContinueWith(arg =>
             {
-                Clipboard.SetDataObject(url, true, 5, 500);
+                if (settings.Notification == NotificationType.Tooltip)
+                {
+                    // Скопировать в буфер и показать тултип
+                    Clipboard.SetDataObject(url, true, 5, 500);
 
-                tray.BalloonTipIcon = ToolTipIcon.Info;
-                tray.BalloonTipTitle = String.Format("Fireball: {0}", activePlugin.Name);
-                tray.BalloonTipText = String.IsNullOrEmpty(url) ? "empty" : url;
-                tray.ShowBalloonTip(1000);
+                    tray.BalloonTipIcon = ToolTipIcon.Info;
+                    tray.BalloonTipTitle = String.Format("Fireball: {0}", activePlugin.Name);
+                    tray.BalloonTipText = String.IsNullOrEmpty(url) ? "empty" : url;
+                    tray.ShowBalloonTip(1000);
+                }
+                else if (settings.Notification == NotificationType.Window)
+                {
+                    // Вывести ссылку в форму уведомления
+                    if (notificationForm != null)
+                        notificationForm.SetUrl(url);
+                }
+                else
+                {
+                    // Тихо копировать в буфер обмена
+                    Clipboard.SetDataObject(url, true, 5, 500);
+                }
+
                 isUploading = false;
             }, TaskScheduler.FromCurrentSynchronizationContext());
             uploadTask.Start();
@@ -329,6 +366,20 @@ namespace Fireball
                 PopulateSettings();
                 Show();
             }
+
+            mainTabControl.SelectedTab = generalTab;
+        }
+
+        private void TraySubAboutClick(object sender, EventArgs e)
+        {
+            if (!isVisible)
+            {
+                isVisible = true;
+                PopulateSettings();
+                Show();
+            }
+
+            mainTabControl.SelectedTab = aboutTab;
         }
 
         private void TraySubExitClick(object sender, EventArgs e)
@@ -338,7 +389,8 @@ namespace Fireball
 
         private void TrayBalloonTipClicked(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(tray.BalloonTipText);
+            if (tray.BalloonTipText.StartsWith("http://"))
+                System.Diagnostics.Process.Start(tray.BalloonTipText);
         }
         #endregion
     }

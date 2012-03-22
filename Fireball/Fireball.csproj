@@ -67,9 +67,16 @@
   <ItemGroup>
     <Compile Include="Core\Helper.cs" />
     <Compile Include="Core\Hotkey.cs" />
+    <Compile Include="Core\NotificationType.cs" />
     <Compile Include="Core\Settings.cs" />
     <Compile Include="Core\TakeScreenAction.cs" />
     <Compile Include="Managers\FileManager.cs" />
+    <Compile Include="NotificationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotificationForm.Designer.cs">
+      <DependentUpon>NotificationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Plugin\PluginItem.cs" />
     <Compile Include="Plugin\PluginManager.cs" />
     <Compile Include="Managers\ScreenManager.cs" />
@@ -100,6 +107,9 @@
     <Compile Include="UI\HotkeySelectControl.Designer.cs">
       <DependentUpon>HotkeySelectControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="NotificationForm.resx">
+      <DependentUpon>NotificationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -136,6 +146,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fireball_icon.ico" />
+    <None Include="Resources\openUrl.png" />
+    <None Include="Resources\copyLink.png" />
+    <None Include="Resources\about.png" />
     <None Include="Resources\fireball_logo.png" />
     <None Include="Resources\captureScreen.png" />
     <None Include="Resources\captureArea.png" />
@@ -172,7 +185,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_AssemblyInfoFilename="Properties\AssemblyInfo.cs" BuildVersion_BuildVersioningStyle="YearStamp.MonthStamp.DayStamp.TimeStamp" />
+      <UserProperties BuildVersion_BuildVersioningStyle="YearStamp.MonthStamp.DayStamp.TimeStamp" BuildVersion_AssemblyInfoFilename="Properties\AssemblyInfo.cs" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>

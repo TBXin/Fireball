@@ -24,6 +24,7 @@ namespace Fireball.Managers
             XElement captureScreenNode = root.Element("CaptureScreenHotkey");
             XElement captureAreaNode = root.Element("CaptureAreaHotkey");
             XElement activePlugin = root.Element("ActivePlugin");
+            XElement notification = root.Element("Notification");
             XElement startWithComputer = root.Element("StartWithComputer");
 
             #region :: CaptureScreenHotkey ::
@@ -75,6 +76,18 @@ namespace Fireball.Managers
             if (startWithComputer == null)
                 return rtnSettings;
 
+            if (notification == null)
+            {
+                rtnSettings.Notification = NotificationType.Tooltip;
+            }
+            else
+            {
+                NotificationType type;
+
+                if (Enum.TryParse(notification.Value, out type))
+                    rtnSettings.Notification = type;
+            }
+
             rtnSettings.StartWithComputer = Convert.ToBoolean(startWithComputer.Value);
             return rtnSettings;
         }
@@ -100,6 +113,7 @@ namespace Fireball.Managers
                     new XAttribute("Shift", settings.CaptureAreaHotkey.Shift),
                     new XAttribute("Alt", settings.CaptureAreaHotkey.Alt)),
                 new XElement("ActivePlugin", settings.ActivePlugin),
+                new XElement("Notification", settings.Notification),
                 new XElement("StartWithComputer", settings.StartWithComputer));
 
             xdoc.Add(root);

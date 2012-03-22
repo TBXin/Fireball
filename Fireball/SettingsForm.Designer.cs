@@ -35,6 +35,8 @@
             this.traySubCaptureScreen = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.traySubSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.traySubAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.traySubExit = new System.Windows.Forms.ToolStripMenuItem();
             this.lCaptureScreen = new System.Windows.Forms.Label();
             this.gHotkeys = new System.Windows.Forms.GroupBox();
@@ -47,21 +49,25 @@
             this.cPlugins = new System.Windows.Forms.ComboBox();
             this.cAutoStart = new System.Windows.Forms.CheckBox();
             this.mainTabControl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.generalTab = new System.Windows.Forms.TabPage();
+            this.aboutTab = new System.Windows.Forms.TabPage();
             this.lAuthor = new System.Windows.Forms.Label();
             this.lVersion = new System.Windows.Forms.Label();
             this.lName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bCancel = new System.Windows.Forms.Button();
             this.bApply = new System.Windows.Forms.Button();
+            this.gNotifications = new System.Windows.Forms.GroupBox();
+            this.lNotification = new System.Windows.Forms.Label();
+            this.cNotification = new System.Windows.Forms.ComboBox();
             this.trayMenu.SuspendLayout();
             this.gHotkeys.SuspendLayout();
             this.gPlugins.SuspendLayout();
             this.mainTabControl.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.generalTab.SuspendLayout();
+            this.aboutTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.gNotifications.SuspendLayout();
             this.SuspendLayout();
             // 
             // tray
@@ -80,9 +86,11 @@
             this.traySubCaptureScreen,
             this.toolStripMenuItem1,
             this.traySubSettings,
+            this.traySubAbout,
+            this.toolStripMenuItem2,
             this.traySubExit});
             this.trayMenu.Name = "contextMenuStrip1";
-            this.trayMenu.Size = new System.Drawing.Size(154, 98);
+            this.trayMenu.Size = new System.Drawing.Size(154, 126);
             // 
             // traySubCaptureArea
             // 
@@ -112,6 +120,19 @@
             this.traySubSettings.Size = new System.Drawing.Size(153, 22);
             this.traySubSettings.Text = "Settings";
             this.traySubSettings.Click += new System.EventHandler(this.TraySubSettingsClick);
+            // 
+            // traySubAbout
+            // 
+            this.traySubAbout.Image = global::Fireball.Properties.Resources.about;
+            this.traySubAbout.Name = "traySubAbout";
+            this.traySubAbout.Size = new System.Drawing.Size(153, 22);
+            this.traySubAbout.Text = "About";
+            this.traySubAbout.Click += new System.EventHandler(this.TraySubAboutClick);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(150, 6);
             // 
             // traySubExit
             // 
@@ -228,9 +249,9 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cPlugins.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cPlugins.FormattingEnabled = true;
-            this.cPlugins.Location = new System.Drawing.Point(108, 20);
+            this.cPlugins.Location = new System.Drawing.Point(121, 20);
             this.cPlugins.Name = "cPlugins";
-            this.cPlugins.Size = new System.Drawing.Size(142, 21);
+            this.cPlugins.Size = new System.Drawing.Size(129, 21);
             this.cPlugins.TabIndex = 0;
             this.cPlugins.TabStop = false;
             this.cPlugins.SelectedIndexChanged += new System.EventHandler(this.CPluginsSelectedIndexChanged);
@@ -239,7 +260,7 @@
             // 
             this.cAutoStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cAutoStart.AutoSize = true;
-            this.cAutoStart.Location = new System.Drawing.Point(15, 183);
+            this.cAutoStart.Location = new System.Drawing.Point(15, 240);
             this.cAutoStart.Name = "cAutoStart";
             this.cAutoStart.Size = new System.Drawing.Size(195, 17);
             this.cAutoStart.TabIndex = 6;
@@ -252,40 +273,41 @@
             this.mainTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainTabControl.Controls.Add(this.tabPage1);
-            this.mainTabControl.Controls.Add(this.tabPage2);
+            this.mainTabControl.Controls.Add(this.generalTab);
+            this.mainTabControl.Controls.Add(this.aboutTab);
             this.mainTabControl.Location = new System.Drawing.Point(12, 12);
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(350, 233);
+            this.mainTabControl.Size = new System.Drawing.Size(350, 290);
             this.mainTabControl.TabIndex = 7;
             // 
-            // tabPage1
+            // generalTab
             // 
-            this.tabPage1.Controls.Add(this.gHotkeys);
-            this.tabPage1.Controls.Add(this.gPlugins);
-            this.tabPage1.Controls.Add(this.cAutoStart);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(342, 207);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "General";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.generalTab.Controls.Add(this.gNotifications);
+            this.generalTab.Controls.Add(this.gHotkeys);
+            this.generalTab.Controls.Add(this.gPlugins);
+            this.generalTab.Controls.Add(this.cAutoStart);
+            this.generalTab.Location = new System.Drawing.Point(4, 22);
+            this.generalTab.Name = "generalTab";
+            this.generalTab.Padding = new System.Windows.Forms.Padding(3);
+            this.generalTab.Size = new System.Drawing.Size(342, 264);
+            this.generalTab.TabIndex = 0;
+            this.generalTab.Text = "General";
+            this.generalTab.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // aboutTab
             // 
-            this.tabPage2.Controls.Add(this.lAuthor);
-            this.tabPage2.Controls.Add(this.lVersion);
-            this.tabPage2.Controls.Add(this.lName);
-            this.tabPage2.Controls.Add(this.pictureBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(342, 207);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "About";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.aboutTab.Controls.Add(this.lAuthor);
+            this.aboutTab.Controls.Add(this.lVersion);
+            this.aboutTab.Controls.Add(this.lName);
+            this.aboutTab.Controls.Add(this.pictureBox1);
+            this.aboutTab.Location = new System.Drawing.Point(4, 22);
+            this.aboutTab.Name = "aboutTab";
+            this.aboutTab.Padding = new System.Windows.Forms.Padding(3);
+            this.aboutTab.Size = new System.Drawing.Size(342, 207);
+            this.aboutTab.TabIndex = 1;
+            this.aboutTab.Text = "About";
+            this.aboutTab.UseVisualStyleBackColor = true;
             // 
             // lAuthor
             // 
@@ -328,7 +350,7 @@
             // 
             this.bCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bCancel.Image = global::Fireball.Properties.Resources.cancel;
-            this.bCancel.Location = new System.Drawing.Point(262, 247);
+            this.bCancel.Location = new System.Drawing.Point(262, 304);
             this.bCancel.Name = "bCancel";
             this.bCancel.Size = new System.Drawing.Size(100, 30);
             this.bCancel.TabIndex = 4;
@@ -343,7 +365,7 @@
             // 
             this.bApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bApply.Image = global::Fireball.Properties.Resources.apply;
-            this.bApply.Location = new System.Drawing.Point(143, 247);
+            this.bApply.Location = new System.Drawing.Point(143, 304);
             this.bApply.Name = "bApply";
             this.bApply.Size = new System.Drawing.Size(120, 30);
             this.bApply.TabIndex = 5;
@@ -354,11 +376,44 @@
             this.bApply.UseVisualStyleBackColor = true;
             this.bApply.Click += new System.EventHandler(this.BApplyClick);
             // 
+            // gNotifications
+            // 
+            this.gNotifications.Controls.Add(this.cNotification);
+            this.gNotifications.Controls.Add(this.lNotification);
+            this.gNotifications.Location = new System.Drawing.Point(6, 181);
+            this.gNotifications.Name = "gNotifications";
+            this.gNotifications.Size = new System.Drawing.Size(330, 53);
+            this.gNotifications.TabIndex = 7;
+            this.gNotifications.TabStop = false;
+            this.gNotifications.Text = "Notifications:";
+            // 
+            // lNotification
+            // 
+            this.lNotification.AutoSize = true;
+            this.lNotification.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lNotification.Location = new System.Drawing.Point(6, 23);
+            this.lNotification.Name = "lNotification";
+            this.lNotification.Size = new System.Drawing.Size(105, 13);
+            this.lNotification.TabIndex = 6;
+            this.lNotification.Text = "Notification Type:";
+            // 
+            // cNotification
+            // 
+            this.cNotification.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cNotification.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cNotification.FormattingEnabled = true;
+            this.cNotification.Location = new System.Drawing.Point(121, 20);
+            this.cNotification.Name = "cNotification";
+            this.cNotification.Size = new System.Drawing.Size(199, 21);
+            this.cNotification.TabIndex = 5;
+            this.cNotification.TabStop = false;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 280);
+            this.ClientSize = new System.Drawing.Size(374, 337);
             this.Controls.Add(this.mainTabControl);
             this.Controls.Add(this.bCancel);
             this.Controls.Add(this.bApply);
@@ -375,11 +430,13 @@
             this.gPlugins.ResumeLayout(false);
             this.gPlugins.PerformLayout();
             this.mainTabControl.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.generalTab.ResumeLayout(false);
+            this.generalTab.PerformLayout();
+            this.aboutTab.ResumeLayout(false);
+            this.aboutTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.gNotifications.ResumeLayout(false);
+            this.gNotifications.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -404,13 +461,18 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.CheckBox cAutoStart;
         private System.Windows.Forms.TabControl mainTabControl;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage generalTab;
+        private System.Windows.Forms.TabPage aboutTab;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lVersion;
         private System.Windows.Forms.Label lName;
         private System.Windows.Forms.Label lAuthor;
         private UI.HotkeySelectControl hkScreen;
         private UI.HotkeySelectControl hkArea;
+        private System.Windows.Forms.ToolStripMenuItem traySubAbout;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.GroupBox gNotifications;
+        private System.Windows.Forms.ComboBox cNotification;
+        private System.Windows.Forms.Label lNotification;
     }
 }

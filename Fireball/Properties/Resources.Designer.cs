@@ -60,6 +60,13 @@ namespace Fireball.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap about {
+            get {
+                object obj = ResourceManager.GetObject("about", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap apply {
             get {
                 object obj = ResourceManager.GetObject("apply", resourceCulture);
@@ -88,6 +95,13 @@ namespace Fireball.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap copyLink {
+            get {
+                object obj = ResourceManager.GetObject("copyLink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap exit {
             get {
                 object obj = ResourceManager.GetObject("exit", resourceCulture);
@@ -98,6 +112,13 @@ namespace Fireball.Properties {
         internal static System.Drawing.Bitmap fireball_logo {
             get {
                 object obj = ResourceManager.GetObject("fireball_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap openUrl {
+            get {
+                object obj = ResourceManager.GetObject("openUrl", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
