@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Core\Helper.cs" />
     <Compile Include="Core\Hotkey.cs" />
+    <Compile Include="UI\LanguageItem.cs" />
     <Compile Include="Core\NotificationType.cs" />
     <Compile Include="Core\Settings.cs" />
     <Compile Include="Core\TakeScreenAction.cs" />
@@ -77,7 +78,7 @@
     <Compile Include="NotificationForm.Designer.cs">
       <DependentUpon>NotificationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Plugin\PluginItem.cs" />
+    <Compile Include="UI\PluginItem.cs" />
     <Compile Include="Plugin\PluginManager.cs" />
     <Compile Include="Managers\ScreenManager.cs" />
     <Compile Include="Managers\SettingsManager.cs" />
@@ -120,7 +121,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SettingsForm.en.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.ru.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TakeForm.resx">

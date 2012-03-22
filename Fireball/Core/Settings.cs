@@ -4,6 +4,7 @@ namespace Fireball.Core
 {
     class Settings
     {
+        public String Language { get; set; }
         public Hotkey CaptureScreenHotey { get; set; }
         public Hotkey CaptureAreaHotkey { get; set; }
         public String ActivePlugin { get; set; }
@@ -12,6 +13,7 @@ namespace Fireball.Core
 
         public Settings()
         {
+            Language = "en-US";
             CaptureScreenHotey = new Hotkey();
             CaptureAreaHotkey = new Hotkey();
             ActivePlugin = String.Empty;

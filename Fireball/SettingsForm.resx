@@ -123,7 +123,799 @@
   <metadata name="trayMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>89, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="traySubCaptureArea.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 22</value>
+  </data>
+  <data name="traySubCaptureArea.Text" xml:space="preserve">
+    <value>Capture area</value>
+  </data>
+  <data name="traySubCaptureScreen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 22</value>
+  </data>
+  <data name="traySubCaptureScreen.Text" xml:space="preserve">
+    <value>Capture screen</value>
+  </data>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 6</value>
+  </data>
+  <data name="traySubSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 22</value>
+  </data>
+  <data name="traySubSettings.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="traySubAbout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 22</value>
+  </data>
+  <data name="traySubAbout.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 6</value>
+  </data>
+  <data name="traySubExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 22</value>
+  </data>
+  <data name="traySubExit.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="trayMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 126</value>
+  </data>
+  <data name="&gt;&gt;trayMenu.Name" xml:space="preserve">
+    <value>trayMenu</value>
+  </data>
+  <data name="&gt;&gt;trayMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tray.Text" xml:space="preserve">
+    <value>Fireball</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tray.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lCaptureScreen.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lCaptureScreen.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt, style=Bold</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lCaptureScreen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lCaptureScreen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 20</value>
+  </data>
+  <data name="lCaptureScreen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 13</value>
+  </data>
+  <data name="lCaptureScreen.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lCaptureScreen.Text" xml:space="preserve">
+    <value>Capture screen:</value>
+  </data>
+  <data name="&gt;&gt;lCaptureScreen.Name" xml:space="preserve">
+    <value>lCaptureScreen</value>
+  </data>
+  <data name="&gt;&gt;lCaptureScreen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lCaptureScreen.Parent" xml:space="preserve">
+    <value>gHotkeys</value>
+  </data>
+  <data name="&gt;&gt;lCaptureScreen.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="gHotkeys.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="hkArea.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt</value>
+  </data>
+  <data name="hkArea.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 78</value>
+  </data>
+  <data name="hkArea.Size" type="System.Drawing.Size, System.Drawing">
+    <value>311, 23</value>
+  </data>
+  <data name="hkArea.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;hkArea.Name" xml:space="preserve">
+    <value>hkArea</value>
+  </data>
+  <data name="&gt;&gt;hkArea.Type" xml:space="preserve">
+    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.3.22.1731, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;hkArea.Parent" xml:space="preserve">
+    <value>gHotkeys</value>
+  </data>
+  <data name="&gt;&gt;hkArea.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="hkScreen.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt</value>
+  </data>
+  <data name="hkScreen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 36</value>
+  </data>
+  <data name="hkScreen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>311, 23</value>
+  </data>
+  <data name="hkScreen.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;hkScreen.Name" xml:space="preserve">
+    <value>hkScreen</value>
+  </data>
+  <data name="&gt;&gt;hkScreen.Type" xml:space="preserve">
+    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.3.22.1731, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;hkScreen.Parent" xml:space="preserve">
+    <value>gHotkeys</value>
+  </data>
+  <data name="&gt;&gt;hkScreen.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lCaptureArea.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lCaptureArea.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt, style=Bold</value>
+  </data>
+  <data name="lCaptureArea.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lCaptureArea.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 62</value>
+  </data>
+  <data name="lCaptureArea.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 13</value>
+  </data>
+  <data name="lCaptureArea.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lCaptureArea.Text" xml:space="preserve">
+    <value>Capture area:</value>
+  </data>
+  <data name="&gt;&gt;lCaptureArea.Name" xml:space="preserve">
+    <value>lCaptureArea</value>
+  </data>
+  <data name="&gt;&gt;lCaptureArea.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lCaptureArea.Parent" xml:space="preserve">
+    <value>gHotkeys</value>
+  </data>
+  <data name="&gt;&gt;lCaptureArea.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="gHotkeys.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="gHotkeys.Size" type="System.Drawing.Size, System.Drawing">
+    <value>330, 110</value>
+  </data>
+  <data name="gHotkeys.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="gHotkeys.Text" xml:space="preserve">
+    <value>Hotkeys:</value>
+  </data>
+  <data name="&gt;&gt;gHotkeys.Name" xml:space="preserve">
+    <value>gHotkeys</value>
+  </data>
+  <data name="&gt;&gt;gHotkeys.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gHotkeys.Parent" xml:space="preserve">
+    <value>generalTab</value>
+  </data>
+  <data name="&gt;&gt;gHotkeys.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gPlugins.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="bPluginSettings.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="bPluginSettings.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="bPluginSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="bPluginSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>250, 19</value>
+  </data>
+  <data name="bPluginSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 23</value>
+  </data>
+  <data name="bPluginSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="bPluginSettings.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="bPluginSettings.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;bPluginSettings.Name" xml:space="preserve">
+    <value>bPluginSettings</value>
+  </data>
+  <data name="&gt;&gt;bPluginSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bPluginSettings.Parent" xml:space="preserve">
+    <value>gPlugins</value>
+  </data>
+  <data name="&gt;&gt;bPluginSettings.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lActive.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lActive.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt, style=Bold</value>
+  </data>
+  <data name="lActive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lActive.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 23</value>
+  </data>
+  <data name="lActive.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 13</value>
+  </data>
+  <data name="lActive.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lActive.Text" xml:space="preserve">
+    <value>Active plugin:</value>
+  </data>
+  <data name="&gt;&gt;lActive.Name" xml:space="preserve">
+    <value>lActive</value>
+  </data>
+  <data name="&gt;&gt;lActive.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lActive.Parent" xml:space="preserve">
+    <value>gPlugins</value>
+  </data>
+  <data name="&gt;&gt;lActive.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cPlugins.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="cPlugins.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 20</value>
+  </data>
+  <data name="cPlugins.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 21</value>
+  </data>
+  <data name="cPlugins.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;cPlugins.Name" xml:space="preserve">
+    <value>cPlugins</value>
+  </data>
+  <data name="&gt;&gt;cPlugins.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cPlugins.Parent" xml:space="preserve">
+    <value>gPlugins</value>
+  </data>
+  <data name="&gt;&gt;cPlugins.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="gPlugins.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 122</value>
+  </data>
+  <data name="gPlugins.Size" type="System.Drawing.Size, System.Drawing">
+    <value>330, 53</value>
+  </data>
+  <data name="gPlugins.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="gPlugins.Text" xml:space="preserve">
+    <value>Plugins:</value>
+  </data>
+  <data name="&gt;&gt;gPlugins.Name" xml:space="preserve">
+    <value>gPlugins</value>
+  </data>
+  <data name="&gt;&gt;gPlugins.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gPlugins.Parent" xml:space="preserve">
+    <value>generalTab</value>
+  </data>
+  <data name="&gt;&gt;gPlugins.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cAutoStart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="cAutoStart.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cAutoStart.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cAutoStart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 240</value>
+  </data>
+  <data name="cAutoStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 17</value>
+  </data>
+  <data name="cAutoStart.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="cAutoStart.Text" xml:space="preserve">
+    <value>Start Fireball when computer starts</value>
+  </data>
+  <data name="&gt;&gt;cAutoStart.Name" xml:space="preserve">
+    <value>cAutoStart</value>
+  </data>
+  <data name="&gt;&gt;cAutoStart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cAutoStart.Parent" xml:space="preserve">
+    <value>generalTab</value>
+  </data>
+  <data name="&gt;&gt;cAutoStart.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="mainTabControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="cNotification.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="cNotification.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 20</value>
+  </data>
+  <data name="cNotification.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 21</value>
+  </data>
+  <data name="cNotification.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;cNotification.Name" xml:space="preserve">
+    <value>cNotification</value>
+  </data>
+  <data name="&gt;&gt;cNotification.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cNotification.Parent" xml:space="preserve">
+    <value>gNotifications</value>
+  </data>
+  <data name="&gt;&gt;cNotification.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lNotification.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lNotification.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt, style=Bold</value>
+  </data>
+  <data name="lNotification.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lNotification.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 23</value>
+  </data>
+  <data name="lNotification.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 13</value>
+  </data>
+  <data name="lNotification.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="lNotification.Text" xml:space="preserve">
+    <value>Notification Type:</value>
+  </data>
+  <data name="&gt;&gt;lNotification.Name" xml:space="preserve">
+    <value>lNotification</value>
+  </data>
+  <data name="&gt;&gt;lNotification.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lNotification.Parent" xml:space="preserve">
+    <value>gNotifications</value>
+  </data>
+  <data name="&gt;&gt;lNotification.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gNotifications.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 181</value>
+  </data>
+  <data name="gNotifications.Size" type="System.Drawing.Size, System.Drawing">
+    <value>330, 53</value>
+  </data>
+  <data name="gNotifications.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="gNotifications.Text" xml:space="preserve">
+    <value>Notifications:</value>
+  </data>
+  <data name="&gt;&gt;gNotifications.Name" xml:space="preserve">
+    <value>gNotifications</value>
+  </data>
+  <data name="&gt;&gt;gNotifications.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gNotifications.Parent" xml:space="preserve">
+    <value>generalTab</value>
+  </data>
+  <data name="&gt;&gt;gNotifications.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="generalTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="generalTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="generalTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>342, 264</value>
+  </data>
+  <data name="generalTab.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="generalTab.Text" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="&gt;&gt;generalTab.Name" xml:space="preserve">
+    <value>generalTab</value>
+  </data>
+  <data name="&gt;&gt;generalTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;generalTab.Parent" xml:space="preserve">
+    <value>mainTabControl</value>
+  </data>
+  <data name="&gt;&gt;generalTab.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lAuthor.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lAuthor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lAuthor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 155</value>
+  </data>
+  <data name="lAuthor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 13</value>
+  </data>
+  <data name="lAuthor.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lAuthor.Text" xml:space="preserve">
+    <value>Created by TBXin</value>
+  </data>
+  <data name="&gt;&gt;lAuthor.Name" xml:space="preserve">
+    <value>lAuthor</value>
+  </data>
+  <data name="&gt;&gt;lAuthor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lAuthor.Parent" xml:space="preserve">
+    <value>aboutTab</value>
+  </data>
+  <data name="&gt;&gt;lAuthor.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lVersion.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lVersion.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lVersion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>141, 59</value>
+  </data>
+  <data name="lVersion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="lVersion.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lVersion.Text" xml:space="preserve">
+    <value>Version:</value>
+  </data>
+  <data name="&gt;&gt;lVersion.Name" xml:space="preserve">
+    <value>lVersion</value>
+  </data>
+  <data name="&gt;&gt;lVersion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lVersion.Parent" xml:space="preserve">
+    <value>aboutTab</value>
+  </data>
+  <data name="&gt;&gt;lVersion.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 12pt, style=Bold</value>
+  </data>
+  <data name="lName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 40</value>
+  </data>
+  <data name="lName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 19</value>
+  </data>
+  <data name="lName.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lName.Text" xml:space="preserve">
+    <value>Fireball</value>
+  </data>
+  <data name="&gt;&gt;lName.Name" xml:space="preserve">
+    <value>lName</value>
+  </data>
+  <data name="&gt;&gt;lName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lName.Parent" xml:space="preserve">
+    <value>aboutTab</value>
+  </data>
+  <data name="&gt;&gt;lName.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 40</value>
+  </data>
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 128</value>
+  </data>
+  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
+    <value>pictureBox1</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+    <value>aboutTab</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="aboutTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="aboutTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="aboutTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>342, 264</value>
+  </data>
+  <data name="aboutTab.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="aboutTab.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="&gt;&gt;aboutTab.Name" xml:space="preserve">
+    <value>aboutTab</value>
+  </data>
+  <data name="&gt;&gt;aboutTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;aboutTab.Parent" xml:space="preserve">
+    <value>mainTabControl</value>
+  </data>
+  <data name="&gt;&gt;aboutTab.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="mainTabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="mainTabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>350, 290</value>
+  </data>
+  <data name="mainTabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;mainTabControl.Name" xml:space="preserve">
+    <value>mainTabControl</value>
+  </data>
+  <data name="&gt;&gt;mainTabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mainTabControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;mainTabControl.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cLanguage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="cLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 309</value>
+  </data>
+  <data name="cLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 21</value>
+  </data>
+  <data name="cLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;cLanguage.Name" xml:space="preserve">
+    <value>cLanguage</value>
+  </data>
+  <data name="&gt;&gt;cLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cLanguage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cLanguage.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="bCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="bCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="bCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>262, 304</value>
+  </data>
+  <data name="bCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 30</value>
+  </data>
+  <data name="bCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="bCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="bCancel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="bCancel.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;bCancel.Name" xml:space="preserve">
+    <value>bCancel</value>
+  </data>
+  <data name="&gt;&gt;bCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;bCancel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="bApply.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="bApply.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="bApply.Location" type="System.Drawing.Point, System.Drawing">
+    <value>143, 304</value>
+  </data>
+  <data name="bApply.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 30</value>
+  </data>
+  <data name="bApply.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="bApply.Text" xml:space="preserve">
+    <value>Apply &amp;&amp; Close</value>
+  </data>
+  <data name="bApply.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="bApply.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;bApply.Name" xml:space="preserve">
+    <value>bApply</value>
+  </data>
+  <data name="&gt;&gt;bApply.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bApply.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;bApply.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>44</value>
   </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>374, 337</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Fireball - Settings</value>
+  </data>
+  <data name="&gt;&gt;tray.Name" xml:space="preserve">
+    <value>tray</value>
+  </data>
+  <data name="&gt;&gt;tray.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;traySubCaptureArea.Name" xml:space="preserve">
+    <value>traySubCaptureArea</value>
+  </data>
+  <data name="&gt;&gt;traySubCaptureArea.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;traySubCaptureScreen.Name" xml:space="preserve">
+    <value>traySubCaptureScreen</value>
+  </data>
+  <data name="&gt;&gt;traySubCaptureScreen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem1.Name" xml:space="preserve">
+    <value>toolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;traySubSettings.Name" xml:space="preserve">
+    <value>traySubSettings</value>
+  </data>
+  <data name="&gt;&gt;traySubSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;traySubAbout.Name" xml:space="preserve">
+    <value>traySubAbout</value>
+  </data>
+  <data name="&gt;&gt;traySubAbout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
+    <value>toolStripMenuItem2</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;traySubExit.Name" xml:space="preserve">
+    <value>traySubExit</value>
+  </data>
+  <data name="&gt;&gt;traySubExit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>SettingsForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

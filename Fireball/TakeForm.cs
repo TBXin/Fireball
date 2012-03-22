@@ -26,11 +26,10 @@ namespace Fireball
         private Point selectionEnd;
         private Point prevMousePosition;
 
-        //private SolidBrush fadeBrush = new SolidBrush(Color.FromArgb(100, Color.Black));
         private SolidBrush selectionFillBrush = new SolidBrush(Color.FromArgb(100, 51, 153, 255));
         private Pen selectionBorderPen = new Pen(new SolidBrush(Color.FromArgb(51, 153, 255)), 1);
 
-        public TakeForm()
+        public TakeForm(bool showHelp = true)
         {
             InitializeComponent();
 
@@ -52,7 +51,7 @@ namespace Fireball
                 helpImage.Width,
                 helpImage.Height);
 
-            helpMatrix = new ColorMatrix { Matrix33 = 1f };
+            helpMatrix = new ColorMatrix { Matrix33 = showHelp ? 1f : 0f };
             helpAttributes = new ImageAttributes();
             helpAttributes.SetColorMatrix(helpMatrix);
 

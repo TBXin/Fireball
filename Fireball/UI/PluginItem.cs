@@ -1,4 +1,6 @@
-﻿namespace Fireball.Plugin
+﻿using Fireball.Plugin;
+
+namespace Fireball.UI
 {
     class PluginItem
     {

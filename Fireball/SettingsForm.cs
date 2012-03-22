@@ -1,5 +1,7 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
+using System.Globalization;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -7,12 +9,13 @@ using System.Windows.Forms;
 using Fireball.Core;
 using Fireball.Managers;
 using Fireball.Plugin;
+using Fireball.UI;
 
 namespace Fireball
 {
     public partial class SettingsForm : Form
     {
-        private bool isUploading;
+        private Boolean isUploading;
         private Settings settings;
         private Boolean isVisible;
         private IPlugin activePlugin;
@@ -21,10 +24,10 @@ namespace Fireball
         public SettingsForm()
         {
             InitializeComponent();
-            PopulateNotificationTypes();
 
             Icon = tray.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             lVersion.Text = String.Format("Version: {0}", Application.ProductVersion);
+            PopulateCombos();
 
             settings = SettingsManager.Load();
             PopulateSettings();
@@ -96,8 +99,12 @@ namespace Fireball
         }
         #endregion
 
-        private void PopulateNotificationTypes()
+        private void PopulateCombos()
         {
+            cLanguage.Items.Clear();
+            cLanguage.Items.Add(new LanguageItem("Eng", new CultureInfo("en-US")));
+            cLanguage.Items.Add(new LanguageItem("Rus", new CultureInfo("ru-RU")));
+
             cNotification.Items.Clear();
 
             foreach (object type in Enum.GetValues(typeof(NotificationType)))
@@ -108,6 +115,18 @@ namespace Fireball
 
         private void PopulateSettings()
         {
+            foreach (object item in cLanguage.Items)
+            {
+                if (item.ToString().Equals(settings.Language))
+                {
+                    cLanguage.SelectedItem = item;
+                    break;
+                }
+            }
+
+            if (cLanguage.SelectedIndex == -1)
+                cLanguage.SelectedIndex = 0;
+
             hkScreen.Hotkey = settings.CaptureScreenHotey.KeyCode;
             hkScreen.Win = settings.CaptureScreenHotey.Win;
             hkScreen.Ctrl = settings.CaptureScreenHotey.Ctrl;
@@ -128,6 +147,11 @@ namespace Fireball
 
         private Boolean SaveSettings()
         {
+            LanguageItem languageItem = cLanguage.SelectedItem as LanguageItem;
+
+            if (languageItem != null)
+                settings.Language = languageItem.Name;
+
             try
             {
                 if (hkScreen.Hotkey == Keys.None && settings.CaptureScreenHotey.Registered)
@@ -306,6 +330,46 @@ namespace Fireball
             ForwardImageToPlugin(ScreenManager.GetScreenshot(Screen.PrimaryScreen));
         }
 
+        private void SetLanguage(Form form, CultureInfo lang)
+        {
+            Thread.CurrentThread.CurrentUICulture = lang;
+            ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
+
+            ApplyResourceToControl(resources, trayMenu, lang);
+            ApplyResourceToControl(resources, form, lang);
+
+            form.Text = resources.GetString("$this.Text", lang);
+        }
+
+        private void ApplyResourceToControl(ComponentResourceManager resources, Control control, CultureInfo lang)
+        {
+            if (control == null)
+                return;
+
+            foreach (Control c in control.Controls)
+            {
+                ApplyResourceToControl(resources, c, lang);
+                string text = resources.GetString(c.Name + ".Text", lang);
+
+                if (text != null)
+                    c.Text = text;
+            }
+        }
+
+        private void ApplyResourceToControl(ComponentResourceManager resources, ContextMenuStrip menu, CultureInfo lang)
+        {
+            if (menu == null)
+                return;
+
+            foreach (ToolStripItem m in menu.Items)
+            {
+                string text = resources.GetString(m.Name + ".Text", lang);
+
+                if (text != null)
+                    m.Text = text;
+            }
+        }
+
         #region :: Form Controlls Events ::
         private void BApplyClick(object sender, EventArgs e)
         {
@@ -328,15 +392,23 @@ namespace Fireball
             activePlugin = item.Plugin;
             bPluginSettings.Enabled = activePlugin.HasSettings;
         }
+
+        private void CLanguageSelectedIndexChanged(object sender, EventArgs e)
+        {
+            LanguageItem item = cLanguage.SelectedItem as LanguageItem;
+
+            if (item != null)
+                SetLanguage(this, item.Culture);
+        }
         #endregion
 
         #region :: Hotkeys Events ::
-        private void CaptureAreaHotkeyPressed(object sender, System.ComponentModel.HandledEventArgs e)
+        private void CaptureAreaHotkeyPressed(object sender, HandledEventArgs e)
         {
             CaptureArea();
         }
 
-        private void CaptureScreenHoteyPressed(object sender, System.ComponentModel.HandledEventArgs e)
+        private void CaptureScreenHoteyPressed(object sender, HandledEventArgs e)
         {
             CaptureScreen();
         }

@@ -21,11 +21,15 @@ namespace Fireball.Managers
             if (root == null)
                 return rtnSettings;
 
+            XElement languageNode = root.Element("Language");
             XElement captureScreenNode = root.Element("CaptureScreenHotkey");
             XElement captureAreaNode = root.Element("CaptureAreaHotkey");
             XElement activePlugin = root.Element("ActivePlugin");
             XElement notification = root.Element("Notification");
             XElement startWithComputer = root.Element("StartWithComputer");
+
+            if (languageNode != null)
+                rtnSettings.Language = languageNode.Value;
 
             #region :: CaptureScreenHotkey ::
             if (captureScreenNode == null)
@@ -100,6 +104,7 @@ namespace Fireball.Managers
 
             XElement root = new XElement("SettingsFile");
             root.Add(
+                new XElement("Language", settings.Language),
                 new XElement("CaptureScreenHotkey",
                     new XAttribute("Key", settings.CaptureScreenHotey.KeyCode.ToString()),
                     new XAttribute("Win", settings.CaptureScreenHotey.Win),
