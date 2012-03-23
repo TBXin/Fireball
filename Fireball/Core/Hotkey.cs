@@ -2,14 +2,12 @@
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
 namespace Fireball.Core
 {
     public class Hotkey : IMessageFilter
     {
         #region :: Interop ::
-
         [DllImport("user32.dll", SetLastError = true)]
         private static extern int RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, Keys vk);
 
@@ -37,11 +35,8 @@ namespace Fireball.Core
         private bool alt;
         private bool windows;
 
-        [XmlIgnore]
         private int id;
-        [XmlIgnore]
         private bool registered;
-        [XmlIgnore]
         private Control windowControl;
 
         public event HandledEventHandler Pressed;
@@ -217,10 +212,9 @@ namespace Fireball.Core
                 case Keys.D7:
                 case Keys.D8:
                 case Keys.D9:
-                    // Strip the first character
+                    // Пропускаем первую букву
                     keyName = keyName.Substring(1);
                     break;
-                    // Leave everything alone
             }
 
             string modifiers = "";

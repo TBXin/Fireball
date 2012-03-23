@@ -26,7 +26,6 @@ namespace Fireball
             InitializeComponent();
 
             Icon = tray.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
-            lVersion.Text = String.Format("Version: {0}", Application.ProductVersion);
             PopulateCombos();
 
             settings = SettingsManager.Load();
@@ -261,6 +260,12 @@ namespace Fireball
                     // Скопировать в буфер и показать тултип
                     Clipboard.SetDataObject(url, true, 5, 500);
 
+                    // ======= твик =======
+                    // прячем предыдущий тултип, если он сам не скрылся
+                    tray.Visible = false;
+                    tray.Visible = true;
+                    // ====================
+
                     tray.BalloonTipIcon = ToolTipIcon.Info;
                     tray.BalloonTipTitle = String.Format("Fireball: {0}", activePlugin.Name);
                     tray.BalloonTipText = String.IsNullOrEmpty(url) ? "empty" : url;
@@ -339,6 +344,7 @@ namespace Fireball
             ApplyResourceToControl(resources, form, lang);
 
             form.Text = resources.GetString("$this.Text", lang);
+            lVersion.Text = String.Format("Version: {0}", Application.ProductVersion);
         }
 
         private void ApplyResourceToControl(ComponentResourceManager resources, Control control, CultureInfo lang)

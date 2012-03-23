@@ -41,6 +41,8 @@
             this.traySubExit = new System.Windows.Forms.ToolStripMenuItem();
             this.lCaptureScreen = new System.Windows.Forms.Label();
             this.gHotkeys = new System.Windows.Forms.GroupBox();
+            this.hkArea = new Fireball.UI.HotkeySelectControl();
+            this.hkScreen = new Fireball.UI.HotkeySelectControl();
             this.lCaptureArea = new System.Windows.Forms.Label();
             this.gPlugins = new System.Windows.Forms.GroupBox();
             this.bPluginSettings = new System.Windows.Forms.Button();
@@ -60,8 +62,6 @@
             this.cLanguage = new System.Windows.Forms.ComboBox();
             this.bCancel = new System.Windows.Forms.Button();
             this.bApply = new System.Windows.Forms.Button();
-            this.hkArea = new Fireball.UI.HotkeySelectControl();
-            this.hkScreen = new Fireball.UI.HotkeySelectControl();
             this.trayMenu.SuspendLayout();
             this.gHotkeys.SuspendLayout();
             this.gPlugins.SuspendLayout();
@@ -152,6 +152,28 @@
             this.gHotkeys.Controls.Add(this.lCaptureScreen);
             this.gHotkeys.Name = "gHotkeys";
             this.gHotkeys.TabStop = false;
+            // 
+            // hkArea
+            // 
+            this.hkArea.Alt = false;
+            this.hkArea.Ctrl = false;
+            resources.ApplyResources(this.hkArea, "hkArea");
+            this.hkArea.Hotkey = System.Windows.Forms.Keys.None;
+            this.hkArea.MinimumSize = new System.Drawing.Size(258, 23);
+            this.hkArea.Name = "hkArea";
+            this.hkArea.Shift = false;
+            this.hkArea.Win = false;
+            // 
+            // hkScreen
+            // 
+            this.hkScreen.Alt = false;
+            this.hkScreen.Ctrl = false;
+            resources.ApplyResources(this.hkScreen, "hkScreen");
+            this.hkScreen.Hotkey = System.Windows.Forms.Keys.None;
+            this.hkScreen.MinimumSize = new System.Drawing.Size(258, 23);
+            this.hkScreen.Name = "hkScreen";
+            this.hkScreen.Shift = false;
+            this.hkScreen.Win = false;
             // 
             // lCaptureArea
             // 
@@ -292,28 +314,6 @@
             this.bApply.TabStop = false;
             this.bApply.UseVisualStyleBackColor = true;
             this.bApply.Click += new System.EventHandler(this.BApplyClick);
-            // 
-            // hkArea
-            // 
-            this.hkArea.Alt = false;
-            this.hkArea.Ctrl = false;
-            resources.ApplyResources(this.hkArea, "hkArea");
-            this.hkArea.Hotkey = System.Windows.Forms.Keys.None;
-            this.hkArea.MinimumSize = new System.Drawing.Size(258, 23);
-            this.hkArea.Name = "hkArea";
-            this.hkArea.Shift = false;
-            this.hkArea.Win = false;
-            // 
-            // hkScreen
-            // 
-            this.hkScreen.Alt = false;
-            this.hkScreen.Ctrl = false;
-            resources.ApplyResources(this.hkScreen, "hkScreen");
-            this.hkScreen.Hotkey = System.Windows.Forms.Keys.None;
-            this.hkScreen.MinimumSize = new System.Drawing.Size(258, 23);
-            this.hkScreen.Name = "hkScreen";
-            this.hkScreen.Shift = false;
-            this.hkScreen.Win = false;
             // 
             // SettingsForm
             // 

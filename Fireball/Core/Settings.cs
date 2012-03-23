@@ -13,7 +13,7 @@ namespace Fireball.Core
 
         public Settings()
         {
-            Language = "en-US";
+            Language = "Eng";
             CaptureScreenHotey = new Hotkey();
             CaptureAreaHotkey = new Hotkey();
             ActivePlugin = String.Empty;
