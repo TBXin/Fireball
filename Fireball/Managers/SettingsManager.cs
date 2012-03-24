@@ -24,9 +24,10 @@ namespace Fireball.Managers
             XElement languageNode = root.Element("Language");
             XElement captureScreenNode = root.Element("CaptureScreenHotkey");
             XElement captureAreaNode = root.Element("CaptureAreaHotkey");
-            XElement activePlugin = root.Element("ActivePlugin");
-            XElement notification = root.Element("Notification");
-            XElement startWithComputer = root.Element("StartWithComputer");
+            XElement captureModeNode = root.Element("CaptureMode");
+            XElement activePluginNode = root.Element("ActivePlugin");
+            XElement notificationNode = root.Element("Notification");
+            XElement startWithComputerNode = root.Element("StartWithComputer");
 
             if (languageNode != null)
                 rtnSettings.Language = languageNode.Value;
@@ -72,15 +73,27 @@ namespace Fireball.Managers
                 (Keys) Enum.Parse(typeof (Keys), keyAttribute.Value));
             #endregion
 
-            if (activePlugin == null)
+            if (captureModeNode == null)
+            {
+                rtnSettings.CaptureMode = CaptureMode.Manual;
+            }
+            else
+            {
+                CaptureMode mode;
+
+                if (Enum.TryParse(captureModeNode.Value, out mode))
+                    rtnSettings.CaptureMode = mode;
+            }
+
+            if (activePluginNode == null)
                 return rtnSettings;
 
-            rtnSettings.ActivePlugin = activePlugin.Value;
+            rtnSettings.ActivePlugin = activePluginNode.Value;
 
-            if (startWithComputer == null)
+            if (startWithComputerNode == null)
                 return rtnSettings;
 
-            if (notification == null)
+            if (notificationNode == null)
             {
                 rtnSettings.Notification = NotificationType.Tooltip;
             }
@@ -88,11 +101,11 @@ namespace Fireball.Managers
             {
                 NotificationType type;
 
-                if (Enum.TryParse(notification.Value, out type))
+                if (Enum.TryParse(notificationNode.Value, out type))
                     rtnSettings.Notification = type;
             }
 
-            rtnSettings.StartWithComputer = Convert.ToBoolean(startWithComputer.Value);
+            rtnSettings.StartWithComputer = Convert.ToBoolean(startWithComputerNode.Value);
             return rtnSettings;
         }
 
@@ -117,6 +130,7 @@ namespace Fireball.Managers
                     new XAttribute("Ctrl", settings.CaptureAreaHotkey.Ctrl),
                     new XAttribute("Shift", settings.CaptureAreaHotkey.Shift),
                     new XAttribute("Alt", settings.CaptureAreaHotkey.Alt)),
+                new XElement("CaptureMode", settings.CaptureMode),
                 new XElement("ActivePlugin", settings.ActivePlugin),
                 new XElement("Notification", settings.Notification),
                 new XElement("StartWithComputer", settings.StartWithComputer));

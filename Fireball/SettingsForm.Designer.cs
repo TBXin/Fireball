@@ -40,20 +40,20 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.traySubExit = new System.Windows.Forms.ToolStripMenuItem();
             this.lCaptureScreen = new System.Windows.Forms.Label();
-            this.gHotkeys = new System.Windows.Forms.GroupBox();
-            this.hkArea = new Fireball.UI.HotkeySelectControl();
-            this.hkScreen = new Fireball.UI.HotkeySelectControl();
             this.lCaptureArea = new System.Windows.Forms.Label();
-            this.gPlugins = new System.Windows.Forms.GroupBox();
-            this.bPluginSettings = new System.Windows.Forms.Button();
-            this.lActive = new System.Windows.Forms.Label();
-            this.cPlugins = new System.Windows.Forms.ComboBox();
             this.cAutoStart = new System.Windows.Forms.CheckBox();
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.generalTab = new System.Windows.Forms.TabPage();
-            this.gNotifications = new System.Windows.Forms.GroupBox();
+            this.bCaptureModeHelp = new System.Windows.Forms.Button();
+            this.cCaptureMode = new System.Windows.Forms.ComboBox();
+            this.lCaptureMode = new System.Windows.Forms.Label();
+            this.hkArea = new Fireball.UI.HotkeySelectControl();
             this.cNotification = new System.Windows.Forms.ComboBox();
+            this.hkScreen = new Fireball.UI.HotkeySelectControl();
+            this.bPluginSettings = new System.Windows.Forms.Button();
             this.lNotification = new System.Windows.Forms.Label();
+            this.lActive = new System.Windows.Forms.Label();
+            this.cPlugins = new System.Windows.Forms.ComboBox();
             this.aboutTab = new System.Windows.Forms.TabPage();
             this.lAuthor = new System.Windows.Forms.Label();
             this.lVersion = new System.Windows.Forms.Label();
@@ -62,12 +62,10 @@
             this.cLanguage = new System.Windows.Forms.ComboBox();
             this.bCancel = new System.Windows.Forms.Button();
             this.bApply = new System.Windows.Forms.Button();
+            this.mainToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.trayMenu.SuspendLayout();
-            this.gHotkeys.SuspendLayout();
-            this.gPlugins.SuspendLayout();
             this.mainTabControl.SuspendLayout();
             this.generalTab.SuspendLayout();
-            this.gNotifications.SuspendLayout();
             this.aboutTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -143,73 +141,10 @@
             resources.ApplyResources(this.lCaptureScreen, "lCaptureScreen");
             this.lCaptureScreen.Name = "lCaptureScreen";
             // 
-            // gHotkeys
-            // 
-            resources.ApplyResources(this.gHotkeys, "gHotkeys");
-            this.gHotkeys.Controls.Add(this.hkArea);
-            this.gHotkeys.Controls.Add(this.hkScreen);
-            this.gHotkeys.Controls.Add(this.lCaptureArea);
-            this.gHotkeys.Controls.Add(this.lCaptureScreen);
-            this.gHotkeys.Name = "gHotkeys";
-            this.gHotkeys.TabStop = false;
-            // 
-            // hkArea
-            // 
-            this.hkArea.Alt = false;
-            this.hkArea.Ctrl = false;
-            resources.ApplyResources(this.hkArea, "hkArea");
-            this.hkArea.Hotkey = System.Windows.Forms.Keys.None;
-            this.hkArea.MinimumSize = new System.Drawing.Size(258, 23);
-            this.hkArea.Name = "hkArea";
-            this.hkArea.Shift = false;
-            this.hkArea.Win = false;
-            // 
-            // hkScreen
-            // 
-            this.hkScreen.Alt = false;
-            this.hkScreen.Ctrl = false;
-            resources.ApplyResources(this.hkScreen, "hkScreen");
-            this.hkScreen.Hotkey = System.Windows.Forms.Keys.None;
-            this.hkScreen.MinimumSize = new System.Drawing.Size(258, 23);
-            this.hkScreen.Name = "hkScreen";
-            this.hkScreen.Shift = false;
-            this.hkScreen.Win = false;
-            // 
             // lCaptureArea
             // 
             resources.ApplyResources(this.lCaptureArea, "lCaptureArea");
             this.lCaptureArea.Name = "lCaptureArea";
-            // 
-            // gPlugins
-            // 
-            resources.ApplyResources(this.gPlugins, "gPlugins");
-            this.gPlugins.Controls.Add(this.bPluginSettings);
-            this.gPlugins.Controls.Add(this.lActive);
-            this.gPlugins.Controls.Add(this.cPlugins);
-            this.gPlugins.Name = "gPlugins";
-            this.gPlugins.TabStop = false;
-            // 
-            // bPluginSettings
-            // 
-            resources.ApplyResources(this.bPluginSettings, "bPluginSettings");
-            this.bPluginSettings.Image = global::Fireball.Properties.Resources.settings;
-            this.bPluginSettings.Name = "bPluginSettings";
-            this.bPluginSettings.TabStop = false;
-            this.bPluginSettings.UseVisualStyleBackColor = true;
-            // 
-            // lActive
-            // 
-            resources.ApplyResources(this.lActive, "lActive");
-            this.lActive.Name = "lActive";
-            // 
-            // cPlugins
-            // 
-            resources.ApplyResources(this.cPlugins, "cPlugins");
-            this.cPlugins.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cPlugins.FormattingEnabled = true;
-            this.cPlugins.Name = "cPlugins";
-            this.cPlugins.TabStop = false;
-            this.cPlugins.SelectedIndexChanged += new System.EventHandler(this.CPluginsSelectedIndexChanged);
             // 
             // cAutoStart
             // 
@@ -228,34 +163,100 @@
             // 
             // generalTab
             // 
-            this.generalTab.Controls.Add(this.gNotifications);
-            this.generalTab.Controls.Add(this.gHotkeys);
-            this.generalTab.Controls.Add(this.gPlugins);
+            this.generalTab.Controls.Add(this.bCaptureModeHelp);
+            this.generalTab.Controls.Add(this.cCaptureMode);
+            this.generalTab.Controls.Add(this.lCaptureMode);
+            this.generalTab.Controls.Add(this.hkArea);
+            this.generalTab.Controls.Add(this.cNotification);
+            this.generalTab.Controls.Add(this.hkScreen);
+            this.generalTab.Controls.Add(this.bPluginSettings);
+            this.generalTab.Controls.Add(this.lCaptureArea);
+            this.generalTab.Controls.Add(this.lNotification);
+            this.generalTab.Controls.Add(this.lCaptureScreen);
+            this.generalTab.Controls.Add(this.lActive);
+            this.generalTab.Controls.Add(this.cPlugins);
             this.generalTab.Controls.Add(this.cAutoStart);
             resources.ApplyResources(this.generalTab, "generalTab");
             this.generalTab.Name = "generalTab";
             this.generalTab.UseVisualStyleBackColor = true;
             // 
-            // gNotifications
+            // bCaptureModeHelp
             // 
-            this.gNotifications.Controls.Add(this.cNotification);
-            this.gNotifications.Controls.Add(this.lNotification);
-            resources.ApplyResources(this.gNotifications, "gNotifications");
-            this.gNotifications.Name = "gNotifications";
-            this.gNotifications.TabStop = false;
+            this.bCaptureModeHelp.Image = global::Fireball.Properties.Resources.about;
+            resources.ApplyResources(this.bCaptureModeHelp, "bCaptureModeHelp");
+            this.bCaptureModeHelp.Name = "bCaptureModeHelp";
+            this.bCaptureModeHelp.UseVisualStyleBackColor = true;
+            this.bCaptureModeHelp.Click += new System.EventHandler(this.BCaptureModeHelpPressed);
+            // 
+            // cCaptureMode
+            // 
+            this.cCaptureMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cCaptureMode.FormattingEnabled = true;
+            resources.ApplyResources(this.cCaptureMode, "cCaptureMode");
+            this.cCaptureMode.Name = "cCaptureMode";
+            this.cCaptureMode.TabStop = false;
+            // 
+            // lCaptureMode
+            // 
+            resources.ApplyResources(this.lCaptureMode, "lCaptureMode");
+            this.lCaptureMode.Name = "lCaptureMode";
+            // 
+            // hkArea
+            // 
+            this.hkArea.Alt = false;
+            this.hkArea.Ctrl = false;
+            resources.ApplyResources(this.hkArea, "hkArea");
+            this.hkArea.Hotkey = System.Windows.Forms.Keys.None;
+            this.hkArea.MinimumSize = new System.Drawing.Size(258, 23);
+            this.hkArea.Name = "hkArea";
+            this.hkArea.Shift = false;
+            this.hkArea.Win = false;
             // 
             // cNotification
             // 
-            resources.ApplyResources(this.cNotification, "cNotification");
             this.cNotification.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cNotification.FormattingEnabled = true;
+            resources.ApplyResources(this.cNotification, "cNotification");
             this.cNotification.Name = "cNotification";
             this.cNotification.TabStop = false;
+            // 
+            // hkScreen
+            // 
+            this.hkScreen.Alt = false;
+            this.hkScreen.Ctrl = false;
+            resources.ApplyResources(this.hkScreen, "hkScreen");
+            this.hkScreen.Hotkey = System.Windows.Forms.Keys.None;
+            this.hkScreen.MinimumSize = new System.Drawing.Size(258, 23);
+            this.hkScreen.Name = "hkScreen";
+            this.hkScreen.Shift = false;
+            this.hkScreen.Win = false;
+            // 
+            // bPluginSettings
+            // 
+            this.bPluginSettings.Image = global::Fireball.Properties.Resources.settings;
+            resources.ApplyResources(this.bPluginSettings, "bPluginSettings");
+            this.bPluginSettings.Name = "bPluginSettings";
+            this.bPluginSettings.TabStop = false;
+            this.bPluginSettings.UseVisualStyleBackColor = true;
             // 
             // lNotification
             // 
             resources.ApplyResources(this.lNotification, "lNotification");
             this.lNotification.Name = "lNotification";
+            // 
+            // lActive
+            // 
+            resources.ApplyResources(this.lActive, "lActive");
+            this.lActive.Name = "lActive";
+            // 
+            // cPlugins
+            // 
+            this.cPlugins.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cPlugins.FormattingEnabled = true;
+            resources.ApplyResources(this.cPlugins, "cPlugins");
+            this.cPlugins.Name = "cPlugins";
+            this.cPlugins.TabStop = false;
+            this.cPlugins.SelectedIndexChanged += new System.EventHandler(this.CPluginsSelectedIndexChanged);
             // 
             // aboutTab
             // 
@@ -328,15 +329,9 @@
             this.MinimizeBox = false;
             this.Name = "SettingsForm";
             this.trayMenu.ResumeLayout(false);
-            this.gHotkeys.ResumeLayout(false);
-            this.gHotkeys.PerformLayout();
-            this.gPlugins.ResumeLayout(false);
-            this.gPlugins.PerformLayout();
             this.mainTabControl.ResumeLayout(false);
             this.generalTab.ResumeLayout(false);
             this.generalTab.PerformLayout();
-            this.gNotifications.ResumeLayout(false);
-            this.gNotifications.PerformLayout();
             this.aboutTab.ResumeLayout(false);
             this.aboutTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -348,12 +343,7 @@
 
         private System.Windows.Forms.NotifyIcon tray;
         private System.Windows.Forms.Label lCaptureScreen;
-        private System.Windows.Forms.GroupBox gHotkeys;
         private System.Windows.Forms.Label lCaptureArea;
-        private System.Windows.Forms.GroupBox gPlugins;
-        private System.Windows.Forms.Label lActive;
-        private System.Windows.Forms.ComboBox cPlugins;
-        private System.Windows.Forms.Button bPluginSettings;
         private System.Windows.Forms.Button bCancel;
         private System.Windows.Forms.Button bApply;
         private System.Windows.Forms.ContextMenuStrip trayMenu;
@@ -374,9 +364,15 @@
         private UI.HotkeySelectControl hkArea;
         private System.Windows.Forms.ToolStripMenuItem traySubAbout;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
-        private System.Windows.Forms.GroupBox gNotifications;
         private System.Windows.Forms.ComboBox cNotification;
         private System.Windows.Forms.Label lNotification;
         private System.Windows.Forms.ComboBox cLanguage;
+        private System.Windows.Forms.Button bPluginSettings;
+        private System.Windows.Forms.Label lActive;
+        private System.Windows.Forms.ComboBox cPlugins;
+        private System.Windows.Forms.ComboBox cCaptureMode;
+        private System.Windows.Forms.Label lCaptureMode;
+        private System.Windows.Forms.Button bCaptureModeHelp;
+        private System.Windows.Forms.ToolTip mainToolTip;
     }
 }

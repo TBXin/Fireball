@@ -104,8 +104,13 @@ namespace Fireball
             cLanguage.Items.Add(new LanguageItem("Eng", new CultureInfo("en-US")));
             cLanguage.Items.Add(new LanguageItem("Rus", new CultureInfo("ru-RU")));
 
-            cNotification.Items.Clear();
+            cCaptureMode.Items.Clear();
+            foreach (object type in Enum.GetValues(typeof(CaptureMode)))
+            {
+                cCaptureMode.Items.Add(type);
+            }
 
+            cNotification.Items.Clear();
             foreach (object type in Enum.GetValues(typeof(NotificationType)))
             {
                 cNotification.Items.Add(type);
@@ -137,6 +142,9 @@ namespace Fireball
             hkArea.Ctrl = settings.CaptureAreaHotkey.Ctrl;
             hkArea.Shift = settings.CaptureAreaHotkey.Shift;
             hkArea.Alt = settings.CaptureAreaHotkey.Alt;
+
+            if (cCaptureMode.Items.Contains(settings.CaptureMode))
+                cCaptureMode.SelectedItem = settings.CaptureMode;
 
             if (cNotification.Items.Contains(settings.Notification))
                 cNotification.SelectedItem = settings.Notification;
@@ -216,6 +224,9 @@ namespace Fireball
 
             NotificationType notification = (NotificationType)cNotification.SelectedItem;
             settings.Notification = notification;
+
+            CaptureMode captureMode = (CaptureMode)cCaptureMode.SelectedItem;
+            settings.CaptureMode = captureMode;
 
             settings.StartWithComputer = cAutoStart.Checked;
 
@@ -308,7 +319,7 @@ namespace Fireball
                 if (!createdNew) 
                     return;
 
-                using (TakeForm takeForm = new TakeForm())
+                using (TakeForm takeForm = new TakeForm(settings.CaptureMode))
                 {
                     if (takeForm.ShowDialog() == DialogResult.OK)
                     {
@@ -405,6 +416,15 @@ namespace Fireball
 
             if (item != null)
                 SetLanguage(this, item.Culture);
+        }
+
+        private void BCaptureModeHelpPressed(object sender, EventArgs e)
+        {
+            ComponentResourceManager resources = new ComponentResourceManager(GetType());
+            string toolTipText = resources.GetString("captureModeHelp");
+
+            if (toolTipText != null)
+                mainToolTip.Show(toolTipText.Replace("\\n", "\n"), bCaptureModeHelp, 0, 0, 10000);
         }
         #endregion
 

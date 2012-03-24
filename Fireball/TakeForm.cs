@@ -14,6 +14,7 @@ namespace Fireball
         private Boolean isMouseDown;
         private Image srcImage;
 
+        private CaptureMode captureMode;
         private Image helpImage;
         private Rectangle helpRectangle;
         private ColorMatrix helpMatrix;
@@ -29,7 +30,7 @@ namespace Fireball
         private SolidBrush selectionFillBrush = new SolidBrush(Color.FromArgb(100, 51, 153, 255));
         private Pen selectionBorderPen = new Pen(new SolidBrush(Color.FromArgb(51, 153, 255)), 1);
 
-        public TakeForm(bool showHelp = true)
+        public TakeForm(CaptureMode mode = CaptureMode.Manual)
         {
             InitializeComponent();
 
@@ -40,6 +41,7 @@ namespace Fireball
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint, true);
             Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
 
+            captureMode = mode;
             action = TakeScreenAction.Selection;
             srcImage = ScreenManager.GetScreenshot(Screen.PrimaryScreen);
 
@@ -51,7 +53,7 @@ namespace Fireball
                 helpImage.Width,
                 helpImage.Height);
 
-            helpMatrix = new ColorMatrix { Matrix33 = showHelp ? 1f : 0f };
+            helpMatrix = new ColorMatrix { Matrix33 = captureMode == CaptureMode.Manual ? 1f : 0f };
             helpAttributes = new ImageAttributes();
             helpAttributes.SetColorMatrix(helpMatrix);
 
@@ -127,10 +129,6 @@ namespace Fireball
             // Draw background
             gfx.DrawImage(srcImage, 0, 0);
 
-            /*Region fillRegion = new Region();
-            fillRegion.Exclude(selection);
-            gfx.FillRegion(fadeBrush, fillRegion);*/
-
             // Draw selection
             if (selection != Rectangle.Empty)
             {
@@ -178,6 +176,9 @@ namespace Fireball
         private void TakeFormMouseUp(object sender, MouseEventArgs e)
         {
             isMouseDown = false;
+
+            if (captureMode == CaptureMode.Automatic)
+                DialogResult = DialogResult.OK;
         }
 
         private void TakeFormMouseMove(object sender, MouseEventArgs e)

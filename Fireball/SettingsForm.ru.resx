@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="trayMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 126</value>
+  </data>
   <data name="traySubCaptureArea.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 22</value>
   </data>
@@ -154,9 +157,6 @@
   <data name="traySubExit.Text" xml:space="preserve">
     <value>Выход</value>
   </data>
-  <data name="trayMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>158, 126</value>
-  </data>
   <data name="lCaptureScreen.Text" xml:space="preserve">
     <value>Захват экрана:</value>
   </data>
@@ -166,26 +166,31 @@
   <data name="lCaptureArea.Text" xml:space="preserve">
     <value>Захват области:</value>
   </data>
-  <data name="gHotkeys.Text" xml:space="preserve">
-    <value>Горячие клавиши:</value>
-  </data>
-  <data name="bPluginSettings.Text" xml:space="preserve">
-    <value>Настр.</value>
-  </data>
-  <data name="lActive.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 13</value>
-  </data>
-  <data name="lActive.Text" xml:space="preserve">
-    <value>Активный плагин:</value>
-  </data>
-  <data name="gPlugins.Text" xml:space="preserve">
-    <value>Плагины:</value>
-  </data>
   <data name="cAutoStart.Size" type="System.Drawing.Size, System.Drawing">
     <value>263, 17</value>
   </data>
   <data name="cAutoStart.Text" xml:space="preserve">
     <value>Запускать Fireball при включении компьютера</value>
+  </data>
+  <data name="generalTab.Text" xml:space="preserve">
+    <value>Главная</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="cCaptureMode.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="cCaptureMode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 21</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lCaptureMode.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lCaptureMode.Text" xml:space="preserve">
+    <value>Режим захвата:</value>
+  </data>
+  <data name="bPluginSettings.Text" xml:space="preserve">
+    <value>Настройки</value>
   </data>
   <data name="lNotification.Size" type="System.Drawing.Size, System.Drawing">
     <value>112, 13</value>
@@ -193,11 +198,11 @@
   <data name="lNotification.Text" xml:space="preserve">
     <value>Тип уведомления:</value>
   </data>
-  <data name="gNotifications.Text" xml:space="preserve">
-    <value>Уведомления:</value>
+  <data name="lActive.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 13</value>
   </data>
-  <data name="generalTab.Text" xml:space="preserve">
-    <value>Главная</value>
+  <data name="lActive.Text" xml:space="preserve">
+    <value>Активный плагин:</value>
   </data>
   <data name="aboutTab.Text" xml:space="preserve">
     <value>О программе</value>
@@ -208,11 +213,13 @@
   <data name="bApply.Text" xml:space="preserve">
     <value>Применить</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>Inherit</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Fireball - Настройки</value>
+  </data>
+  <data name="captureModeHelp" xml:space="preserve">
+    <value>Manual mode\nВам необходимо нажать 'Enter' после выделения области, чтобы начать загрузку.\n\nAutomatic mode\nЗагрузка начнется атвоматически после завершения выделения.</value>
   </data>
 </root>
