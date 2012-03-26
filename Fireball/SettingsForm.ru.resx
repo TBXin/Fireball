@@ -220,6 +220,6 @@
     <value>Fireball - Настройки</value>
   </data>
   <data name="captureModeHelp" xml:space="preserve">
-    <value>Manual mode\nВам необходимо нажать 'Enter' после выделения области, чтобы начать загрузку.\n\nAutomatic mode\nЗагрузка начнется атвоматически после завершения выделения.</value>
+    <value>Manual mode\nВам необходимо нажать 'Enter' после выделения области, чтобы начать загрузку.\n\nAutomatic mode\nЗагрузка начнется автоматически после завершения выделения.</value>
   </data>
 </root>
