@@ -125,43 +125,49 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="traySubCaptureArea.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 22</value>
+    <value>170, 22</value>
   </data>
   <data name="traySubCaptureArea.Text" xml:space="preserve">
     <value>Capture area</value>
   </data>
   <data name="traySubCaptureScreen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 22</value>
+    <value>170, 22</value>
   </data>
   <data name="traySubCaptureScreen.Text" xml:space="preserve">
     <value>Capture screen</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 6</value>
+    <value>167, 6</value>
   </data>
   <data name="traySubSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 22</value>
+    <value>170, 22</value>
   </data>
   <data name="traySubSettings.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="traySubCheckForUpdates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 22</value>
+  </data>
+  <data name="traySubCheckForUpdates.Text" xml:space="preserve">
+    <value>Check for updates</value>
+  </data>
   <data name="traySubAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 22</value>
+    <value>170, 22</value>
   </data>
   <data name="traySubAbout.Text" xml:space="preserve">
     <value>About</value>
   </data>
   <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 6</value>
+    <value>167, 6</value>
   </data>
   <data name="traySubExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 22</value>
+    <value>170, 22</value>
   </data>
   <data name="traySubExit.Text" xml:space="preserve">
     <value>Exit</value>
   </data>
   <data name="trayMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 126</value>
+    <value>171, 148</value>
   </data>
   <data name="&gt;&gt;trayMenu.Name" xml:space="preserve">
     <value>trayMenu</value>
@@ -370,7 +376,7 @@
     <value>hkArea</value>
   </data>
   <data name="&gt;&gt;hkArea.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.3.26.2047, Culture=neutral, PublicKeyToken=null</value>
+    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.4.8.1659, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;hkArea.Parent" xml:space="preserve">
     <value>generalTab</value>
@@ -415,7 +421,7 @@
     <value>hkScreen</value>
   </data>
   <data name="&gt;&gt;hkScreen.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.3.26.2047, Culture=neutral, PublicKeyToken=null</value>
+    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.4.8.1659, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;hkScreen.Parent" xml:space="preserve">
     <value>generalTab</value>
@@ -733,7 +739,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;mainTabControl.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="cLanguage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -757,7 +763,25 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cLanguage.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
+  </data>
+  <metadata name="mainToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>193, 17</value>
+  </metadata>
+  <data name="updaterControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>44</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>419, 242</value>
   </data>
   <data name="bCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -793,7 +817,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bCancel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="bApply.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -829,22 +853,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bApply.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <metadata name="mainToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>193, 17</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>44</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>419, 242</value>
+    <value>4</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 8.25pt</value>
@@ -885,6 +894,12 @@
   <data name="&gt;&gt;traySubSettings.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;traySubCheckForUpdates.Name" xml:space="preserve">
+    <value>traySubCheckForUpdates</value>
+  </data>
+  <data name="&gt;&gt;traySubCheckForUpdates.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;traySubAbout.Name" xml:space="preserve">
     <value>traySubAbout</value>
   </data>
@@ -914,5 +929,26 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="updaterControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>390, 14</value>
+  </data>
+  <data name="updaterControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 16</value>
+  </data>
+  <data name="updaterControl.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;updaterControl.Name" xml:space="preserve">
+    <value>updaterControl</value>
+  </data>
+  <data name="&gt;&gt;updaterControl.Type" xml:space="preserve">
+    <value>wyDay.Controls.AutomaticUpdater, AutomaticUpdater, Version=2.6.16.0, Culture=neutral, PublicKeyToken=437887616030daaf</value>
+  </data>
+  <data name="&gt;&gt;updaterControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;updaterControl.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
 </root>

@@ -95,6 +95,13 @@ namespace Fireball.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap checkForUpdates {
+            get {
+                object obj = ResourceManager.GetObject("checkForUpdates", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap copyLink {
             get {
                 object obj = ResourceManager.GetObject("copyLink", resourceCulture);

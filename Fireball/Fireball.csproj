@@ -53,6 +53,10 @@
     <ApplicationIcon>fireball_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutomaticUpdater">
+      <HintPath>C:\Program Files (x86)\wyBuild\AutomaticUpdater\Microsoft .NET 4.0\AutomaticUpdater.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -154,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fireball_icon.ico" />
+    <None Include="Resources\checkForUpdates.png" />
     <None Include="Resources\openUrl.png" />
     <None Include="Resources\copyLink.png" />
     <None Include="Resources\about.png" />

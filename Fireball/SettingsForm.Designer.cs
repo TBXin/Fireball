@@ -36,6 +36,7 @@
             this.traySubCaptureScreen = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.traySubSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.traySubCheckForUpdates = new System.Windows.Forms.ToolStripMenuItem();
             this.traySubAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.traySubExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,14 +61,16 @@
             this.lName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cLanguage = new System.Windows.Forms.ComboBox();
+            this.mainToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.updaterControl = new wyDay.Controls.AutomaticUpdater();
             this.bCancel = new System.Windows.Forms.Button();
             this.bApply = new System.Windows.Forms.Button();
-            this.mainToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.trayMenu.SuspendLayout();
             this.mainTabControl.SuspendLayout();
             this.generalTab.SuspendLayout();
             this.aboutTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updaterControl)).BeginInit();
             this.SuspendLayout();
             // 
             // tray
@@ -85,6 +88,7 @@
             this.traySubCaptureScreen,
             this.toolStripMenuItem1,
             this.traySubSettings,
+            this.traySubCheckForUpdates,
             this.traySubAbout,
             this.toolStripMenuItem2,
             this.traySubExit});
@@ -116,6 +120,13 @@
             this.traySubSettings.Name = "traySubSettings";
             resources.ApplyResources(this.traySubSettings, "traySubSettings");
             this.traySubSettings.Click += new System.EventHandler(this.TraySubSettingsClick);
+            // 
+            // traySubCheckForUpdates
+            // 
+            this.traySubCheckForUpdates.Image = global::Fireball.Properties.Resources.checkForUpdates;
+            this.traySubCheckForUpdates.Name = "traySubCheckForUpdates";
+            resources.ApplyResources(this.traySubCheckForUpdates, "traySubCheckForUpdates");
+            this.traySubCheckForUpdates.Click += new System.EventHandler(this.TraySubCheckForUpdatesClick);
             // 
             // traySubAbout
             // 
@@ -298,6 +309,15 @@
             this.cLanguage.Name = "cLanguage";
             this.cLanguage.SelectedIndexChanged += new System.EventHandler(this.CLanguageSelectedIndexChanged);
             // 
+            // updaterControl
+            // 
+            resources.ApplyResources(this.updaterControl, "updaterControl");
+            this.updaterControl.ContainerForm = this;
+            this.updaterControl.DaysBetweenChecks = 1;
+            this.updaterControl.GUID = "08ecc737-7f91-49cc-85cf-063d56d3a8cb";
+            this.updaterControl.Name = "updaterControl";
+            this.updaterControl.wyUpdateCommandline = null;
+            // 
             // bCancel
             // 
             resources.ApplyResources(this.bCancel, "bCancel");
@@ -320,6 +340,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.updaterControl);
             this.Controls.Add(this.mainTabControl);
             this.Controls.Add(this.bCancel);
             this.Controls.Add(this.bApply);
@@ -335,6 +356,7 @@
             this.aboutTab.ResumeLayout(false);
             this.aboutTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updaterControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -351,7 +373,6 @@
         private System.Windows.Forms.ToolStripMenuItem traySubExit;
         private System.Windows.Forms.ToolStripMenuItem traySubCaptureArea;
         private System.Windows.Forms.ToolStripMenuItem traySubCaptureScreen;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.CheckBox cAutoStart;
         private System.Windows.Forms.TabControl mainTabControl;
         private System.Windows.Forms.TabPage generalTab;
@@ -374,5 +395,8 @@
         private System.Windows.Forms.Label lCaptureMode;
         private System.Windows.Forms.Button bCaptureModeHelp;
         private System.Windows.Forms.ToolTip mainToolTip;
+        private wyDay.Controls.AutomaticUpdater updaterControl;
+        private System.Windows.Forms.ToolStripMenuItem traySubCheckForUpdates;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
     }
 }

@@ -480,8 +480,17 @@ namespace Fireball
             mainTabControl.SelectedTab = aboutTab;
         }
 
+        private void TraySubCheckForUpdatesClick(object sender, EventArgs e)
+        {
+            TraySubSettingsClick(this, new EventArgs());
+            updaterControl.ForceCheckForUpdate(true);
+        }
+
         private void TraySubExitClick(object sender, EventArgs e)
         {
+            if (isVisible)
+                isVisible = false;
+
             Application.Exit();
         }
 

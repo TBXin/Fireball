@@ -25,8 +25,8 @@ namespace Fireball
                 {
                     Application.Run(new SettingsForm());
                 }
-
-                Helper.InfoBoxShow("Fireball already running!");
+                else
+                    Helper.InfoBoxShow("Fireball already running!");
             }
         }
     }
