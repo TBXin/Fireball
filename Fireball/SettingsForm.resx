@@ -370,7 +370,7 @@
     <value>hkArea</value>
   </data>
   <data name="&gt;&gt;hkArea.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.3.24.1845, Culture=neutral, PublicKeyToken=null</value>
+    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.3.26.2047, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;hkArea.Parent" xml:space="preserve">
     <value>generalTab</value>
@@ -415,7 +415,7 @@
     <value>hkScreen</value>
   </data>
   <data name="&gt;&gt;hkScreen.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.3.24.1845, Culture=neutral, PublicKeyToken=null</value>
+    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.3.26.2047, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;hkScreen.Parent" xml:space="preserve">
     <value>generalTab</value>

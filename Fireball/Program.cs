@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Windows.Forms;
+using System.Net;
 using System.Threading;
+using System.Windows.Forms;
 using Fireball.Core;
 
 namespace Fireball
@@ -18,6 +19,7 @@ namespace Fireball
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
+                ServicePointManager.Expect100Continue = true;
 
                 if (createdNew)
                 {

@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Fireball.Core;
 using Fireball.Managers;
@@ -10,6 +11,9 @@ namespace Fireball
 {
     partial class TakeForm : Form
     {
+        [DllImport("user32.dll")]
+        private static extern bool SetForegroundWindow(IntPtr hWnd);
+
         private TakeScreenAction action;
         private Boolean isMouseDown;
         private Image srcImage;
@@ -72,10 +76,9 @@ namespace Fireball
             MouseDown += TakeFormMouseDown;
             MouseUp += TakeFormMouseUp;
             MouseMove += TakeFormMouseMove;
-
             Paint += TakeFormPaint;
-
             KeyDown += TakeFormKeyDown;
+            Load += (s, e) => SetForegroundWindow(Handle);
         }
 
         public Image GetSelection()
@@ -175,6 +178,9 @@ namespace Fireball
 
         private void TakeFormMouseUp(object sender, MouseEventArgs e)
         {
+            if (e.Button != MouseButtons.Left)
+                return;
+
             isMouseDown = false;
 
             if (captureMode == CaptureMode.Automatic)
