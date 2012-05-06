@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImgurPlugin", "ImgurPlugin\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostingKartinokPlugin", "HostingKartinokPlugin\HostingKartinokPlugin.csproj", "{44259C9E-E8B0-42F0-A56C-EC8F6A3FC584}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IZhykPlugin", "IZhykPlugin\IZhykPlugin.csproj", "{8D592276-3A23-49E5-898A-A38C175927A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,16 @@ Global
 		{44259C9E-E8B0-42F0-A56C-EC8F6A3FC584}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{44259C9E-E8B0-42F0-A56C-EC8F6A3FC584}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{44259C9E-E8B0-42F0-A56C-EC8F6A3FC584}.Release|x86.ActiveCfg = Release|Any CPU
+		{8D592276-3A23-49E5-898A-A38C175927A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D592276-3A23-49E5-898A-A38C175927A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D592276-3A23-49E5-898A-A38C175927A0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8D592276-3A23-49E5-898A-A38C175927A0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8D592276-3A23-49E5-898A-A38C175927A0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8D592276-3A23-49E5-898A-A38C175927A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D592276-3A23-49E5-898A-A38C175927A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D592276-3A23-49E5-898A-A38C175927A0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8D592276-3A23-49E5-898A-A38C175927A0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8D592276-3A23-49E5-898A-A38C175927A0}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

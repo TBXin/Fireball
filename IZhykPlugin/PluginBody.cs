@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Drawing;
 using System.Collections.Specialized;
+using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Xml;
@@ -11,7 +11,7 @@ namespace Fireball.Plugin
     {
         public string Name
         {
-            get { return  "imgur"; }
+            get { return "izhyk"; }
         }
 
         public Single Version
@@ -41,15 +41,16 @@ namespace Fireball.Plugin
             {
                 NameValueCollection values = new NameValueCollection
                 {
-                    { "key", "4db5be3c4fe50e1daeb05c15b5c92347" },
-                    { "image", Convert.ToBase64String(imageData) }
+                    { "key", "Jk8hh9L" },
+                    { "upload", Convert.ToBase64String(imageData) },
+                    { "format", "xml" }
                 };
 
                 XmlDocument xDoc = new XmlDocument();
 
                 try
                 {
-                    byte[] response = w.UploadValues("http://imgur.com/api/upload.xml", values);
+                    byte[] response = w.UploadValues("http://i.zhyk.ru/api", values);
                     xDoc.Load(new MemoryStream(response));
                 }
                 catch (Exception ex)
@@ -57,7 +58,7 @@ namespace Fireball.Plugin
                     return ex.Message;
                 }
 
-                XmlNode imageNode = xDoc.SelectSingleNode("rsp/original_image");
+                XmlNode imageNode = xDoc.SelectSingleNode("response/data/img_url");
 
                 if (imageNode != null)
                     return imageNode.InnerText;

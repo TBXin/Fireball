@@ -7,9 +7,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fireball.Core;
+using Fireball.Editor;
 using Fireball.Managers;
 using Fireball.Plugin;
 using Fireball.UI;
+using wyDay.Controls;
 
 namespace Fireball
 {
@@ -25,12 +27,37 @@ namespace Fireball
         {
             InitializeComponent();
 
+            AutomaticUpdaterBackend back = new AutomaticUpdaterBackend()
+            {
+                GUID = "Fireball AutoUpdater",
+                UpdateType = UpdateType.Automatic
+            };
+
+            back.Initialize();
+            back.AppLoaded();
+
+            back.ReadyToBeInstalled += (s, e) =>
+            {
+                if (back.UpdateStepOn == UpdateStepOn.UpdateReadyToInstall)
+                {
+                    back.InstallNow();
+                    Application.Exit();
+                }
+            };
+
+            if (back.ClosingForInstall)
+                return;
+
+            back.ForceCheckForUpdate(true);
+
             Icon = tray.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             PopulateCombos();
 
-            settings = SettingsManager.Load();
-            PopulateSettings();
+            Settings.Instance = SettingsManager.Load();
+            settings = Settings.Instance;
 
+            PopulateSettings();
+            
             PluginManager.Load();
 
             foreach (IPlugin plugin in PluginManager.Plugins)
@@ -73,6 +100,11 @@ namespace Fireball
             {
                 Helper.InfoBoxShow(String.Format("Failed to register hotkeys!\n{0}", hotkeyRegisterErrorBuilder));
             }
+
+            Application.ApplicationExit += (s, e) =>
+            {
+                SettingsManager.Save();
+            };
         }
         #endregion
 
@@ -87,6 +119,9 @@ namespace Fireball
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
+            if (e.CloseReason != CloseReason.UserClosing)
+                return;
+
             if (isVisible)
             {
                 Hide();
@@ -150,6 +185,7 @@ namespace Fireball
                 cNotification.SelectedItem = settings.Notification;
 
             cAutoStart.Checked = settings.StartWithComputer;
+            cWithoutEditor.Checked = settings.WithoutEditor;
         }
 
         private Boolean SaveSettings()
@@ -229,10 +265,10 @@ namespace Fireball
             settings.CaptureMode = captureMode;
 
             settings.StartWithComputer = cAutoStart.Checked;
+            settings.WithoutEditor = cWithoutEditor.Checked;
 
             Helper.SetStartup(cAutoStart.Checked);
-            SettingsManager.Save(settings);
-
+            SettingsManager.Save();
             return true;
         }
 
@@ -240,6 +276,23 @@ namespace Fireball
         {
             if (image == null)
                 return;
+
+            if (!Settings.Instance.WithoutEditor)
+            {
+                using (EditorForm editor = new EditorForm(image, Thread.CurrentThread.CurrentUICulture))
+                {
+                    if (editor.ShowDialog() == DialogResult.OK)
+                    {
+                        image = editor.GetImage();
+                        SettingsManager.Save();
+                    }
+                    else
+                    {
+                        SettingsManager.Save();
+                        return;
+                    }
+                }
+            }
 
             NotificationForm notificationForm = null;
 
@@ -261,40 +314,52 @@ namespace Fireball
             Task uploadTask = new Task(() =>
             {
                 isUploading = true;
-                url = activePlugin.Upload(image);
+
+                try
+                {
+                    url = activePlugin.Upload(image);
+                }
+                catch { }
+
+                isUploading = false;
+
+                if (url.StartsWith("http://"))
+                    Settings.Instance.MRUList.Enqueue(url);
             });
 
             uploadTask.ContinueWith(arg =>
             {
-                if (settings.Notification == NotificationType.Tooltip)
+                try
                 {
-                    // Скопировать в буфер и показать тултип
-                    Clipboard.SetDataObject(url, true, 5, 500);
+                    if (settings.Notification == NotificationType.Tooltip)
+                    {
+                        // Скопировать в буфер и показать тултип
+                        Clipboard.SetDataObject(url, true, 5, 500);
 
-                    // ======= твик =======
-                    // прячем предыдущий тултип, если он сам не скрылся
-                    tray.Visible = false;
-                    tray.Visible = true;
-                    // ====================
+                        // ======= твик =======
+                        // прячем предыдущий тултип, если он сам не скрылся
+                        tray.Visible = false;
+                        tray.Visible = true;
+                        // ====================
 
-                    tray.BalloonTipIcon = ToolTipIcon.Info;
-                    tray.BalloonTipTitle = String.Format("Fireball: {0}", activePlugin.Name);
-                    tray.BalloonTipText = String.IsNullOrEmpty(url) ? "empty" : url;
-                    tray.ShowBalloonTip(1000);
+                        tray.BalloonTipIcon = ToolTipIcon.Info;
+                        tray.BalloonTipTitle = String.Format("Fireball: {0}", activePlugin.Name);
+                        tray.BalloonTipText = String.IsNullOrEmpty(url) ? "empty" : url;
+                        tray.ShowBalloonTip(1000);
+                    }
+                    else if (settings.Notification == NotificationType.Window)
+                    {
+                        // Вывести ссылку в форму уведомления
+                        if (notificationForm != null)
+                            notificationForm.SetUrl(url);
+                    }
+                    else
+                    {
+                        // Тихо копировать в буфер обмена
+                        Clipboard.SetDataObject(url, true, 5, 500);
+                    }
                 }
-                else if (settings.Notification == NotificationType.Window)
-                {
-                    // Вывести ссылку в форму уведомления
-                    if (notificationForm != null)
-                        notificationForm.SetUrl(url);
-                }
-                else
-                {
-                    // Тихо копировать в буфер обмена
-                    Clipboard.SetDataObject(url, true, 5, 500);
-                }
-
-                isUploading = false;
+                catch { }
             }, TaskScheduler.FromCurrentSynchronizationContext());
             uploadTask.Start();
         }
@@ -351,40 +416,11 @@ namespace Fireball
             Thread.CurrentThread.CurrentUICulture = lang;
             ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
 
-            ApplyResourceToControl(resources, trayMenu, lang);
-            ApplyResourceToControl(resources, form, lang);
+            Localizer.ApplyResourceToControl(resources, trayMenu, lang);
+            Localizer.ApplyResourceToControl(resources, form, lang);
 
             form.Text = resources.GetString("$this.Text", lang);
             lVersion.Text = String.Format("Version: {0}", Application.ProductVersion);
-        }
-
-        private void ApplyResourceToControl(ComponentResourceManager resources, Control control, CultureInfo lang)
-        {
-            if (control == null)
-                return;
-
-            foreach (Control c in control.Controls)
-            {
-                ApplyResourceToControl(resources, c, lang);
-                string text = resources.GetString(c.Name + ".Text", lang);
-
-                if (text != null)
-                    c.Text = text;
-            }
-        }
-
-        private void ApplyResourceToControl(ComponentResourceManager resources, ContextMenuStrip menu, CultureInfo lang)
-        {
-            if (menu == null)
-                return;
-
-            foreach (ToolStripItem m in menu.Items)
-            {
-                string text = resources.GetString(m.Name + ".Text", lang);
-
-                if (text != null)
-                    m.Text = text;
-            }
         }
 
         #region :: Form Controlls Events ::
@@ -403,7 +439,7 @@ namespace Fireball
         {
             PluginItem item = cPlugins.SelectedItem as PluginItem;
 
-            if (item == null) 
+            if (item == null)
                 return;
 
             activePlugin = item.Plugin;
@@ -416,15 +452,6 @@ namespace Fireball
 
             if (item != null)
                 SetLanguage(this, item.Culture);
-        }
-
-        private void BCaptureModeHelpPressed(object sender, EventArgs e)
-        {
-            ComponentResourceManager resources = new ComponentResourceManager(GetType());
-            string toolTipText = resources.GetString("captureModeHelp");
-
-            if (toolTipText != null)
-                mainToolTip.Show(toolTipText.Replace("\\n", "\n"), bCaptureModeHelp, 0, 0, 10000);
         }
         #endregion
 
@@ -488,9 +515,6 @@ namespace Fireball
 
         private void TraySubExitClick(object sender, EventArgs e)
         {
-            if (isVisible)
-                isVisible = false;
-
             Application.Exit();
         }
 
@@ -498,6 +522,18 @@ namespace Fireball
         {
             if (tray.BalloonTipText.StartsWith("http://"))
                 System.Diagnostics.Process.Start(tray.BalloonTipText);
+        }
+
+        private void trayMenu_Opening(object sender, CancelEventArgs e)
+        {
+            recentToolStripMenuItem.DropDown.Items.Clear();
+            Settings.Instance.MRUList.Items.ForEach((item) =>
+            {
+                recentToolStripMenuItem.DropDown.Items.Add(item, Properties.Resources.image, (s1, e1) =>
+                {
+                    System.Diagnostics.Process.Start(item);
+                });
+            });
         }
         #endregion
     }

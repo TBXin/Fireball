@@ -73,12 +73,34 @@ namespace Fireball
             }, 
             null, 1500, 50);
 
-            MouseDown += TakeFormMouseDown;
-            MouseUp += TakeFormMouseUp;
-            MouseMove += TakeFormMouseMove;
-            Paint += TakeFormPaint;
-            KeyDown += TakeFormKeyDown;
             Load += (s, e) => SetForegroundWindow(Handle);
+        }
+
+        void toolBar1_GotFocus(object sender, EventArgs e)
+        {
+            this.Focus();
+        }
+
+        bool isToolbarMoving = false;
+        Point toolBarClick;
+
+        void toolBar1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!isToolbarMoving)
+                return;
+
+            toolBarClick = new Point(Cursor.Position.X, Cursor.Position.Y);
+        }
+
+        void toolBar1_MouseUp(object sender, MouseEventArgs e)
+        {
+            isToolbarMoving = false;
+        }
+
+        void toolBar1_MouseDown(object sender, MouseEventArgs e)
+        {
+            isToolbarMoving = true;
+            toolBarClick = new Point(Cursor.Position.X, Cursor.Position.Y);
         }
 
         public Image GetSelection()
@@ -107,7 +129,7 @@ namespace Fireball
             return rtnImage;
         }
 
-        private void TakeFormKeyDown(object sender, KeyEventArgs e)
+        protected override void OnKeyDown(KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
@@ -117,9 +139,11 @@ namespace Fireball
             {
                 DialogResult = DialogResult.OK;
             }
+
+            base.OnKeyDown(e);
         }
 
-        private void TakeFormPaint(object sender, PaintEventArgs e)
+        protected override void OnPaint(PaintEventArgs e)
         {
             gfx = e.Graphics;
 
@@ -152,31 +176,33 @@ namespace Fireball
                 helpAttributes);
         }
 
-        private void TakeFormMouseDown(object sender, MouseEventArgs e)
+        protected override void OnMouseDown(MouseEventArgs e)
         {
-            if(e.Button != MouseButtons.Left)
+            if (e.Button != MouseButtons.Left)
                 return;
 
-            Point clickLocation = new Point(e.X, e.Y);
+            //Point clickLocation = new Point(e.X, e.Y);
             isMouseDown = true;
 
-            if(selection.Contains(clickLocation))
+            /*if (selection.Contains(clickLocation))
             {
                 // Перетаскивание выделения
                 action = TakeScreenAction.MoveSelection;
                 selectionEnd = new Point(e.X, e.Y);
             }
             else
-            {
+            {*/
                 // Создание выделения
                 action = TakeScreenAction.Selection;
                 selection = Rectangle.Empty;
                 selectionStart = new Point(e.X, e.Y);
                 Invalidate();
-            }
+            //}
+
+            base.OnMouseDown(e);
         }
 
-        private void TakeFormMouseUp(object sender, MouseEventArgs e)
+        protected override void OnMouseUp(MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)
                 return;
@@ -185,11 +211,13 @@ namespace Fireball
 
             if (captureMode == CaptureMode.Automatic)
                 DialogResult = DialogResult.OK;
+
+            base.OnMouseUp(e);
         }
 
-        private void TakeFormMouseMove(object sender, MouseEventArgs e)
+        protected override void OnMouseMove(MouseEventArgs e)
         {
-            Cursor = selection.Contains(e.Location) ? Cursors.SizeAll : Cursors.Cross;
+            //Cursor = selection.Contains(e.Location) ? Cursors.SizeAll : Cursors.Cross;
 
             if (action == TakeScreenAction.Selection && isMouseDown)
             {
@@ -208,7 +236,7 @@ namespace Fireball
 
                 Invalidate(selectionInvalidateRectangle);
             }
-            else if (action == TakeScreenAction.MoveSelection && isMouseDown)
+            /*else if (action == TakeScreenAction.MoveSelection && isMouseDown)
             {
                 prevMousePosition = new Point(selectionEnd.X, selectionEnd.Y);
                 selectionEnd = new Point(e.X, e.Y);
@@ -218,11 +246,13 @@ namespace Fireball
 
                 selectionInvalidateRectangle = new Rectangle(selection.X, selection.Y, selection.Width, selection.Height);
                 selectionInvalidateRectangle.Inflate(
-                    Math.Abs(selectionEnd.X - prevMousePosition.X) + 5,
-                    Math.Abs(selectionEnd.Y - prevMousePosition.Y) + 5);
+                    Math.Abs(prevMousePosition.X - selectionEnd.X) + 5,
+                    Math.Abs(prevMousePosition.Y - selectionEnd.Y) + 5);
 
                 Invalidate(selectionInvalidateRectangle);
-            }
+            }*/
+
+            base.OnMouseMove(e);
         }
     }
 }

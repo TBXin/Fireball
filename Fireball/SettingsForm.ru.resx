@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="trayMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 176</value>
+  </data>
   <data name="traySubCaptureArea.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 22</value>
   </data>
@@ -131,6 +134,15 @@
     <value>Захват экрана</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 6</value>
+  </data>
+  <data name="recentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 22</value>
+  </data>
+  <data name="recentToolStripMenuItem.Text" xml:space="preserve">
+    <value>Последние загрузки</value>
+  </data>
+  <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
     <value>201, 6</value>
   </data>
   <data name="traySubSettings.Size" type="System.Drawing.Size, System.Drawing">
@@ -160,9 +172,6 @@
   <data name="traySubExit.Text" xml:space="preserve">
     <value>Выход</value>
   </data>
-  <data name="trayMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 148</value>
-  </data>
   <data name="lCaptureScreen.Text" xml:space="preserve">
     <value>Захват экрана:</value>
   </data>
@@ -177,6 +186,15 @@
   </data>
   <data name="cAutoStart.Text" xml:space="preserve">
     <value>Запускать Fireball при включении компьютера</value>
+  </data>
+  <data name="generalTab.Text" xml:space="preserve">
+    <value>Главная</value>
+  </data>
+  <data name="cWithoutEditor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 17</value>
+  </data>
+  <data name="cWithoutEditor.Text" xml:space="preserve">
+    <value>Не использовать редактор изображений</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cCaptureMode.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -203,9 +221,6 @@
   </data>
   <data name="lActive.Text" xml:space="preserve">
     <value>Активный плагин:</value>
-  </data>
-  <data name="generalTab.Text" xml:space="preserve">
-    <value>Главная</value>
   </data>
   <data name="aboutTab.Text" xml:space="preserve">
     <value>О программе</value>

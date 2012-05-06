@@ -140,7 +140,7 @@ namespace Fireball.Core
             {
                 if (UnregisterHotKey(windowControl.Handle, id) == 0)
                 {
-                    throw new Win32Exception();
+                    //throw new Win32Exception();
                 }
             }
 

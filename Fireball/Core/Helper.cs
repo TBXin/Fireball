@@ -11,6 +11,11 @@ namespace Fireball.Core
             MessageBox.Show(text, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        public static DialogResult InfoBoxYesNoShow(string text, string caption)
+        {
+            return MessageBox.Show(text, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+        }
+
         private const string RunKey = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
         private const string AppName = "Fireball";
 

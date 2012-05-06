@@ -72,6 +72,38 @@
     <Compile Include="Core\CaptureMode.cs" />
     <Compile Include="Core\Helper.cs" />
     <Compile Include="Core\Hotkey.cs" />
+    <Compile Include="Core\Localizer.cs" />
+    <Compile Include="Core\MRUList.cs" />
+    <Compile Include="Editor\EditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\EditorForm.designer.cs">
+      <DependentUpon>EditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Painting\Arrow.cs" />
+    <Compile Include="Editor\Painting\BrushStroke.cs" />
+    <Compile Include="Editor\Painting\Drawable.cs" />
+    <Compile Include="Editor\Painting\Ellipse.cs" />
+    <Compile Include="Editor\Painting\FilledEllipse.cs" />
+    <Compile Include="Editor\Painting\FilledSquare.cs" />
+    <Compile Include="Editor\Painting\Line.cs" />
+    <Compile Include="Editor\Painting\Square.cs" />
+    <Compile Include="Editor\Painting\Text.cs" />
+    <Compile Include="Editor\TextPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\TextPreview.designer.cs">
+      <DependentUpon>TextPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BorderedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\ColorSelectionButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Editor\ImageBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\LanguageItem.cs" />
     <Compile Include="Core\NotificationType.cs" />
     <Compile Include="Core\Settings.cs" />
@@ -113,6 +145,12 @@
     <Compile Include="UI\HotkeySelectControl.Designer.cs">
       <DependentUpon>HotkeySelectControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Editor\EditorForm.resx">
+      <DependentUpon>EditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\EditorForm.ru.resx">
+      <DependentUpon>EditorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NotificationForm.resx">
       <DependentUpon>NotificationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +176,12 @@
     <EmbeddedResource Include="TakeForm.resx">
       <DependentUpon>TakeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Editor\TextPreview.resx">
+      <DependentUpon>TextPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\TextPreview.ru.resx">
+      <DependentUpon>TextPreview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\HotkeySelectControl.resx">
       <DependentUpon>HotkeySelectControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,6 +202,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fireball_icon.ico" />
+    <None Include="Resources\image.png" />
+    <None Include="Resources\recent.png" />
+    <None Include="Resources\transparent.png" />
+    <None Include="Resources\eraser.png" />
+    <None Include="Resources\unfilled_rectangle.png" />
+    <None Include="Resources\unfilled_ellipse_.png" />
+    <None Include="Resources\text.png" />
+    <None Include="Resources\rectangle.png" />
+    <None Include="Resources\line.png" />
+    <None Include="Resources\ellipse.png" />
+    <None Include="Resources\brush1.png" />
+    <None Include="Resources\arrow.png" />
+    <None Include="Resources\arrow_redo.png" />
+    <None Include="Resources\arrow_undo.png" />
+    <None Include="Resources\font.png" />
+    <None Include="Resources\select.png" />
+    <None Include="Resources\brush.png" />
+    <None Include="Resources\toolbar.png" />
     <None Include="Resources\checkForUpdates.png" />
     <None Include="Resources\openUrl.png" />
     <None Include="Resources\copyLink.png" />
@@ -198,7 +260,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_BuildVersioningStyle="YearStamp.MonthStamp.DayStamp.TimeStamp" BuildVersion_AssemblyInfoFilename="Properties\AssemblyInfo.cs" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" />
+      <UserProperties BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_AssemblyInfoFilename="Properties\AssemblyInfo.cs" BuildVersion_BuildVersioningStyle="YearStamp.MonthStamp.DayStamp.TimeStamp" />
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
