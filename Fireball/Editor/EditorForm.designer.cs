@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditorForm));
             this.imageBox1 = new Fireball.Editor.ImageBox();
             this.borderedPanel4 = new Fireball.UI.BorderedPanel();
+            this.rHighlighter = new System.Windows.Forms.RadioButton();
             this.rText = new System.Windows.Forms.RadioButton();
             this.rFilledEllipse = new System.Windows.Forms.RadioButton();
             this.rBrush = new System.Windows.Forms.RadioButton();
@@ -50,7 +51,6 @@
             this.bRedo = new System.Windows.Forms.Button();
             this.bClose = new System.Windows.Forms.Button();
             this.bUndo = new System.Windows.Forms.Button();
-            this.rHighlighter = new System.Windows.Forms.RadioButton();
             this.borderedPanel4.SuspendLayout();
             this.borderedPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nSize)).BeginInit();
@@ -86,6 +86,14 @@
             this.borderedPanel4.Controls.Add(this.rFilledRectangle);
             resources.ApplyResources(this.borderedPanel4, "borderedPanel4");
             this.borderedPanel4.Name = "borderedPanel4";
+            // 
+            // rHighlighter
+            // 
+            resources.ApplyResources(this.rHighlighter, "rHighlighter");
+            this.rHighlighter.Image = global::Fireball.Properties.Resources.highlighter;
+            this.rHighlighter.Name = "rHighlighter";
+            this.rHighlighter.UseVisualStyleBackColor = true;
+            this.rHighlighter.CheckedChanged += new System.EventHandler(this.rHighlighter_CheckedChanged);
             // 
             // rText
             // 
@@ -268,13 +276,6 @@
             this.bUndo.Name = "bUndo";
             this.bUndo.UseVisualStyleBackColor = true;
             this.bUndo.Click += new System.EventHandler(this.bUndo_Click);
-            // 
-            // rHighlighter
-            // 
-            resources.ApplyResources(this.rHighlighter, "rHighlighter");
-            this.rHighlighter.Image = global::Fireball.Properties.Resources.highlighter;
-            this.rHighlighter.Name = "rHighlighter";
-            this.rHighlighter.UseVisualStyleBackColor = true;
             // 
             // EditorForm
             // 

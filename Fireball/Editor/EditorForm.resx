@@ -166,7 +166,7 @@
     <value>28, 28</value>
   </data>
   <data name="rHighlighter.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;rHighlighter.Name" xml:space="preserve">
     <value>rHighlighter</value>
@@ -193,7 +193,7 @@
     <value>28, 28</value>
   </data>
   <data name="rText.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="&gt;&gt;rText.Name" xml:space="preserve">
     <value>rText</value>
@@ -220,7 +220,7 @@
     <value>28, 28</value>
   </data>
   <data name="rFilledEllipse.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;rFilledEllipse.Name" xml:space="preserve">
     <value>rFilledEllipse</value>
@@ -274,7 +274,7 @@
     <value>28, 28</value>
   </data>
   <data name="rEllipse.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;rEllipse.Name" xml:space="preserve">
     <value>rEllipse</value>
@@ -301,7 +301,7 @@
     <value>28, 28</value>
   </data>
   <data name="rLine.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;rLine.Name" xml:space="preserve">
     <value>rLine</value>
@@ -328,7 +328,7 @@
     <value>28, 28</value>
   </data>
   <data name="rArrow.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;rArrow.Name" xml:space="preserve">
     <value>rArrow</value>
@@ -355,7 +355,7 @@
     <value>28, 28</value>
   </data>
   <data name="rRectangle.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;rRectangle.Name" xml:space="preserve">
     <value>rRectangle</value>
@@ -382,7 +382,7 @@
     <value>28, 28</value>
   </data>
   <data name="rFilledRectangle.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="&gt;&gt;rFilledRectangle.Name" xml:space="preserve">
     <value>rFilledRectangle</value>
@@ -758,6 +758,9 @@
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 8.25pt</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>768, 500</value>

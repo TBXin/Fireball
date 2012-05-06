@@ -86,6 +86,7 @@
     <Compile Include="Editor\Painting\Ellipse.cs" />
     <Compile Include="Editor\Painting\FilledEllipse.cs" />
     <Compile Include="Editor\Painting\FilledSquare.cs" />
+    <Compile Include="Editor\Painting\Highlighter.cs" />
     <Compile Include="Editor\Painting\Line.cs" />
     <Compile Include="Editor\Painting\Square.cs" />
     <Compile Include="Editor\Painting\Text.cs" />
@@ -202,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fireball_icon.ico" />
+    <None Include="Resources\highlighter.png" />
     <None Include="Resources\image.png" />
     <None Include="Resources\recent.png" />
     <None Include="Resources\transparent.png" />

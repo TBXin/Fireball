@@ -107,6 +107,11 @@ namespace Fireball.Editor
             imageBox1.Tool = DrawTool.Text;
         }
 
+        private void rHighlighter_CheckedChanged(object sender, EventArgs e)
+        {
+            imageBox1.Tool = DrawTool.Highlighter;
+        }
+
         private void Main_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)

@@ -136,6 +136,9 @@ namespace Fireball.Editor
                 case DrawTool.Brush:
                     lastDrawable = new BrushStroke(Settings.Instance.ForeColor, Settings.Instance.BrushWidth);
                     break;
+                case DrawTool.Highlighter:
+                    lastDrawable = new Highlighter(Settings.Instance.ForeColor, Settings.Instance.BrushWidth);
+                    break;
                 case DrawTool.Line:
                     lastDrawable = new Line(Settings.Instance.ForeColor, Settings.Instance.BrushWidth, mousePosition);
                     break;
@@ -200,6 +203,9 @@ namespace Fireball.Editor
             {
                 case DrawTool.Brush:
                     ((BrushStroke)lastDrawable).Points.Add(mousePosition);
+                    break;
+                case DrawTool.Highlighter:
+                    ((Highlighter)lastDrawable).Points.Add(mousePosition);
                     break;
                 case DrawTool.Line:
                     ((Line)lastDrawable).End = mousePosition;
