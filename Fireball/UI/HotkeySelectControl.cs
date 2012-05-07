@@ -58,6 +58,11 @@ namespace Fireball.UI
                 cKey.Items.Add(k);
             }
 
+            for (Keys k = Keys.F1; k <= Keys.F12; k++)
+            {
+                cKey.Items.Add(k);
+            }
+
             cKey.Items.Add(Keys.PrintScreen);
             cKey.Items.Add(Keys.Pause);
             cKey.Items.Add(Keys.Insert);
