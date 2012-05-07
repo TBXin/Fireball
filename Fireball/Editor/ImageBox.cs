@@ -45,6 +45,8 @@ namespace Fireball.Editor
         private bool mouseDown;
         private Drawable lastDrawable;
 
+        private Point start;
+
         public ImageBox()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
@@ -130,6 +132,7 @@ namespace Fireball.Editor
 
             mouseDown = true;
             Point mousePosition = new Point(e.Location.X + HorizontalScroll.Value, e.Location.Y + VerticalScroll.Value);
+            start = mousePosition;
 
             switch (Tool)
             {
@@ -189,6 +192,10 @@ namespace Fireball.Editor
             base.OnMouseUp(e);
         }
 
+        /*private bool directionDetermined;
+        private bool horizontal;
+        private bool vertical;*/
+
         protected override void OnMouseMove(MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)
@@ -198,6 +205,28 @@ namespace Fireball.Editor
                 return;
 
             Point mousePosition = new Point(e.Location.X + HorizontalScroll.Value, e.Location.Y + VerticalScroll.Value);
+
+            /*if (Control.ModifierKeys == Keys.Shift)
+            {
+                if (!directionDetermined)
+                {
+                    int dx = mousePosition.X - start.X;
+                    int dy = mousePosition.Y - start.Y;
+
+                    if (Math.Abs(dx) > Math.Abs(dy))
+                        horizontal = true;
+                    else
+                        vertical = true;
+
+                    directionDetermined = true;
+                }
+
+                if (vertical)
+                    mousePosition.X = start.X;
+
+                if (horizontal)
+                    mousePosition.Y = start.Y;
+            }*/
 
             switch (Tool)
             {

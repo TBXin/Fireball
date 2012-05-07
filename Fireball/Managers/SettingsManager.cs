@@ -24,6 +24,10 @@ namespace Fireball.Managers
                 XElement languageNode = root.Element("Language");
                 XElement captureScreenNode = root.Element("CaptureScreenHotkey");
                 XElement captureAreaNode = root.Element("CaptureAreaHotkey");
+
+                XElement uploadFromClipboardNode = root.Element("UploadFromClipboardHotkey");
+                XElement uploadFromFileNode = root.Element("UploadFromFileHotkey");
+
                 XElement captureModeNode = root.Element("CaptureMode");
                 XElement activePluginNode = root.Element("ActivePlugin");
                 XElement notificationNode = root.Element("Notification");
@@ -74,6 +78,46 @@ namespace Fireball.Managers
                     return rtnSettings;
 
                 rtnSettings.CaptureAreaHotkey = new Hotkey(
+                    Convert.ToBoolean(ctrlAttribute.Value),
+                    Convert.ToBoolean(shiftAttribute.Value),
+                    Convert.ToBoolean(altAttribute.Value),
+                    Convert.ToBoolean(winAttribute.Value),
+                    (Keys)Enum.Parse(typeof(Keys), keyAttribute.Value));
+                #endregion
+                #region :: UploadFromClipboardHotkey ::
+                if (uploadFromClipboardNode == null)
+                    return rtnSettings;
+
+                winAttribute = uploadFromClipboardNode.Attribute("Win");
+                ctrlAttribute = uploadFromClipboardNode.Attribute("Ctrl");
+                shiftAttribute = uploadFromClipboardNode.Attribute("Shift");
+                altAttribute = uploadFromClipboardNode.Attribute("Alt");
+                keyAttribute = uploadFromClipboardNode.Attribute("Key");
+
+                if (winAttribute == null || ctrlAttribute == null || shiftAttribute == null || altAttribute == null || keyAttribute == null)
+                    return rtnSettings;
+
+                rtnSettings.UploadFromClipboardHotkey = new Hotkey(
+                    Convert.ToBoolean(ctrlAttribute.Value),
+                    Convert.ToBoolean(shiftAttribute.Value),
+                    Convert.ToBoolean(altAttribute.Value),
+                    Convert.ToBoolean(winAttribute.Value),
+                    (Keys)Enum.Parse(typeof(Keys), keyAttribute.Value));
+                #endregion
+                #region :: UploadFromFileHotkey ::
+                if (uploadFromFileNode == null)
+                    return rtnSettings;
+
+                winAttribute = uploadFromFileNode.Attribute("Win");
+                ctrlAttribute = uploadFromFileNode.Attribute("Ctrl");
+                shiftAttribute = uploadFromFileNode.Attribute("Shift");
+                altAttribute = uploadFromFileNode.Attribute("Alt");
+                keyAttribute = uploadFromFileNode.Attribute("Key");
+
+                if (winAttribute == null || ctrlAttribute == null || shiftAttribute == null || altAttribute == null || keyAttribute == null)
+                    return rtnSettings;
+
+                rtnSettings.UploadFromFileHotkey = new Hotkey(
                     Convert.ToBoolean(ctrlAttribute.Value),
                     Convert.ToBoolean(shiftAttribute.Value),
                     Convert.ToBoolean(altAttribute.Value),
@@ -167,6 +211,18 @@ namespace Fireball.Managers
                     new XAttribute("Ctrl", settings.CaptureAreaHotkey.Ctrl),
                     new XAttribute("Shift", settings.CaptureAreaHotkey.Shift),
                     new XAttribute("Alt", settings.CaptureAreaHotkey.Alt)),
+                new XElement("UploadFromClipboardHotkey",
+                    new XAttribute("Key", settings.UploadFromClipboardHotkey.KeyCode.ToString()),
+                    new XAttribute("Win", settings.UploadFromClipboardHotkey.Win),
+                    new XAttribute("Ctrl", settings.UploadFromClipboardHotkey.Ctrl),
+                    new XAttribute("Shift", settings.UploadFromClipboardHotkey.Shift),
+                    new XAttribute("Alt", settings.UploadFromClipboardHotkey.Alt)),
+                new XElement("UploadFromFileHotkey",
+                    new XAttribute("Key", settings.UploadFromFileHotkey.KeyCode.ToString()),
+                    new XAttribute("Win", settings.UploadFromFileHotkey.Win),
+                    new XAttribute("Ctrl", settings.UploadFromFileHotkey.Ctrl),
+                    new XAttribute("Shift", settings.UploadFromFileHotkey.Shift),
+                    new XAttribute("Alt", settings.UploadFromFileHotkey.Alt)),
                 new XElement("CaptureMode", settings.CaptureMode),
                 new XElement("ActivePlugin", settings.ActivePlugin),
                 new XElement("Notification", settings.Notification),

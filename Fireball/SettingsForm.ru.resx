@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="trayMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 176</value>
+    <value>205, 220</value>
   </data>
   <data name="traySubCaptureArea.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 22</value>
@@ -132,6 +132,18 @@
   </data>
   <data name="traySubCaptureScreen.Text" xml:space="preserve">
     <value>Захват экрана</value>
+  </data>
+  <data name="traySubUploadFromClipboard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 22</value>
+  </data>
+  <data name="traySubUploadFromClipboard.Text" xml:space="preserve">
+    <value>Загрузить из буфера</value>
+  </data>
+  <data name="uploadFromFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 22</value>
+  </data>
+  <data name="uploadFromFile.Text" xml:space="preserve">
+    <value>Загрузить из файла</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>201, 6</value>
@@ -190,15 +202,8 @@
   <data name="generalTab.Text" xml:space="preserve">
     <value>Главная</value>
   </data>
-  <data name="cWithoutEditor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 17</value>
-  </data>
-  <data name="cWithoutEditor.Text" xml:space="preserve">
-    <value>Не использовать редактор изображений</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="cCaptureMode.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Настройки</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lCaptureMode.AutoSize" type="System.Boolean, mscorlib">
@@ -207,8 +212,15 @@
   <data name="lCaptureMode.Text" xml:space="preserve">
     <value>Режим захвата:</value>
   </data>
-  <data name="bPluginSettings.Text" xml:space="preserve">
-    <value>Настройки</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="cCaptureMode.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="cWithoutEditor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 17</value>
+  </data>
+  <data name="cWithoutEditor.Text" xml:space="preserve">
+    <value>Не использовать редактор изображений</value>
   </data>
   <data name="lNotification.Size" type="System.Drawing.Size, System.Drawing">
     <value>112, 13</value>
@@ -216,11 +228,29 @@
   <data name="lNotification.Text" xml:space="preserve">
     <value>Тип уведомления:</value>
   </data>
+  <data name="bPluginSettings.Text" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
   <data name="lActive.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 13</value>
   </data>
   <data name="lActive.Text" xml:space="preserve">
     <value>Активный плагин:</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Горячие клавиши</value>
+  </data>
+  <data name="lUploadFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 13</value>
+  </data>
+  <data name="lUploadFile.Text" xml:space="preserve">
+    <value>Загрузить из файла:</value>
+  </data>
+  <data name="lUploadClipboard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 13</value>
+  </data>
+  <data name="lUploadClipboard.Text" xml:space="preserve">
+    <value>Загрузить из буфера:</value>
   </data>
   <data name="aboutTab.Text" xml:space="preserve">
     <value>О программе</value>
@@ -230,6 +260,9 @@
   </data>
   <data name="bApply.Text" xml:space="preserve">
     <value>Применить</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Fireball - Настройки</value>

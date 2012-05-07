@@ -31,15 +31,12 @@ namespace Fireball.Editor.Painting
 
         public override void Draw(Graphics gfx, Point offset)
         {
+            gfx.TranslateTransform(offset.X, offset.Y);
+
             if (Points.Count > 1)
                 gfx.DrawCurve(pen, Points.ToArray());
 
-            /*for (int i = 0; i < Points.Count - 1; i++)
-            {
-                gfx.DrawLine(pen,
-                    Points[i].X + offset.X, Points[i].Y + offset.Y,
-                    Points[i + 1].X + offset.X, Points[i + 1].Y + offset.Y);
-            }*/
+            gfx.ResetTransform();
         }
     }
 }

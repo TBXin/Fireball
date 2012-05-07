@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -21,6 +23,8 @@ namespace Fireball
         private Settings settings;
         private Boolean isVisible;
         private IPlugin activePlugin;
+
+        private string imageFilter;
 
         #region :: Ctor ::
         public SettingsForm()
@@ -51,13 +55,24 @@ namespace Fireball
             back.ForceCheckForUpdate(true);
 
             Icon = tray.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
-            PopulateCombos();
 
+            StringBuilder builder = new StringBuilder();
+            {
+                builder.Append("Image Files (*.png;*.gif;*.jpg;*.jpeg;*.bmp)|*.png;*.gif;*.jpg;*.jpeg;*.bmp|");
+                builder.Append("PNG|*.png|");
+                builder.Append("GIF|*.gif|");
+                builder.Append("JPG|*.jpg|");
+                builder.Append("JPEG|*.jpeg|");
+                builder.Append("BMP|*.bmp");
+            }
+
+            imageFilter = builder.ToString();
+
+            PopulateCombos();
             Settings.Instance = SettingsManager.Load();
             settings = Settings.Instance;
-
             PopulateSettings();
-            
+
             PluginManager.Load();
 
             foreach (IPlugin plugin in PluginManager.Plugins)
@@ -72,12 +87,13 @@ namespace Fireball
             if (cPlugins.SelectedItem == null && cPlugins.Items.Count > 0)
                 cPlugins.SelectedIndex = 0;
 
-            StringBuilder hotkeyRegisterErrorBuilder = new StringBuilder();
+            #region :: Register Hotkeys ::
+            /*StringBuilder hotkeyRegisterErrorBuilder = new StringBuilder();
 
             if (settings.CaptureScreenHotey.GetCanRegister(this))
             {
                 settings.CaptureScreenHotey.Register(this);
-                settings.CaptureScreenHotey.Pressed += CaptureScreenHoteyPressed;
+                settings.CaptureScreenHotey.Pressed += CaptureScreenHotkeyPressed;
             }
             else
             {
@@ -99,7 +115,10 @@ namespace Fireball
             if (hotkeyRegisterErrorBuilder.Length > 0)
             {
                 Helper.InfoBoxShow(String.Format("Failed to register hotkeys!\n{0}", hotkeyRegisterErrorBuilder));
-            }
+            }*/
+            #endregion
+
+            SaveSettings();
 
             Application.ApplicationExit += (s, e) =>
             {
@@ -152,6 +171,15 @@ namespace Fireball
             }
         }
 
+        private void PopulateHotkeyControl(HotkeySelectControl khControl, Hotkey hk)
+        {
+            khControl.Hotkey = hk.KeyCode;
+            khControl.Win = hk.Win;
+            khControl.Ctrl = hk.Ctrl;
+            khControl.Shift = hk.Shift;
+            khControl.Alt = hk.Alt;
+        }
+
         private void PopulateSettings()
         {
             foreach (object item in cLanguage.Items)
@@ -166,17 +194,10 @@ namespace Fireball
             if (cLanguage.SelectedIndex == -1)
                 cLanguage.SelectedIndex = 0;
 
-            hkScreen.Hotkey = settings.CaptureScreenHotey.KeyCode;
-            hkScreen.Win = settings.CaptureScreenHotey.Win;
-            hkScreen.Ctrl = settings.CaptureScreenHotey.Ctrl;
-            hkScreen.Shift = settings.CaptureScreenHotey.Shift;
-            hkScreen.Alt = settings.CaptureScreenHotey.Alt;
-
-            hkArea.Hotkey = settings.CaptureAreaHotkey.KeyCode;
-            hkArea.Win = settings.CaptureAreaHotkey.Win;
-            hkArea.Ctrl = settings.CaptureAreaHotkey.Ctrl;
-            hkArea.Shift = settings.CaptureAreaHotkey.Shift;
-            hkArea.Alt = settings.CaptureAreaHotkey.Alt;
+            PopulateHotkeyControl(hkScreen, settings.CaptureScreenHotey);
+            PopulateHotkeyControl(hkArea, settings.CaptureAreaHotkey);
+            PopulateHotkeyControl(hkClipboard, settings.UploadFromClipboardHotkey);
+            PopulateHotkeyControl(hkFile, settings.UploadFromFileHotkey);
 
             if (cCaptureMode.Items.Contains(settings.CaptureMode))
                 cCaptureMode.SelectedItem = settings.CaptureMode;
@@ -188,6 +209,30 @@ namespace Fireball
             cWithoutEditor.Checked = settings.WithoutEditor;
         }
 
+        private void UpdateHotkey(HotkeySelectControl hkControl, Hotkey hotkey, HandledEventHandler hkEvent)
+        {
+            if (hkControl.Hotkey == Keys.None && hotkey.Registered)
+            {
+                hotkey.Pressed -= hkEvent;
+                hotkey.Unregister();
+                hotkey.KeyCode = Keys.None;
+            }
+            else
+            {
+                hotkey.KeyCode = hkControl.Hotkey;
+                hotkey.Win = hkControl.Win;
+                hotkey.Ctrl = hkControl.Ctrl;
+                hotkey.Shift = hkControl.Shift;
+                hotkey.Alt = hkControl.Alt;
+
+                if (!hotkey.Registered && hotkey.KeyCode != Keys.None)
+                {
+                    hotkey.Register(this);
+                    hotkey.Pressed += hkEvent;
+                }
+            }
+        }
+
         private Boolean SaveSettings()
         {
             LanguageItem languageItem = cLanguage.SelectedItem as LanguageItem;
@@ -197,7 +242,9 @@ namespace Fireball
 
             try
             {
-                if (hkScreen.Hotkey == Keys.None && settings.CaptureScreenHotey.Registered)
+                UpdateHotkey(hkScreen, settings.CaptureScreenHotey, CaptureScreenHotkeyPressed);
+                #region unused
+                /*if (hkScreen.Hotkey == Keys.None && settings.CaptureScreenHotey.Registered)
                 {
                     settings.CaptureScreenHotey.Pressed -= CaptureScreenHoteyPressed;
                     settings.CaptureScreenHotey.Unregister();
@@ -216,7 +263,8 @@ namespace Fireball
                         settings.CaptureScreenHotey.Register(this);
                         settings.CaptureScreenHotey.Pressed += CaptureScreenHoteyPressed;
                     }
-                }
+                }*/
+                #endregion
             }
             catch (Exception)
             {
@@ -226,7 +274,9 @@ namespace Fireball
 
             try
             {
-                if (hkArea.Hotkey == Keys.None && settings.CaptureAreaHotkey.Registered)
+                UpdateHotkey(hkArea, settings.CaptureAreaHotkey, CaptureAreaHotkeyPressed);
+                #region unused
+                /*if (hkArea.Hotkey == Keys.None && settings.CaptureAreaHotkey.Registered)
                 {
                     settings.CaptureAreaHotkey.Pressed -= CaptureAreaHotkeyPressed;
                     settings.CaptureAreaHotkey.Unregister();
@@ -245,11 +295,32 @@ namespace Fireball
                         settings.CaptureAreaHotkey.Register(this);
                         settings.CaptureAreaHotkey.Pressed += CaptureAreaHotkeyPressed;
                     }
-                }
+                }*/
+                #endregion
             }
             catch (Exception)
             {
                 Helper.InfoBoxShow("Failed to register capture area hotkey!");
+                return false;
+            }
+
+            try
+            {
+                UpdateHotkey(hkClipboard, settings.UploadFromClipboardHotkey, UploadFromClipboardHotkeyPressed);
+            }
+            catch (Exception)
+            {
+                Helper.InfoBoxShow("Failed to register upload from clipboard hotkey!");
+                return false;
+            }
+
+            try
+            {
+                UpdateHotkey(hkFile, settings.UploadFromFileHotkey, UploadFromFileHotkeyPressed);
+            }
+            catch (Exception)
+            {
+                Helper.InfoBoxShow("Failed to register upload from file hotkey!");
                 return false;
             }
 
@@ -364,19 +435,27 @@ namespace Fireball
             uploadTask.Start();
         }
 
-        private void CaptureArea()
+        private bool PreuploadCheck()
         {
             if (activePlugin == null)
             {
                 Helper.InfoBoxShow("Plugin not loaded, can't upload!");
-                return;
+                return false;
             }
 
             if (isUploading)
             {
-                tray.ShowBalloonTip(1000, "Fireball", "Wait until the upload is complete", ToolTipIcon.Warning);
-                return;
+                tray.ShowBalloonTip(1000, "Fireball", "Wait until the upload is complete!", ToolTipIcon.Warning);
+                return false;
             }
+
+            return true;
+        }
+
+        private void CaptureArea()
+        {
+            if (!PreuploadCheck())
+                return;
 
             bool createdNew;
             using (new Mutex(true, "Fireball TakeForm", out createdNew))
@@ -396,19 +475,73 @@ namespace Fireball
 
         private void CaptureScreen()
         {
-            if (isUploading)
-            {
-                tray.ShowBalloonTip(1000, "Fireball", "Wait until the upload is complete", ToolTipIcon.Warning);
+            if (!PreuploadCheck())
                 return;
-            }
-
-            if (activePlugin == null)
-            {
-                Helper.InfoBoxShow("Plugin not loaded, can't upload!");
-                return;
-            }
 
             ForwardImageToPlugin(ScreenManager.GetScreenshot(Screen.PrimaryScreen));
+        }
+
+        private void UploadFromClipboard()
+        {
+            if (!PreuploadCheck())
+                return;
+
+            Image image = null;
+
+            try
+            {
+                if (Clipboard.ContainsFileDropList())
+                {
+                    StringCollection col = Clipboard.GetFileDropList();
+
+                    if (col.Count > 0)
+                    {
+                        string path = col[0];
+
+                        if (File.Exists(path))
+                            image = Bitmap.FromFile(path);
+                    }
+                }
+                else if (Clipboard.ContainsImage())
+                {
+                    image = Clipboard.GetImage();
+                }
+            }
+            catch { return; }
+
+            if (image == null)
+            {
+                tray.ShowBalloonTip(1000, "Fireball", "Clipboard is empty!", ToolTipIcon.Warning);
+                return;
+            }
+
+            ForwardImageToPlugin(image);
+        }
+
+        private void UploadFromFile()
+        {
+            if (!PreuploadCheck())
+                return;
+
+            using (OpenFileDialog op = new OpenFileDialog() { FileName = string.Empty, Filter = imageFilter })
+            {
+                if (op.ShowDialog() == DialogResult.OK)
+                {
+                    Image image = null;
+
+                    try
+                    {
+                        image = Bitmap.FromFile(op.FileName);
+                    }
+                    catch
+                    {
+                        tray.ShowBalloonTip(1000, "Fireball", "Unsupported image format!", ToolTipIcon.Warning);
+                        return;
+                    }
+
+                    ForwardImageToPlugin(image);
+                }
+            }
         }
 
         private void SetLanguage(Form form, CultureInfo lang)
@@ -461,9 +594,19 @@ namespace Fireball
             CaptureArea();
         }
 
-        private void CaptureScreenHoteyPressed(object sender, HandledEventArgs e)
+        private void CaptureScreenHotkeyPressed(object sender, HandledEventArgs e)
         {
             CaptureScreen();
+        }
+
+        private void UploadFromClipboardHotkeyPressed(object semder, HandledEventArgs e)
+        {
+            UploadFromClipboard();
+        }
+
+        private void UploadFromFileHotkeyPressed(object semder, HandledEventArgs e)
+        {
+            UploadFromFile();
         }
         #endregion
 
@@ -481,6 +624,16 @@ namespace Fireball
         private void TraySubCaptureScreenClick(object sender, EventArgs e)
         {
             CaptureScreen();
+        }
+
+        private void traySubUploadFromClipboard_Click(object sender, EventArgs e)
+        {
+            UploadFromClipboard();
+        }
+
+        private void uploadFromFile_Click(object sender, EventArgs e)
+        {
+            UploadFromFile();
         }
 
         private void TraySubSettingsClick(object sender, EventArgs e)

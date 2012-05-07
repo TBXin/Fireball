@@ -116,23 +116,30 @@ namespace Fireball.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap captureArea {
+        internal static System.Drawing.Bitmap capture_area {
             get {
-                object obj = ResourceManager.GetObject("captureArea", resourceCulture);
+                object obj = ResourceManager.GetObject("capture_area", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap captureScreen {
+        internal static System.Drawing.Bitmap capture_screen {
             get {
-                object obj = ResourceManager.GetObject("captureScreen", resourceCulture);
+                object obj = ResourceManager.GetObject("capture_screen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap checkForUpdates {
+        internal static System.Drawing.Bitmap check_for_updates {
             get {
-                object obj = ResourceManager.GetObject("checkForUpdates", resourceCulture);
+                object obj = ResourceManager.GetObject("check_for_updates", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap clipboard {
+            get {
+                object obj = ResourceManager.GetObject("clipboard", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -168,6 +175,13 @@ namespace Fireball.Properties {
         internal static System.Drawing.Bitmap fireball_logo {
             get {
                 object obj = ResourceManager.GetObject("fireball_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap folder_picture {
+            get {
+                object obj = ResourceManager.GetObject("folder_picture", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -238,13 +252,6 @@ namespace Fireball.Properties {
         internal static System.Drawing.Bitmap text {
             get {
                 object obj = ResourceManager.GetObject("text", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap toolbar {
-            get {
-                object obj = ResourceManager.GetObject("toolbar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

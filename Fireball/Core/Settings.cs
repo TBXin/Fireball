@@ -32,6 +32,8 @@ namespace Fireball.Core
         public String Language { get; set; }
         public Hotkey CaptureScreenHotey { get; set; }
         public Hotkey CaptureAreaHotkey { get; set; }
+        public Hotkey UploadFromClipboardHotkey { get; set; }
+        public Hotkey UploadFromFileHotkey { get; set; }
         public CaptureMode CaptureMode { get; set; }
         public String ActivePlugin { get; set; }
         public NotificationType Notification { get; set; }
@@ -48,6 +50,8 @@ namespace Fireball.Core
             Language = "Eng";
             CaptureScreenHotey = new Hotkey();
             CaptureAreaHotkey = new Hotkey();
+            UploadFromClipboardHotkey = new Hotkey();
+            UploadFromFileHotkey = new Hotkey();
             CaptureMode = CaptureMode.Manual;
             ActivePlugin = String.Empty;
             Notification = NotificationType.Tooltip;

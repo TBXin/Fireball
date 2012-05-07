@@ -203,15 +203,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fireball_icon.ico" />
+    <None Include="Resources\unfilled_rectangle.png" />
+    <None Include="Resources\unfilled_ellipse_.png" />
+    <None Include="Resources\rectangle.png" />
+    <None Include="Resources\folder_picture.png" />
+    <None Include="Resources\clipboard.png" />
     <None Include="Resources\highlighter.png" />
     <None Include="Resources\image.png" />
     <None Include="Resources\recent.png" />
     <None Include="Resources\transparent.png" />
     <None Include="Resources\eraser.png" />
-    <None Include="Resources\unfilled_rectangle.png" />
-    <None Include="Resources\unfilled_ellipse_.png" />
     <None Include="Resources\text.png" />
-    <None Include="Resources\rectangle.png" />
     <None Include="Resources\line.png" />
     <None Include="Resources\ellipse.png" />
     <None Include="Resources\brush1.png" />
@@ -221,7 +223,6 @@
     <None Include="Resources\font.png" />
     <None Include="Resources\select.png" />
     <None Include="Resources\brush.png" />
-    <None Include="Resources\toolbar.png" />
     <None Include="Resources\checkForUpdates.png" />
     <None Include="Resources\openUrl.png" />
     <None Include="Resources\copyLink.png" />
@@ -262,7 +263,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_AssemblyInfoFilename="Properties\AssemblyInfo.cs" BuildVersion_BuildVersioningStyle="YearStamp.MonthStamp.DayStamp.TimeStamp" />
+      <UserProperties BuildVersion_BuildVersioningStyle="YearStamp.MonthStamp.DayStamp.TimeStamp" BuildVersion_AssemblyInfoFilename="Properties\AssemblyInfo.cs" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
