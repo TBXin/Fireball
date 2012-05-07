@@ -10,6 +10,7 @@ namespace Fireball.Editor
 {
     public partial class TextPreview : Form
     {
+        private Font font;
         public String Content { get { return tText.Text; } }
 
         public TextPreview()
@@ -26,15 +27,17 @@ namespace Fireball.Editor
             Localizer.ApplyResourceToControl(resources, this, locale);
 
             Text = resources.GetString("$this.Text", locale);
+            this.font = font;
+            tText.Font = this.font;
         }
 
         private void bFont_Click(object sender, EventArgs e)
         {
-            using (FontDialog fd = new FontDialog() { Font = Settings.Instance.TextFont })
+            using (FontDialog fd = new FontDialog() { Font = font })
             {
                 if (fd.ShowDialog() == DialogResult.OK)
                 {
-                    Settings.Instance.TextFont = fd.Font;
+                    Settings.Instance.TextFont = tText.Font = fd.Font;
                     tText.Focus();
                 }
             }

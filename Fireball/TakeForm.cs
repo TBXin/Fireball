@@ -11,9 +11,6 @@ namespace Fireball
 {
     partial class TakeForm : Form
     {
-        [DllImport("user32.dll")]
-        private static extern bool SetForegroundWindow(IntPtr hWnd);
-
         private TakeScreenAction action;
         private Boolean isMouseDown;
         private Image srcImage;
@@ -73,7 +70,7 @@ namespace Fireball
             }, 
             null, 1500, 50);
 
-            Load += (s, e) => SetForegroundWindow(Handle);
+            Load += (s, e) => Helper.SetForegroundWindow(Handle);
         }
 
         void toolBar1_GotFocus(object sender, EventArgs e)

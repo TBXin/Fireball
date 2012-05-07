@@ -30,6 +30,8 @@ namespace Fireball.Editor
             nSize.Value = Settings.Instance.BrushWidth;
             cForeColor.SelectedColor = Settings.Instance.ForeColor;
             cBackColor.SelectedColor = Settings.Instance.BackColor;
+
+            Load += (s, e) => Helper.SetForegroundWindow(Handle);
         }
 
         public Image GetImage()

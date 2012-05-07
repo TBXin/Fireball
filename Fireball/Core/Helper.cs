@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
@@ -6,6 +7,9 @@ namespace Fireball.Core
 {
     static class Helper
     {
+        [DllImport("user32.dll")]
+        public static extern bool SetForegroundWindow(IntPtr hWnd);
+
         public static void InfoBoxShow(string text)
         {
             MessageBox.Show(text, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);

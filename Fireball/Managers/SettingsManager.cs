@@ -239,7 +239,7 @@ namespace Fireball.Managers
                     new XAttribute("B", settings.BackColor.B)),
                 new XElement("TextFont",
                     new XAttribute("FontFamily", settings.TextFont.FontFamily.Name),
-                    new XAttribute("FontSize", settings.TextFont.Size),
+                    new XAttribute("FontSize", settings.TextFont.Size.ToString()),
                     new XAttribute("Style", settings.TextFont.Style)),
                 recent);
 

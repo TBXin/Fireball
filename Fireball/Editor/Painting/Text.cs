@@ -20,9 +20,11 @@ namespace Fireball.Editor.Painting
             brush = new SolidBrush(color);
         }
 
-        public override void Draw(Graphics gfx, System.Drawing.Point offset)
+        public override void Draw(Graphics gfx, Point offset)
         {
+            gfx.TranslateTransform(offset.X, offset.Y);
             gfx.DrawString(Content, Font, brush, Location);
+            gfx.ResetTransform();
         }
     }
 }
