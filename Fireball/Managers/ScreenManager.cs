@@ -9,11 +9,13 @@ namespace Fireball.Managers
         {
             Image rtnImage = new Bitmap(screen.Bounds.Width, screen.Bounds.Height);
 
-            Graphics gfx = Graphics.FromImage(rtnImage);
-            gfx.CopyFromScreen(
-                new Point(screen.Bounds.X, screen.Bounds.Y),
-                Point.Empty,
-                screen.Bounds.Size);
+            using (Graphics gfx = Graphics.FromImage(rtnImage))
+            {
+                gfx.CopyFromScreen(
+                    new Point(screen.Bounds.X, screen.Bounds.Y),
+                    Point.Empty,
+                    screen.Bounds.Size);
+            }
 
             return rtnImage;
         }
@@ -22,9 +24,14 @@ namespace Fireball.Managers
         {
             Image rtnImage = new Bitmap(cropArea.Width, cropArea.Height);
 
-            using (Graphics gfx = Graphics.FromImage(rtnImage))
+            /*using (Graphics gfx = Graphics.FromImage(rtnImage))
             {
                 gfx.DrawImage(srcImage, -cropArea.X, -cropArea.Y);
+            }*/
+
+            using (Graphics gfx = Graphics.FromImage(rtnImage))
+            {
+                gfx.DrawImage(srcImage, 0, 0, cropArea, GraphicsUnit.Pixel);
             }
 
             return rtnImage;

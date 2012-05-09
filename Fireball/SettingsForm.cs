@@ -132,7 +132,7 @@ namespace Fireball
         {
             if (!isVisible)
                 value = false;
-
+            
             base.SetVisibleCore(value);
         }
 
@@ -457,13 +457,16 @@ namespace Fireball
             if (!PreuploadCheck())
                 return;
 
+            Image screenImage = ScreenManager.GetScreenshot(Screen.PrimaryScreen);
+            trayMenu.Hide();
+
             bool createdNew;
             using (new Mutex(true, "Fireball TakeForm", out createdNew))
             {
-                if (!createdNew) 
+                if (!createdNew)
                     return;
 
-                using (TakeForm takeForm = new TakeForm(settings.CaptureMode))
+                using (TakeForm takeForm = new TakeForm(screenImage, settings.CaptureMode))
                 {
                     if (takeForm.ShowDialog() == DialogResult.OK)
                     {
@@ -478,7 +481,10 @@ namespace Fireball
             if (!PreuploadCheck())
                 return;
 
-            ForwardImageToPlugin(ScreenManager.GetScreenshot(Screen.PrimaryScreen));
+            Image screenImage = ScreenManager.GetScreenshot(Screen.PrimaryScreen);
+            trayMenu.Hide();
+
+            ForwardImageToPlugin(screenImage);
         }
 
         private void UploadFromClipboard()

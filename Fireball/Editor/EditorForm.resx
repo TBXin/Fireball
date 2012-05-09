@@ -145,13 +145,151 @@
     <value>imageBox1</value>
   </data>
   <data name="&gt;&gt;imageBox1.Type" xml:space="preserve">
-    <value>Fireball.Editor.ImageBox, Fireball, Version=2012.5.6.1618, Culture=neutral, PublicKeyToken=null</value>
+    <value>Fireball.Editor.ImageBox, Fireball, Version=2012.5.7.2010, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;imageBox1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;imageBox1.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;rHighlighter.Name" xml:space="preserve">
+    <value>rHighlighter</value>
+  </data>
+  <data name="&gt;&gt;rHighlighter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rHighlighter.Parent" xml:space="preserve">
+    <value>borderedPanel4</value>
+  </data>
+  <data name="&gt;&gt;rHighlighter.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;rText.Name" xml:space="preserve">
+    <value>rText</value>
+  </data>
+  <data name="&gt;&gt;rText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rText.Parent" xml:space="preserve">
+    <value>borderedPanel4</value>
+  </data>
+  <data name="&gt;&gt;rText.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;rFilledEllipse.Name" xml:space="preserve">
+    <value>rFilledEllipse</value>
+  </data>
+  <data name="&gt;&gt;rFilledEllipse.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rFilledEllipse.Parent" xml:space="preserve">
+    <value>borderedPanel4</value>
+  </data>
+  <data name="&gt;&gt;rFilledEllipse.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;rBrush.Name" xml:space="preserve">
+    <value>rBrush</value>
+  </data>
+  <data name="&gt;&gt;rBrush.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rBrush.Parent" xml:space="preserve">
+    <value>borderedPanel4</value>
+  </data>
+  <data name="&gt;&gt;rBrush.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;rEllipse.Name" xml:space="preserve">
+    <value>rEllipse</value>
+  </data>
+  <data name="&gt;&gt;rEllipse.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rEllipse.Parent" xml:space="preserve">
+    <value>borderedPanel4</value>
+  </data>
+  <data name="&gt;&gt;rEllipse.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;rLine.Name" xml:space="preserve">
+    <value>rLine</value>
+  </data>
+  <data name="&gt;&gt;rLine.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rLine.Parent" xml:space="preserve">
+    <value>borderedPanel4</value>
+  </data>
+  <data name="&gt;&gt;rLine.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;rArrow.Name" xml:space="preserve">
+    <value>rArrow</value>
+  </data>
+  <data name="&gt;&gt;rArrow.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rArrow.Parent" xml:space="preserve">
+    <value>borderedPanel4</value>
+  </data>
+  <data name="&gt;&gt;rArrow.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;rRectangle.Name" xml:space="preserve">
+    <value>rRectangle</value>
+  </data>
+  <data name="&gt;&gt;rRectangle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rRectangle.Parent" xml:space="preserve">
+    <value>borderedPanel4</value>
+  </data>
+  <data name="&gt;&gt;rRectangle.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;rFilledRectangle.Name" xml:space="preserve">
+    <value>rFilledRectangle</value>
+  </data>
+  <data name="&gt;&gt;rFilledRectangle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rFilledRectangle.Parent" xml:space="preserve">
+    <value>borderedPanel4</value>
+  </data>
+  <data name="&gt;&gt;rFilledRectangle.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="borderedPanel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="borderedPanel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 34</value>
+  </data>
+  <data name="borderedPanel4.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 1, 0</value>
+  </data>
+  <data name="borderedPanel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 478</value>
+  </data>
+  <data name="borderedPanel4.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="borderedPanel4.Text" xml:space="preserve">
+    <value>borderedPanel4</value>
+  </data>
+  <data name="&gt;&gt;borderedPanel4.Name" xml:space="preserve">
+    <value>borderedPanel4</value>
+  </data>
+  <data name="&gt;&gt;borderedPanel4.Type" xml:space="preserve">
+    <value>Fireball.UI.BorderedPanel, Fireball, Version=2012.5.7.2010, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;borderedPanel4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;borderedPanel4.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="rHighlighter.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
     <value>Button</value>
@@ -396,36 +534,6 @@
   <data name="&gt;&gt;rFilledRectangle.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="borderedPanel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="borderedPanel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 34</value>
-  </data>
-  <data name="borderedPanel4.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 1, 0</value>
-  </data>
-  <data name="borderedPanel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 478</value>
-  </data>
-  <data name="borderedPanel4.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="borderedPanel4.Text" xml:space="preserve">
-    <value>borderedPanel4</value>
-  </data>
-  <data name="&gt;&gt;borderedPanel4.Name" xml:space="preserve">
-    <value>borderedPanel4</value>
-  </data>
-  <data name="&gt;&gt;borderedPanel4.Type" xml:space="preserve">
-    <value>Fireball.UI.BorderedPanel, Fireball, Version=2012.5.6.1618, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;borderedPanel4.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;borderedPanel4.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="nSize.Location" type="System.Drawing.Point, System.Drawing">
     <value>678, 7</value>
   </data>
@@ -463,7 +571,7 @@
     <value>cForeColor</value>
   </data>
   <data name="&gt;&gt;cForeColor.Type" xml:space="preserve">
-    <value>Fireball.UI.ColorSelectionButton, Fireball, Version=2012.5.6.1618, Culture=neutral, PublicKeyToken=null</value>
+    <value>Fireball.UI.ColorSelectionButton, Fireball, Version=2012.5.7.2010, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cForeColor.Parent" xml:space="preserve">
     <value>borderedPanel1</value>
@@ -517,7 +625,7 @@
     <value>cBackColor</value>
   </data>
   <data name="&gt;&gt;cBackColor.Type" xml:space="preserve">
-    <value>Fireball.UI.ColorSelectionButton, Fireball, Version=2012.5.6.1618, Culture=neutral, PublicKeyToken=null</value>
+    <value>Fireball.UI.ColorSelectionButton, Fireball, Version=2012.5.7.2010, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cBackColor.Parent" xml:space="preserve">
     <value>borderedPanel1</value>
@@ -709,7 +817,7 @@
     <value>borderedPanel2</value>
   </data>
   <data name="&gt;&gt;borderedPanel2.Type" xml:space="preserve">
-    <value>Fireball.UI.BorderedPanel, Fireball, Version=2012.5.6.1618, Culture=neutral, PublicKeyToken=null</value>
+    <value>Fireball.UI.BorderedPanel, Fireball, Version=2012.5.7.2010, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;borderedPanel2.Parent" xml:space="preserve">
     <value>borderedPanel1</value>
@@ -739,7 +847,7 @@
     <value>borderedPanel1</value>
   </data>
   <data name="&gt;&gt;borderedPanel1.Type" xml:space="preserve">
-    <value>Fireball.UI.BorderedPanel, Fireball, Version=2012.5.6.1618, Culture=neutral, PublicKeyToken=null</value>
+    <value>Fireball.UI.BorderedPanel, Fireball, Version=2012.5.7.2010, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;borderedPanel1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -758,9 +866,6 @@
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 8.25pt</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>768, 500</value>

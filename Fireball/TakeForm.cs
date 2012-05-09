@@ -31,7 +31,7 @@ namespace Fireball
         private SolidBrush selectionFillBrush = new SolidBrush(Color.FromArgb(100, 51, 153, 255));
         private Pen selectionBorderPen = new Pen(new SolidBrush(Color.FromArgb(51, 153, 255)), 1);
 
-        public TakeForm(CaptureMode mode = CaptureMode.Manual)
+        public TakeForm(Image screenImage, CaptureMode mode = CaptureMode.Manual)
         {
             InitializeComponent();
 
@@ -44,7 +44,7 @@ namespace Fireball
 
             captureMode = mode;
             action = TakeScreenAction.Selection;
-            srcImage = ScreenManager.GetScreenshot(Screen.PrimaryScreen);
+            srcImage = screenImage;
 
             helpImage = GetHelpImage(srcImage.Width, 65);
 
@@ -73,33 +73,6 @@ namespace Fireball
             Load += (s, e) => Helper.SetForegroundWindow(Handle);
         }
 
-        void toolBar1_GotFocus(object sender, EventArgs e)
-        {
-            this.Focus();
-        }
-
-        bool isToolbarMoving = false;
-        Point toolBarClick;
-
-        void toolBar1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (!isToolbarMoving)
-                return;
-
-            toolBarClick = new Point(Cursor.Position.X, Cursor.Position.Y);
-        }
-
-        void toolBar1_MouseUp(object sender, MouseEventArgs e)
-        {
-            isToolbarMoving = false;
-        }
-
-        void toolBar1_MouseDown(object sender, MouseEventArgs e)
-        {
-            isToolbarMoving = true;
-            toolBarClick = new Point(Cursor.Position.X, Cursor.Position.Y);
-        }
-
         public Image GetSelection()
         {
             if (selection.Width == 0 || selection.Height == 0)
@@ -119,11 +92,21 @@ namespace Fireball
                     "Выделите область и нажмите 'Enter' для подтверждения или 'Esc' для отмены",
                     new Font("Tahoma", 18f, FontStyle.Regular),
                     Brushes.White,
-                    new RectangleF(0, 0, width, height), 
+                    new RectangleF(0, 0, width, height),
                     new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
             }
 
             return rtnImage;
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
