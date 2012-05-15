@@ -375,6 +375,10 @@
   <data name="tChangelog.Text" xml:space="preserve">
     <value>Changlelog
 
+2012.5.15.2231
+  - Багфиксы
+  - Добавлен плагин для загрузки на FTP
+
 2012.5.7.2010
   - Исправлена ошибка рендеринга текста в редакторе
   - Исправлена ошибка сохранения размера шрифта
@@ -945,7 +949,7 @@
     <value>hkFile</value>
   </data>
   <data name="&gt;&gt;hkFile.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.7.2010, Culture=neutral, PublicKeyToken=null</value>
+    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.15.2231, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;hkFile.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -957,7 +961,7 @@
     <value>hkScreen</value>
   </data>
   <data name="&gt;&gt;hkScreen.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.7.2010, Culture=neutral, PublicKeyToken=null</value>
+    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.15.2231, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;hkScreen.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -981,7 +985,7 @@
     <value>hkClipboard</value>
   </data>
   <data name="&gt;&gt;hkClipboard.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.7.2010, Culture=neutral, PublicKeyToken=null</value>
+    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.15.2231, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;hkClipboard.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -993,7 +997,7 @@
     <value>hkArea</value>
   </data>
   <data name="&gt;&gt;hkArea.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.7.2010, Culture=neutral, PublicKeyToken=null</value>
+    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.15.2231, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;hkArea.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -1037,54 +1041,6 @@
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="hkFile.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt</value>
-  </data>
-  <data name="hkFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 160</value>
-  </data>
-  <data name="hkFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 23</value>
-  </data>
-  <data name="hkFile.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;hkFile.Name" xml:space="preserve">
-    <value>hkFile</value>
-  </data>
-  <data name="&gt;&gt;hkFile.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.7.2010, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;hkFile.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;hkFile.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="hkScreen.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt</value>
-  </data>
-  <data name="hkScreen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 34</value>
-  </data>
-  <data name="hkScreen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 23</value>
-  </data>
-  <data name="hkScreen.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;hkScreen.Name" xml:space="preserve">
-    <value>hkScreen</value>
-  </data>
-  <data name="&gt;&gt;hkScreen.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.7.2010, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;hkScreen.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;hkScreen.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="lUploadFile.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1117,54 +1073,6 @@
   </data>
   <data name="&gt;&gt;lUploadFile.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="hkClipboard.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt</value>
-  </data>
-  <data name="hkClipboard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 118</value>
-  </data>
-  <data name="hkClipboard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 23</value>
-  </data>
-  <data name="hkClipboard.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;hkClipboard.Name" xml:space="preserve">
-    <value>hkClipboard</value>
-  </data>
-  <data name="&gt;&gt;hkClipboard.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.7.2010, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;hkClipboard.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;hkClipboard.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="hkArea.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt</value>
-  </data>
-  <data name="hkArea.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 76</value>
-  </data>
-  <data name="hkArea.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 23</value>
-  </data>
-  <data name="hkArea.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;hkArea.Name" xml:space="preserve">
-    <value>hkArea</value>
-  </data>
-  <data name="&gt;&gt;hkArea.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.7.2010, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;hkArea.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;hkArea.ZOrder" xml:space="preserve">
-    <value>6</value>
   </data>
   <data name="lUploadClipboard.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1423,5 +1331,101 @@
   </data>
   <data name="&gt;&gt;updaterControl.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="hkFile.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt</value>
+  </data>
+  <data name="hkFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 160</value>
+  </data>
+  <data name="hkFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 23</value>
+  </data>
+  <data name="hkFile.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;hkFile.Name" xml:space="preserve">
+    <value>hkFile</value>
+  </data>
+  <data name="&gt;&gt;hkFile.Type" xml:space="preserve">
+    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.15.2231, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;hkFile.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;hkFile.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="hkScreen.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt</value>
+  </data>
+  <data name="hkScreen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 34</value>
+  </data>
+  <data name="hkScreen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 23</value>
+  </data>
+  <data name="hkScreen.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;hkScreen.Name" xml:space="preserve">
+    <value>hkScreen</value>
+  </data>
+  <data name="&gt;&gt;hkScreen.Type" xml:space="preserve">
+    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.15.2231, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;hkScreen.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;hkScreen.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="hkClipboard.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt</value>
+  </data>
+  <data name="hkClipboard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 118</value>
+  </data>
+  <data name="hkClipboard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 23</value>
+  </data>
+  <data name="hkClipboard.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;hkClipboard.Name" xml:space="preserve">
+    <value>hkClipboard</value>
+  </data>
+  <data name="&gt;&gt;hkClipboard.Type" xml:space="preserve">
+    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.15.2231, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;hkClipboard.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;hkClipboard.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="hkArea.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt</value>
+  </data>
+  <data name="hkArea.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 76</value>
+  </data>
+  <data name="hkArea.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 23</value>
+  </data>
+  <data name="hkArea.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;hkArea.Name" xml:space="preserve">
+    <value>hkArea</value>
+  </data>
+  <data name="&gt;&gt;hkArea.Type" xml:space="preserve">
+    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.15.2231, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;hkArea.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;hkArea.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
 </root>

@@ -59,11 +59,7 @@
             this.cPlugins = new System.Windows.Forms.ComboBox();
             this.lActive = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.hkFile = new Fireball.UI.HotkeySelectControl();
-            this.hkScreen = new Fireball.UI.HotkeySelectControl();
             this.lUploadFile = new System.Windows.Forms.Label();
-            this.hkClipboard = new Fireball.UI.HotkeySelectControl();
-            this.hkArea = new Fireball.UI.HotkeySelectControl();
             this.lUploadClipboard = new System.Windows.Forms.Label();
             this.aboutTab = new System.Windows.Forms.TabPage();
             this.tChangelog = new System.Windows.Forms.TextBox();
@@ -75,6 +71,10 @@
             this.updaterControl = new wyDay.Controls.AutomaticUpdater();
             this.bCancel = new System.Windows.Forms.Button();
             this.bApply = new System.Windows.Forms.Button();
+            this.hkFile = new Fireball.UI.HotkeySelectControl();
+            this.hkScreen = new Fireball.UI.HotkeySelectControl();
+            this.hkClipboard = new Fireball.UI.HotkeySelectControl();
+            this.hkArea = new Fireball.UI.HotkeySelectControl();
             this.trayMenu.SuspendLayout();
             this.mainTabControl.SuspendLayout();
             this.generalTab.SuspendLayout();
@@ -269,6 +269,7 @@
             this.bPluginSettings.Name = "bPluginSettings";
             this.bPluginSettings.TabStop = false;
             this.bPluginSettings.UseVisualStyleBackColor = true;
+            this.bPluginSettings.Click += new System.EventHandler(this.bPluginSettings_Click);
             // 
             // cNotification
             // 
@@ -306,54 +307,10 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
-            // hkFile
-            // 
-            this.hkFile.Alt = false;
-            this.hkFile.Ctrl = false;
-            resources.ApplyResources(this.hkFile, "hkFile");
-            this.hkFile.Hotkey = System.Windows.Forms.Keys.None;
-            this.hkFile.MinimumSize = new System.Drawing.Size(258, 23);
-            this.hkFile.Name = "hkFile";
-            this.hkFile.Shift = false;
-            this.hkFile.Win = false;
-            // 
-            // hkScreen
-            // 
-            this.hkScreen.Alt = false;
-            this.hkScreen.Ctrl = false;
-            resources.ApplyResources(this.hkScreen, "hkScreen");
-            this.hkScreen.Hotkey = System.Windows.Forms.Keys.None;
-            this.hkScreen.MinimumSize = new System.Drawing.Size(258, 23);
-            this.hkScreen.Name = "hkScreen";
-            this.hkScreen.Shift = false;
-            this.hkScreen.Win = false;
-            // 
             // lUploadFile
             // 
             resources.ApplyResources(this.lUploadFile, "lUploadFile");
             this.lUploadFile.Name = "lUploadFile";
-            // 
-            // hkClipboard
-            // 
-            this.hkClipboard.Alt = false;
-            this.hkClipboard.Ctrl = false;
-            resources.ApplyResources(this.hkClipboard, "hkClipboard");
-            this.hkClipboard.Hotkey = System.Windows.Forms.Keys.None;
-            this.hkClipboard.MinimumSize = new System.Drawing.Size(258, 23);
-            this.hkClipboard.Name = "hkClipboard";
-            this.hkClipboard.Shift = false;
-            this.hkClipboard.Win = false;
-            // 
-            // hkArea
-            // 
-            this.hkArea.Alt = false;
-            this.hkArea.Ctrl = false;
-            resources.ApplyResources(this.hkArea, "hkArea");
-            this.hkArea.Hotkey = System.Windows.Forms.Keys.None;
-            this.hkArea.MinimumSize = new System.Drawing.Size(258, 23);
-            this.hkArea.Name = "hkArea";
-            this.hkArea.Shift = false;
-            this.hkArea.Win = false;
             // 
             // lUploadClipboard
             // 
@@ -435,6 +392,50 @@
             this.bApply.TabStop = false;
             this.bApply.UseVisualStyleBackColor = true;
             this.bApply.Click += new System.EventHandler(this.BApplyClick);
+            // 
+            // hkFile
+            // 
+            this.hkFile.Alt = false;
+            this.hkFile.Ctrl = false;
+            resources.ApplyResources(this.hkFile, "hkFile");
+            this.hkFile.Hotkey = System.Windows.Forms.Keys.None;
+            this.hkFile.MinimumSize = new System.Drawing.Size(258, 23);
+            this.hkFile.Name = "hkFile";
+            this.hkFile.Shift = false;
+            this.hkFile.Win = false;
+            // 
+            // hkScreen
+            // 
+            this.hkScreen.Alt = false;
+            this.hkScreen.Ctrl = false;
+            resources.ApplyResources(this.hkScreen, "hkScreen");
+            this.hkScreen.Hotkey = System.Windows.Forms.Keys.None;
+            this.hkScreen.MinimumSize = new System.Drawing.Size(258, 23);
+            this.hkScreen.Name = "hkScreen";
+            this.hkScreen.Shift = false;
+            this.hkScreen.Win = false;
+            // 
+            // hkClipboard
+            // 
+            this.hkClipboard.Alt = false;
+            this.hkClipboard.Ctrl = false;
+            resources.ApplyResources(this.hkClipboard, "hkClipboard");
+            this.hkClipboard.Hotkey = System.Windows.Forms.Keys.None;
+            this.hkClipboard.MinimumSize = new System.Drawing.Size(258, 23);
+            this.hkClipboard.Name = "hkClipboard";
+            this.hkClipboard.Shift = false;
+            this.hkClipboard.Win = false;
+            // 
+            // hkArea
+            // 
+            this.hkArea.Alt = false;
+            this.hkArea.Ctrl = false;
+            resources.ApplyResources(this.hkArea, "hkArea");
+            this.hkArea.Hotkey = System.Windows.Forms.Keys.None;
+            this.hkArea.MinimumSize = new System.Drawing.Size(258, 23);
+            this.hkArea.Name = "hkArea";
+            this.hkArea.Shift = false;
+            this.hkArea.Win = false;
             // 
             // SettingsForm
             // 

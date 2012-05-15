@@ -546,6 +546,7 @@ namespace Fireball
                     }
 
                     ForwardImageToPlugin(image);
+                    image.Dispose();
                 }
             }
         }
@@ -591,6 +592,17 @@ namespace Fireball
 
             if (item != null)
                 SetLanguage(this, item.Culture);
+        }
+
+        private void bPluginSettings_Click(object sender, EventArgs e)
+        {
+            PluginItem item = cPlugins.SelectedItem as PluginItem;
+
+            if (item == null)
+                return;
+
+            if (item.Plugin.HasSettings)
+                item.Plugin.ShowSettings();
         }
         #endregion
 
