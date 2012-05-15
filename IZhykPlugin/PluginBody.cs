@@ -58,10 +58,25 @@ namespace Fireball.Plugin
                     return ex.Message;
                 }
 
-                XmlNode imageNode = xDoc.SelectSingleNode("response/data/img_url");
+                XmlNode statusNode = xDoc.SelectSingleNode("response/status_code");
 
-                if (imageNode != null)
-                    return imageNode.InnerText;
+                if (statusNode == null)
+                    return string.Empty;
+
+                if (statusNode.InnerText.Equals("200"))
+                {
+                    XmlNode imageNode = xDoc.SelectSingleNode("response/data/img_url");
+
+                    if (imageNode != null)
+                        return imageNode.InnerText;
+                }
+                else if (statusNode.InnerText.Equals("403"))
+                {
+                    XmlNode statusTextNode = xDoc.SelectSingleNode("response/status_txt");
+
+                    if (statusTextNode != null)
+                        return "HostingError: " + statusTextNode.InnerText;
+                }
 
                 return string.Empty;
             }
