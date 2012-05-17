@@ -11,7 +11,7 @@ namespace Fireball.Plugin
     {
         public string Name
         {
-            get { return "HostingKartinok"; }
+            get { return "hostingkartinok.com"; }
         }
 
         public float Version

@@ -25,7 +25,7 @@ namespace Fireball.Plugin
 
         public string Name
         {
-            get { return  "FTP"; }
+            get { return  "ftp server"; }
         }
 
         public Single Version

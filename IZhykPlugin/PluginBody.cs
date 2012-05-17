@@ -11,7 +11,7 @@ namespace Fireball.Plugin
     {
         public string Name
         {
-            get { return "izhyk"; }
+            get { return "i.zhyk.ru"; }
         }
 
         public Single Version

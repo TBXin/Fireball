@@ -11,7 +11,7 @@ namespace Fireball.Plugin
     {
         public string Name
         {
-            get { return  "imgur"; }
+            get { return  "imgur.com"; }
         }
 
         public Single Version
