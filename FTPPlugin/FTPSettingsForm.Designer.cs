@@ -64,7 +64,6 @@
             this.tDirectory.Name = "tDirectory";
             this.tDirectory.Size = new System.Drawing.Size(278, 21);
             this.tDirectory.TabIndex = 3;
-            this.tDirectory.Text = "/";
             // 
             // label2
             // 

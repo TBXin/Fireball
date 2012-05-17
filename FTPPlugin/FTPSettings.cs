@@ -10,19 +10,13 @@ namespace FTPPlugin
         public String Username { get; set; }
         public String Password { get; set; }
 
-        public bool IsEmpty
+        public FTPSettings()
         {
-            get
-            {
-                return
-                    String.IsNullOrEmpty(Server) &&
-                    String.IsNullOrEmpty(Url) &&
-                    String.IsNullOrEmpty(Directory) &&
-                    String.IsNullOrEmpty(Username) &&
-                    String.IsNullOrEmpty(Password);
-            }
+            Server = "ftp://";
+            Url = "http://";
+            Directory = string.Empty;
+            Username = "user";
+            Password = "password";
         }
-
-        public FTPSettings() { }
     }
 }

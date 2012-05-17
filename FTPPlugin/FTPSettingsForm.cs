@@ -11,9 +11,6 @@ namespace FTPPlugin
             if (settings == null)
                 return;
 
-            if (settings.IsEmpty)
-                return;
-
             tServer.Text = settings.Server;
             tDirectory.Text = settings.Directory;
             tUrl.Text = settings.Url;
