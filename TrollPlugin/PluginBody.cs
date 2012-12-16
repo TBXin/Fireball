@@ -31,13 +31,13 @@ namespace Fireball.Plugin
 
         public string Upload(Image image)
         {
-            string response = innerUploadFile("http://troll.ws", image, "file", "image/png", new NameValueCollection
+            string response = innerUploadFile("http://troll.ws/upload_image", image, "image[image]", "image/png", new NameValueCollection
             {
-                { "handler", "i" },
-                { "submit", "Upload" },
+                { "utf8", "" },
+                { "authenticity_token", "r8A3Ob5pTsJQ7WEAkwkgKRLd2OtvBhl8tUS/UqjORVc=" },
             });
 
-            const string searchPattern = "<input type=\"text\" id=\"imgurl\" value=\"";
+            const string searchPattern = "\"name\":\"";
 
             int idx = response.IndexOf(searchPattern, StringComparison.Ordinal);
             if (idx != -1)
@@ -47,7 +47,7 @@ namespace Fireball.Plugin
                 if (idx2 != -1)
                 {
                     string result = response.Substring(idx + searchPattern.Length, idx2 - (idx + searchPattern.Length));
-                    return result;
+	                return String.Format("http://i.troll.ws/{0}", result);
                 }
             }
 

@@ -198,26 +198,29 @@ namespace Fireball.Core
             }
 
             // Build key name
-            string keyName = Enum.GetName(typeof(Keys), keyCode);
+            var keyName = Enum.GetName(typeof(Keys), keyCode);
 
-            switch (keyCode)
-            {
-                case Keys.D0:
-                case Keys.D1:
-                case Keys.D2:
-                case Keys.D3:
-                case Keys.D4:
-                case Keys.D5:
-                case Keys.D6:
-                case Keys.D7:
-                case Keys.D8:
-                case Keys.D9:
-                    // Пропускаем первую букву
-                    keyName = keyName.Substring(1);
-                    break;
-            }
+	        switch (keyCode)
+	        {
+		        case Keys.D0:
+		        case Keys.D1:
+		        case Keys.D2:
+		        case Keys.D3:
+		        case Keys.D4:
+		        case Keys.D5:
+		        case Keys.D6:
+		        case Keys.D7:
+		        case Keys.D8:
+		        case Keys.D9:
+			        // Пропускаем первую букву
+			        if (keyName != null)
+			        {
+				        keyName = keyName.Substring(1);
+			        }
+			        break;
+	        }
 
-            string modifiers = "";
+	        var modifiers = "";
 
             if (shift)
             {

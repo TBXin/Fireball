@@ -14,10 +14,7 @@ namespace Fireball.Core
             {
                 lock (syncLock)
                 {
-                    if (instance == null)
-                        instance = new Settings();
-
-                    return instance;
+	                return instance ?? (instance = new Settings());
                 }
             }
             set
@@ -34,7 +31,6 @@ namespace Fireball.Core
         public Hotkey CaptureAreaHotkey { get; set; }
         public Hotkey UploadFromClipboardHotkey { get; set; }
         public Hotkey UploadFromFileHotkey { get; set; }
-        public CaptureMode CaptureMode { get; set; }
         public String ActivePlugin { get; set; }
         public NotificationType Notification { get; set; }
         public Boolean StartWithComputer { get; set; }
@@ -52,7 +48,6 @@ namespace Fireball.Core
             CaptureAreaHotkey = new Hotkey();
             UploadFromClipboardHotkey = new Hotkey();
             UploadFromFileHotkey = new Hotkey();
-            CaptureMode = CaptureMode.Manual;
             ActivePlugin = String.Empty;
             Notification = NotificationType.Tooltip;
 

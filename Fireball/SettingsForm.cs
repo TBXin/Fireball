@@ -19,44 +19,44 @@ namespace Fireball
 {
     public partial class SettingsForm : Form
     {
+		private readonly Settings settings;
+		private readonly string imageFilter;
+
         private Boolean isUploading;
-        private Settings settings;
         private Boolean isVisible;
         private IPlugin activePlugin;
-
-        private string imageFilter;
 
         #region :: Ctor ::
         public SettingsForm()
         {
             InitializeComponent();
 
-            AutomaticUpdaterBackend back = new AutomaticUpdaterBackend()
+            var backEnd = new AutomaticUpdaterBackend
             {
                 GUID = "Fireball AutoUpdater",
                 UpdateType = UpdateType.Automatic
             };
 
-            back.Initialize();
-            back.AppLoaded();
+            backEnd.Initialize();
+            backEnd.AppLoaded();
 
-            back.ReadyToBeInstalled += (s, e) =>
+            backEnd.ReadyToBeInstalled += (s, e) =>
             {
-                if (back.UpdateStepOn == UpdateStepOn.UpdateReadyToInstall)
-                {
-                    back.InstallNow();
-                    Application.Exit();
-                }
+	            if (backEnd.UpdateStepOn != UpdateStepOn.UpdateReadyToInstall)
+		            return;
+
+	            backEnd.InstallNow();
+	            Application.Exit();
             };
 
-            if (back.ClosingForInstall)
+            if (backEnd.ClosingForInstall)
                 return;
 
-            back.ForceCheckForUpdate(true);
-
+            backEnd.ForceCheckForUpdate(true);
+			
             Icon = tray.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 
-            StringBuilder builder = new StringBuilder();
+            var builder = new StringBuilder();
             {
                 builder.Append("Image Files (*.png;*.gif;*.jpg;*.jpeg;*.bmp)|*.png;*.gif;*.jpg;*.jpeg;*.bmp|");
                 builder.Append("PNG|*.png|");
@@ -120,10 +120,7 @@ namespace Fireball
 
             SaveSettings();
 
-            Application.ApplicationExit += (s, e) =>
-            {
-                SettingsManager.Save();
-            };
+            Application.ApplicationExit += (s, e) => SettingsManager.Save();
         }
         #endregion
 
@@ -157,12 +154,6 @@ namespace Fireball
             cLanguage.Items.Clear();
             cLanguage.Items.Add(new LanguageItem("Eng", new CultureInfo("en-US")));
             cLanguage.Items.Add(new LanguageItem("Rus", new CultureInfo("ru-RU")));
-
-            cCaptureMode.Items.Clear();
-            foreach (object type in Enum.GetValues(typeof(CaptureMode)))
-            {
-                cCaptureMode.Items.Add(type);
-            }
 
             cNotification.Items.Clear();
             foreach (object type in Enum.GetValues(typeof(NotificationType)))
@@ -198,9 +189,6 @@ namespace Fireball
             PopulateHotkeyControl(hkArea, settings.CaptureAreaHotkey);
             PopulateHotkeyControl(hkClipboard, settings.UploadFromClipboardHotkey);
             PopulateHotkeyControl(hkFile, settings.UploadFromFileHotkey);
-
-            if (cCaptureMode.Items.Contains(settings.CaptureMode))
-                cCaptureMode.SelectedItem = settings.CaptureMode;
 
             if (cNotification.Items.Contains(settings.Notification))
                 cNotification.SelectedItem = settings.Notification;
@@ -243,28 +231,6 @@ namespace Fireball
             try
             {
                 UpdateHotkey(hkScreen, settings.CaptureScreenHotey, CaptureScreenHotkeyPressed);
-                #region unused
-                /*if (hkScreen.Hotkey == Keys.None && settings.CaptureScreenHotey.Registered)
-                {
-                    settings.CaptureScreenHotey.Pressed -= CaptureScreenHoteyPressed;
-                    settings.CaptureScreenHotey.Unregister();
-                    settings.CaptureScreenHotey.KeyCode = Keys.None;
-                }
-                else
-                {
-                    settings.CaptureScreenHotey.KeyCode = hkScreen.Hotkey;
-                    settings.CaptureScreenHotey.Win = hkScreen.Win;
-                    settings.CaptureScreenHotey.Ctrl = hkScreen.Ctrl;
-                    settings.CaptureScreenHotey.Shift = hkScreen.Shift;
-                    settings.CaptureScreenHotey.Alt = hkScreen.Alt;
-
-                    if (!settings.CaptureScreenHotey.Registered && settings.CaptureScreenHotey.KeyCode != Keys.None)
-                    {
-                        settings.CaptureScreenHotey.Register(this);
-                        settings.CaptureScreenHotey.Pressed += CaptureScreenHoteyPressed;
-                    }
-                }*/
-                #endregion
             }
             catch (Exception)
             {
@@ -275,28 +241,6 @@ namespace Fireball
             try
             {
                 UpdateHotkey(hkArea, settings.CaptureAreaHotkey, CaptureAreaHotkeyPressed);
-                #region unused
-                /*if (hkArea.Hotkey == Keys.None && settings.CaptureAreaHotkey.Registered)
-                {
-                    settings.CaptureAreaHotkey.Pressed -= CaptureAreaHotkeyPressed;
-                    settings.CaptureAreaHotkey.Unregister();
-                    settings.CaptureAreaHotkey.KeyCode = Keys.None;
-                }
-                else
-                {
-                    settings.CaptureAreaHotkey.KeyCode = hkArea.Hotkey;
-                    settings.CaptureAreaHotkey.Win = hkArea.Win;
-                    settings.CaptureAreaHotkey.Ctrl = hkArea.Ctrl;
-                    settings.CaptureAreaHotkey.Shift = hkArea.Shift;
-                    settings.CaptureAreaHotkey.Alt = hkArea.Alt;
-
-                    if (!settings.CaptureAreaHotkey.Registered && settings.CaptureAreaHotkey.KeyCode != Keys.None)
-                    {
-                        settings.CaptureAreaHotkey.Register(this);
-                        settings.CaptureAreaHotkey.Pressed += CaptureAreaHotkeyPressed;
-                    }
-                }*/
-                #endregion
             }
             catch (Exception)
             {
@@ -324,16 +268,13 @@ namespace Fireball
                 return false;
             }
 
-            PluginItem selectedPlugin = cPlugins.SelectedItem as PluginItem;
+            var selectedPlugin = cPlugins.SelectedItem as PluginItem;
 
             if (selectedPlugin != null) 
                 settings.ActivePlugin = selectedPlugin.Plugin.Name;
 
-            NotificationType notification = (NotificationType)cNotification.SelectedItem;
+            var notification = (NotificationType)cNotification.SelectedItem;
             settings.Notification = notification;
-
-            CaptureMode captureMode = (CaptureMode)cCaptureMode.SelectedItem;
-            settings.CaptureMode = captureMode;
 
             settings.StartWithComputer = cAutoStart.Checked;
             settings.WithoutEditor = cWithoutEditor.Checked;
@@ -359,6 +300,7 @@ namespace Fireball
                     }
                     else
                     {
+                        image.Dispose();
                         SettingsManager.Save();
                         return;
                     }
@@ -382,13 +324,14 @@ namespace Fireball
 
             string url = string.Empty;
 
-            Task uploadTask = new Task(() =>
+            var uploadTask = new Task(() =>
             {
                 isUploading = true;
 
                 try
                 {
                     url = activePlugin.Upload(image);
+                    image.Dispose();
                 }
                 catch { }
 
@@ -457,7 +400,7 @@ namespace Fireball
             if (!PreuploadCheck())
                 return;
 
-            Image screenImage = ScreenManager.GetScreenshot(Screen.PrimaryScreen);
+            var screenImage = ScreenManager.GetScreenshot(Screen.PrimaryScreen);
             trayMenu.Hide();
 
             bool createdNew;
@@ -466,7 +409,7 @@ namespace Fireball
                 if (!createdNew)
                     return;
 
-                using (TakeForm takeForm = new TakeForm(screenImage, settings.CaptureMode))
+                using (var takeForm = new TakeForm(screenImage))
                 {
                     if (takeForm.ShowDialog() == DialogResult.OK)
                     {
@@ -481,7 +424,7 @@ namespace Fireball
             if (!PreuploadCheck())
                 return;
 
-            Image screenImage = ScreenManager.GetScreenshot(Screen.PrimaryScreen);
+            var screenImage = ScreenManager.GetScreenshot(Screen.PrimaryScreen);
             trayMenu.Hide();
 
             ForwardImageToPlugin(screenImage);
@@ -505,7 +448,7 @@ namespace Fireball
                         string path = col[0];
 
                         if (File.Exists(path))
-                            image = Bitmap.FromFile(path);
+                            image = Image.FromFile(path);
                     }
                 }
                 else if (Clipboard.ContainsImage())
@@ -529,32 +472,31 @@ namespace Fireball
             if (!PreuploadCheck())
                 return;
 
-            using (OpenFileDialog op = new OpenFileDialog() { FileName = string.Empty, Filter = imageFilter })
+            using (var op = new OpenFileDialog { FileName = string.Empty, Filter = imageFilter })
             {
-                if (op.ShowDialog() == DialogResult.OK)
-                {
-                    Image image = null;
+	            if (op.ShowDialog() != DialogResult.OK)
+		            return;
 
-                    try
-                    {
-                        image = Bitmap.FromFile(op.FileName);
-                    }
-                    catch
-                    {
-                        tray.ShowBalloonTip(1000, "Fireball", "Unsupported image format!", ToolTipIcon.Warning);
-                        return;
-                    }
+	            Image image;
 
-                    ForwardImageToPlugin(image);
-                    image.Dispose();
-                }
+	            try
+	            {
+		            image = Image.FromFile(op.FileName);
+	            }
+	            catch
+	            {
+		            tray.ShowBalloonTip(1000, "Fireball", "Unsupported image format!", ToolTipIcon.Warning);
+		            return;
+	            }
+
+	            ForwardImageToPlugin(image);
             }
         }
 
         private void SetLanguage(Form form, CultureInfo lang)
         {
             Thread.CurrentThread.CurrentUICulture = lang;
-            ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
+            var resources = new ComponentResourceManager(form.GetType());
 
             Localizer.ApplyResourceToControl(resources, trayMenu, lang);
             Localizer.ApplyResourceToControl(resources, form, lang);
@@ -594,7 +536,7 @@ namespace Fireball
                 SetLanguage(this, item.Culture);
         }
 
-        private void bPluginSettings_Click(object sender, EventArgs e)
+        private void BPluginSettingsClick(object sender, EventArgs e)
         {
             PluginItem item = cPlugins.SelectedItem as PluginItem;
 
@@ -644,12 +586,12 @@ namespace Fireball
             CaptureScreen();
         }
 
-        private void traySubUploadFromClipboard_Click(object sender, EventArgs e)
+        private void TraySubUploadFromClipboardClick(object sender, EventArgs e)
         {
             UploadFromClipboard();
         }
 
-        private void uploadFromFile_Click(object sender, EventArgs e)
+        private void UploadFromFileClick(object sender, EventArgs e)
         {
             UploadFromFile();
         }
@@ -695,16 +637,10 @@ namespace Fireball
                 System.Diagnostics.Process.Start(tray.BalloonTipText);
         }
 
-        private void trayMenu_Opening(object sender, CancelEventArgs e)
+        private void TrayMenuOpening(object sender, CancelEventArgs e)
         {
             recentToolStripMenuItem.DropDown.Items.Clear();
-            Settings.Instance.MRUList.Items.ForEach((item) =>
-            {
-                recentToolStripMenuItem.DropDown.Items.Add(item, Properties.Resources.image, (s1, e1) =>
-                {
-                    System.Diagnostics.Process.Start(item);
-                });
-            });
+            Settings.Instance.MRUList.Items.ForEach(item => recentToolStripMenuItem.DropDown.Items.Add(item, Properties.Resources.image, (s1, e1) => System.Diagnostics.Process.Start(item)));
         }
         #endregion
     }

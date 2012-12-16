@@ -93,7 +93,7 @@
             this.rHighlighter.Image = global::Fireball.Properties.Resources.highlighter;
             this.rHighlighter.Name = "rHighlighter";
             this.rHighlighter.UseVisualStyleBackColor = true;
-            this.rHighlighter.CheckedChanged += new System.EventHandler(this.rHighlighter_CheckedChanged);
+            this.rHighlighter.CheckedChanged += new System.EventHandler(this.RHighlighterCheckedChanged);
             // 
             // rText
             // 
@@ -101,7 +101,7 @@
             this.rText.Image = global::Fireball.Properties.Resources.text;
             this.rText.Name = "rText";
             this.rText.UseVisualStyleBackColor = true;
-            this.rText.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.rText.CheckedChanged += new System.EventHandler(this.RadioButton1CheckedChanged);
             // 
             // rFilledEllipse
             // 
@@ -109,7 +109,7 @@
             this.rFilledEllipse.Image = global::Fireball.Properties.Resources.ellipse;
             this.rFilledEllipse.Name = "rFilledEllipse";
             this.rFilledEllipse.UseVisualStyleBackColor = true;
-            this.rFilledEllipse.CheckedChanged += new System.EventHandler(this.rFilledEllipse_CheckedChanged);
+            this.rFilledEllipse.CheckedChanged += new System.EventHandler(this.RFilledEllipseCheckedChanged);
             // 
             // rBrush
             // 
@@ -119,7 +119,7 @@
             this.rBrush.Name = "rBrush";
             this.rBrush.TabStop = true;
             this.rBrush.UseVisualStyleBackColor = true;
-            this.rBrush.CheckedChanged += new System.EventHandler(this.rBrush_CheckedChanged);
+            this.rBrush.CheckedChanged += new System.EventHandler(this.RBrushCheckedChanged);
             // 
             // rEllipse
             // 
@@ -127,7 +127,7 @@
             this.rEllipse.Image = global::Fireball.Properties.Resources.unfilled_ellipse_;
             this.rEllipse.Name = "rEllipse";
             this.rEllipse.UseVisualStyleBackColor = true;
-            this.rEllipse.CheckedChanged += new System.EventHandler(this.rEllipse_CheckedChanged);
+            this.rEllipse.CheckedChanged += new System.EventHandler(this.REllipseCheckedChanged);
             // 
             // rLine
             // 
@@ -135,7 +135,7 @@
             this.rLine.Image = global::Fireball.Properties.Resources.line;
             this.rLine.Name = "rLine";
             this.rLine.UseVisualStyleBackColor = true;
-            this.rLine.CheckedChanged += new System.EventHandler(this.rLine_CheckedChanged);
+            this.rLine.CheckedChanged += new System.EventHandler(this.RLineCheckedChanged);
             // 
             // rArrow
             // 
@@ -143,7 +143,7 @@
             this.rArrow.Image = global::Fireball.Properties.Resources.arrow;
             this.rArrow.Name = "rArrow";
             this.rArrow.UseVisualStyleBackColor = true;
-            this.rArrow.CheckedChanged += new System.EventHandler(this.rArrow_CheckedChanged);
+            this.rArrow.CheckedChanged += new System.EventHandler(this.RArrowCheckedChanged);
             // 
             // rRectangle
             // 
@@ -151,7 +151,7 @@
             this.rRectangle.Image = global::Fireball.Properties.Resources.unfilled_rectangle;
             this.rRectangle.Name = "rRectangle";
             this.rRectangle.UseVisualStyleBackColor = true;
-            this.rRectangle.CheckedChanged += new System.EventHandler(this.rRectangle_CheckedChanged);
+            this.rRectangle.CheckedChanged += new System.EventHandler(this.RRectangleCheckedChanged);
             // 
             // rFilledRectangle
             // 
@@ -159,7 +159,7 @@
             this.rFilledRectangle.Image = global::Fireball.Properties.Resources.rectangle;
             this.rFilledRectangle.Name = "rFilledRectangle";
             this.rFilledRectangle.UseVisualStyleBackColor = true;
-            this.rFilledRectangle.CheckedChanged += new System.EventHandler(this.rFilledRectangle_CheckedChanged);
+            this.rFilledRectangle.CheckedChanged += new System.EventHandler(this.RFilledRectangleCheckedChanged);
             // 
             // borderedPanel1
             // 
@@ -197,7 +197,7 @@
             0,
             0,
             0});
-            this.nSize.ValueChanged += new System.EventHandler(this.nSize_ValueChanged);
+            this.nSize.ValueChanged += new System.EventHandler(this.NSizeValueChanged);
             // 
             // cForeColor
             // 
@@ -205,7 +205,7 @@
             this.cForeColor.Name = "cForeColor";
             this.cForeColor.SelectedColor = System.Drawing.Color.Red;
             this.cForeColor.UseVisualStyleBackColor = true;
-            this.cForeColor.ColorChanged += new Fireball.UI.ColorChangedDelegate(this.cForeColor_ColorChanged);
+            this.cForeColor.ColorChanged += new Fireball.UI.ColorChangedDelegate(this.CForeColorColorChanged);
             // 
             // label1
             // 
@@ -218,7 +218,7 @@
             this.cBackColor.Name = "cBackColor";
             this.cBackColor.SelectedColor = System.Drawing.Color.White;
             this.cBackColor.UseVisualStyleBackColor = true;
-            this.cBackColor.ColorChanged += new Fireball.UI.ColorChangedDelegate(this.cBackColor_ColorChanged);
+            this.cBackColor.ColorChanged += new Fireball.UI.ColorChangedDelegate(this.CBackColorColorChanged);
             // 
             // borderedPanel2
             // 
@@ -243,7 +243,7 @@
             resources.ApplyResources(this.bErase, "bErase");
             this.bErase.Name = "bErase";
             this.bErase.UseVisualStyleBackColor = true;
-            this.bErase.Click += new System.EventHandler(this.bErase_Click);
+            this.bErase.Click += new System.EventHandler(this.BEraseClick);
             // 
             // bUpload
             // 
@@ -259,7 +259,7 @@
             resources.ApplyResources(this.bRedo, "bRedo");
             this.bRedo.Name = "bRedo";
             this.bRedo.UseVisualStyleBackColor = true;
-            this.bRedo.Click += new System.EventHandler(this.bRedo_Click);
+            this.bRedo.Click += new System.EventHandler(this.BRedoClick);
             // 
             // bClose
             // 
@@ -275,7 +275,7 @@
             resources.ApplyResources(this.bUndo, "bUndo");
             this.bUndo.Name = "bUndo";
             this.bUndo.UseVisualStyleBackColor = true;
-            this.bUndo.Click += new System.EventHandler(this.bUndo_Click);
+            this.bUndo.Click += new System.EventHandler(this.BUndoClick);
             // 
             // EditorForm
             // 
@@ -286,7 +286,7 @@
             this.Controls.Add(this.borderedPanel1);
             this.KeyPreview = true;
             this.Name = "EditorForm";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainKeyDown);
             this.borderedPanel4.ResumeLayout(false);
             this.borderedPanel1.ResumeLayout(false);
             this.borderedPanel1.PerformLayout();

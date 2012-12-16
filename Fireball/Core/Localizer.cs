@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
 using System.Globalization;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace Fireball.Core
@@ -15,7 +14,7 @@ namespace Fireball.Core
             foreach (Control c in control.Controls)
             {
                 ApplyResourceToControl(resources, c, lang);
-                string text = resources.GetString(c.Name + ".Text", lang);
+                var text = resources.GetString(c.Name + ".Text", lang);
 
                 if (text != null)
                     c.Text = text;
@@ -29,7 +28,7 @@ namespace Fireball.Core
 
             foreach (ToolStripItem m in menu.Items)
             {
-                string text = resources.GetString(m.Name + ".Text", lang);
+                var text = resources.GetString(m.Name + ".Text", lang);
 
                 if (text != null)
                     m.Text = text;

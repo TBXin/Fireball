@@ -53,9 +53,9 @@
     <ApplicationIcon>fireball_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutomaticUpdater">
-      <HintPath>C:\Program Files (x86)\wyBuild\AutomaticUpdater\Microsoft .NET 4.0\AutomaticUpdater.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="AutomaticUpdater, Version=2.6.16.0, Culture=neutral, PublicKeyToken=437887616030daaf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>X:\Develop\wyBuild\AutomaticUpdater-2.6.16-source\AutomaticUpdater\Control4\bin\Release\AutomaticUpdater.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -69,7 +69,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\CaptureMode.cs" />
     <Compile Include="Core\Helper.cs" />
     <Compile Include="Core\Hotkey.cs" />
     <Compile Include="Core\Localizer.cs" />

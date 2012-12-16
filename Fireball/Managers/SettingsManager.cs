@@ -125,18 +125,6 @@ namespace Fireball.Managers
                     (Keys)Enum.Parse(typeof(Keys), keyAttribute.Value));
                 #endregion
 
-                if (captureModeNode == null)
-                {
-                    rtnSettings.CaptureMode = CaptureMode.Manual;
-                }
-                else
-                {
-                    CaptureMode mode;
-
-                    if (Enum.TryParse(captureModeNode.Value, out mode))
-                        rtnSettings.CaptureMode = mode;
-                }
-
                 if (activePluginNode == null)
                     return rtnSettings;
 
@@ -223,7 +211,6 @@ namespace Fireball.Managers
                     new XAttribute("Ctrl", settings.UploadFromFileHotkey.Ctrl),
                     new XAttribute("Shift", settings.UploadFromFileHotkey.Shift),
                     new XAttribute("Alt", settings.UploadFromFileHotkey.Alt)),
-                new XElement("CaptureMode", settings.CaptureMode),
                 new XElement("ActivePlugin", settings.ActivePlugin),
                 new XElement("Notification", settings.Notification),
                 new XElement("StartWithComputer", settings.StartWithComputer),

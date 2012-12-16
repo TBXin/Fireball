@@ -124,22 +124,6 @@
     <value>89, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="trayMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 220</value>
-  </data>
-  <data name="&gt;&gt;trayMenu.Name" xml:space="preserve">
-    <value>trayMenu</value>
-  </data>
-  <data name="&gt;&gt;trayMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tray.Text" xml:space="preserve">
-    <value>Fireball</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tray.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="traySubCaptureArea.Size" type="System.Drawing.Size, System.Drawing">
     <value>194, 22</value>
   </data>
@@ -202,6 +186,22 @@
   </data>
   <data name="traySubExit.Text" xml:space="preserve">
     <value>Exit</value>
+  </data>
+  <data name="trayMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 220</value>
+  </data>
+  <data name="&gt;&gt;trayMenu.Name" xml:space="preserve">
+    <value>trayMenu</value>
+  </data>
+  <data name="&gt;&gt;trayMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tray.Text" xml:space="preserve">
+    <value>Fireball</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tray.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="lCaptureScreen.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -298,10 +298,196 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;cAutoStart.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>2</value>
   </data>
   <data name="mainTabControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="groupBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="cWithoutEditor.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cWithoutEditor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cWithoutEditor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 169</value>
+  </data>
+  <data name="cWithoutEditor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 17</value>
+  </data>
+  <data name="cWithoutEditor.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="cWithoutEditor.Text" xml:space="preserve">
+    <value>Do not use the editor</value>
+  </data>
+  <data name="&gt;&gt;cWithoutEditor.Name" xml:space="preserve">
+    <value>cWithoutEditor</value>
+  </data>
+  <data name="&gt;&gt;cWithoutEditor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cWithoutEditor.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;cWithoutEditor.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lNotification.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lNotification.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt, style=Bold</value>
+  </data>
+  <data name="lNotification.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lNotification.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 17</value>
+  </data>
+  <data name="lNotification.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 13</value>
+  </data>
+  <data name="lNotification.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="lNotification.Text" xml:space="preserve">
+    <value>Notification Type:</value>
+  </data>
+  <data name="&gt;&gt;lNotification.Name" xml:space="preserve">
+    <value>lNotification</value>
+  </data>
+  <data name="&gt;&gt;lNotification.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lNotification.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;lNotification.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="bPluginSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="bPluginSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>162, 77</value>
+  </data>
+  <data name="bPluginSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 23</value>
+  </data>
+  <data name="bPluginSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="bPluginSettings.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="bPluginSettings.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="bPluginSettings.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;bPluginSettings.Name" xml:space="preserve">
+    <value>bPluginSettings</value>
+  </data>
+  <data name="&gt;&gt;bPluginSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bPluginSettings.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;bPluginSettings.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cNotification.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 33</value>
+  </data>
+  <data name="cNotification.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 21</value>
+  </data>
+  <data name="cNotification.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;cNotification.Name" xml:space="preserve">
+    <value>cNotification</value>
+  </data>
+  <data name="&gt;&gt;cNotification.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cNotification.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;cNotification.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="cPlugins.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 78</value>
+  </data>
+  <data name="cPlugins.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 21</value>
+  </data>
+  <data name="cPlugins.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;cPlugins.Name" xml:space="preserve">
+    <value>cPlugins</value>
+  </data>
+  <data name="&gt;&gt;cPlugins.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cPlugins.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;cPlugins.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lActive.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lActive.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt, style=Bold</value>
+  </data>
+  <data name="lActive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lActive.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 62</value>
+  </data>
+  <data name="lActive.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 13</value>
+  </data>
+  <data name="lActive.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lActive.Text" xml:space="preserve">
+    <value>Active plugin:</value>
+  </data>
+  <data name="&gt;&gt;lActive.Name" xml:space="preserve">
+    <value>lActive</value>
+  </data>
+  <data name="&gt;&gt;lActive.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lActive.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;lActive.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 204</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 192</value>
+  </data>
+  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Settings</value>
   </data>
   <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
     <value>groupBox2</value>
@@ -314,6 +500,195 @@
   </data>
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="hkFile.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt</value>
+  </data>
+  <data name="hkFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 160</value>
+  </data>
+  <data name="hkFile.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>258, 23</value>
+  </data>
+  <data name="hkFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 23</value>
+  </data>
+  <data name="hkFile.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;hkFile.Name" xml:space="preserve">
+    <value>hkFile</value>
+  </data>
+  <data name="&gt;&gt;hkFile.Type" xml:space="preserve">
+    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.26.1218, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;hkFile.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;hkFile.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="hkScreen.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt</value>
+  </data>
+  <data name="hkScreen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 34</value>
+  </data>
+  <data name="hkScreen.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>258, 23</value>
+  </data>
+  <data name="hkScreen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 23</value>
+  </data>
+  <data name="hkScreen.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;hkScreen.Name" xml:space="preserve">
+    <value>hkScreen</value>
+  </data>
+  <data name="&gt;&gt;hkScreen.Type" xml:space="preserve">
+    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.26.1218, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;hkScreen.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;hkScreen.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lUploadFile.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lUploadFile.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt, style=Bold</value>
+  </data>
+  <data name="lUploadFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lUploadFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 144</value>
+  </data>
+  <data name="lUploadFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 13</value>
+  </data>
+  <data name="lUploadFile.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="lUploadFile.Text" xml:space="preserve">
+    <value>Upload from file:</value>
+  </data>
+  <data name="&gt;&gt;lUploadFile.Name" xml:space="preserve">
+    <value>lUploadFile</value>
+  </data>
+  <data name="&gt;&gt;lUploadFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lUploadFile.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;lUploadFile.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="hkClipboard.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt</value>
+  </data>
+  <data name="hkClipboard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 118</value>
+  </data>
+  <data name="hkClipboard.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>258, 23</value>
+  </data>
+  <data name="hkClipboard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 23</value>
+  </data>
+  <data name="hkClipboard.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;hkClipboard.Name" xml:space="preserve">
+    <value>hkClipboard</value>
+  </data>
+  <data name="&gt;&gt;hkClipboard.Type" xml:space="preserve">
+    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.26.1218, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;hkClipboard.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;hkClipboard.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="hkArea.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt</value>
+  </data>
+  <data name="hkArea.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 76</value>
+  </data>
+  <data name="hkArea.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>258, 23</value>
+  </data>
+  <data name="hkArea.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 23</value>
+  </data>
+  <data name="hkArea.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;hkArea.Name" xml:space="preserve">
+    <value>hkArea</value>
+  </data>
+  <data name="&gt;&gt;hkArea.Type" xml:space="preserve">
+    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.26.1218, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;hkArea.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;hkArea.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lUploadClipboard.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lUploadClipboard.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt, style=Bold</value>
+  </data>
+  <data name="lUploadClipboard.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lUploadClipboard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 102</value>
+  </data>
+  <data name="lUploadClipboard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 13</value>
+  </data>
+  <data name="lUploadClipboard.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="lUploadClipboard.Text" xml:space="preserve">
+    <value>Upload from clipboard:</value>
+  </data>
+  <data name="&gt;&gt;lUploadClipboard.Name" xml:space="preserve">
+    <value>lUploadClipboard</value>
+  </data>
+  <data name="&gt;&gt;lUploadClipboard.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lUploadClipboard.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;lUploadClipboard.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 192</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Hotkeys</value>
   </data>
   <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
     <value>groupBox1</value>
@@ -597,516 +972,6 @@
   <data name="&gt;&gt;mainTabControl.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="groupBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;lCaptureMode.Name" xml:space="preserve">
-    <value>lCaptureMode</value>
-  </data>
-  <data name="&gt;&gt;lCaptureMode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lCaptureMode.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;lCaptureMode.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;cCaptureMode.Name" xml:space="preserve">
-    <value>cCaptureMode</value>
-  </data>
-  <data name="&gt;&gt;cCaptureMode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cCaptureMode.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;cCaptureMode.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;cWithoutEditor.Name" xml:space="preserve">
-    <value>cWithoutEditor</value>
-  </data>
-  <data name="&gt;&gt;cWithoutEditor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cWithoutEditor.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;cWithoutEditor.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lNotification.Name" xml:space="preserve">
-    <value>lNotification</value>
-  </data>
-  <data name="&gt;&gt;lNotification.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lNotification.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;lNotification.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;bPluginSettings.Name" xml:space="preserve">
-    <value>bPluginSettings</value>
-  </data>
-  <data name="&gt;&gt;bPluginSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bPluginSettings.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;bPluginSettings.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;cNotification.Name" xml:space="preserve">
-    <value>cNotification</value>
-  </data>
-  <data name="&gt;&gt;cNotification.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cNotification.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;cNotification.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;cPlugins.Name" xml:space="preserve">
-    <value>cPlugins</value>
-  </data>
-  <data name="&gt;&gt;cPlugins.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cPlugins.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;cPlugins.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;lActive.Name" xml:space="preserve">
-    <value>lActive</value>
-  </data>
-  <data name="&gt;&gt;lActive.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lActive.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;lActive.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 204</value>
-  </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>270, 192</value>
-  </data>
-  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
-    <value>generalTab</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lCaptureMode.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt, style=Bold</value>
-  </data>
-  <data name="lCaptureMode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lCaptureMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 17</value>
-  </data>
-  <data name="lCaptureMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 13</value>
-  </data>
-  <data name="lCaptureMode.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="lCaptureMode.Text" xml:space="preserve">
-    <value>Capture Mode:</value>
-  </data>
-  <data name="&gt;&gt;lCaptureMode.Name" xml:space="preserve">
-    <value>lCaptureMode</value>
-  </data>
-  <data name="&gt;&gt;lCaptureMode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lCaptureMode.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;lCaptureMode.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="cCaptureMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 33</value>
-  </data>
-  <data name="cCaptureMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 21</value>
-  </data>
-  <data name="cCaptureMode.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;cCaptureMode.Name" xml:space="preserve">
-    <value>cCaptureMode</value>
-  </data>
-  <data name="&gt;&gt;cCaptureMode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cCaptureMode.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;cCaptureMode.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="cWithoutEditor.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="cWithoutEditor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="cWithoutEditor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 169</value>
-  </data>
-  <data name="cWithoutEditor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 17</value>
-  </data>
-  <data name="cWithoutEditor.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="cWithoutEditor.Text" xml:space="preserve">
-    <value>Do not use the editor</value>
-  </data>
-  <data name="&gt;&gt;cWithoutEditor.Name" xml:space="preserve">
-    <value>cWithoutEditor</value>
-  </data>
-  <data name="&gt;&gt;cWithoutEditor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cWithoutEditor.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;cWithoutEditor.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lNotification.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lNotification.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt, style=Bold</value>
-  </data>
-  <data name="lNotification.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lNotification.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 57</value>
-  </data>
-  <data name="lNotification.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 13</value>
-  </data>
-  <data name="lNotification.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="lNotification.Text" xml:space="preserve">
-    <value>Notification Type:</value>
-  </data>
-  <data name="&gt;&gt;lNotification.Name" xml:space="preserve">
-    <value>lNotification</value>
-  </data>
-  <data name="&gt;&gt;lNotification.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lNotification.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;lNotification.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="bPluginSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="bPluginSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>162, 117</value>
-  </data>
-  <data name="bPluginSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 23</value>
-  </data>
-  <data name="bPluginSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="bPluginSettings.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="bPluginSettings.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="bPluginSettings.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
-  </data>
-  <data name="&gt;&gt;bPluginSettings.Name" xml:space="preserve">
-    <value>bPluginSettings</value>
-  </data>
-  <data name="&gt;&gt;bPluginSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bPluginSettings.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;bPluginSettings.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="cNotification.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 73</value>
-  </data>
-  <data name="cNotification.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 21</value>
-  </data>
-  <data name="cNotification.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;cNotification.Name" xml:space="preserve">
-    <value>cNotification</value>
-  </data>
-  <data name="&gt;&gt;cNotification.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cNotification.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;cNotification.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="cPlugins.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 118</value>
-  </data>
-  <data name="cPlugins.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 21</value>
-  </data>
-  <data name="cPlugins.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;cPlugins.Name" xml:space="preserve">
-    <value>cPlugins</value>
-  </data>
-  <data name="&gt;&gt;cPlugins.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cPlugins.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;cPlugins.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="lActive.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lActive.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt, style=Bold</value>
-  </data>
-  <data name="lActive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lActive.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 102</value>
-  </data>
-  <data name="lActive.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 13</value>
-  </data>
-  <data name="lActive.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="lActive.Text" xml:space="preserve">
-    <value>Active plugin:</value>
-  </data>
-  <data name="&gt;&gt;lActive.Name" xml:space="preserve">
-    <value>lActive</value>
-  </data>
-  <data name="&gt;&gt;lActive.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lActive.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;lActive.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;hkFile.Name" xml:space="preserve">
-    <value>hkFile</value>
-  </data>
-  <data name="&gt;&gt;hkFile.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.15.2231, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;hkFile.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;hkFile.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;hkScreen.Name" xml:space="preserve">
-    <value>hkScreen</value>
-  </data>
-  <data name="&gt;&gt;hkScreen.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.15.2231, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;hkScreen.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;hkScreen.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lUploadFile.Name" xml:space="preserve">
-    <value>lUploadFile</value>
-  </data>
-  <data name="&gt;&gt;lUploadFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lUploadFile.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;lUploadFile.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;hkClipboard.Name" xml:space="preserve">
-    <value>hkClipboard</value>
-  </data>
-  <data name="&gt;&gt;hkClipboard.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.15.2231, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;hkClipboard.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;hkClipboard.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;hkArea.Name" xml:space="preserve">
-    <value>hkArea</value>
-  </data>
-  <data name="&gt;&gt;hkArea.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.15.2231, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;hkArea.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;hkArea.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;lUploadClipboard.Name" xml:space="preserve">
-    <value>lUploadClipboard</value>
-  </data>
-  <data name="&gt;&gt;lUploadClipboard.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lUploadClipboard.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;lUploadClipboard.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 6</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>270, 192</value>
-  </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Hotkeys</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>generalTab</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lUploadFile.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lUploadFile.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt, style=Bold</value>
-  </data>
-  <data name="lUploadFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lUploadFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 144</value>
-  </data>
-  <data name="lUploadFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 13</value>
-  </data>
-  <data name="lUploadFile.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="lUploadFile.Text" xml:space="preserve">
-    <value>Upload from file:</value>
-  </data>
-  <data name="&gt;&gt;lUploadFile.Name" xml:space="preserve">
-    <value>lUploadFile</value>
-  </data>
-  <data name="&gt;&gt;lUploadFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lUploadFile.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;lUploadFile.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="lUploadClipboard.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lUploadClipboard.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt, style=Bold</value>
-  </data>
-  <data name="lUploadClipboard.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lUploadClipboard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 102</value>
-  </data>
-  <data name="lUploadClipboard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 13</value>
-  </data>
-  <data name="lUploadClipboard.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="lUploadClipboard.Text" xml:space="preserve">
-    <value>Upload from clipboard:</value>
-  </data>
-  <data name="&gt;&gt;lUploadClipboard.Name" xml:space="preserve">
-    <value>lUploadClipboard</value>
-  </data>
-  <data name="&gt;&gt;lUploadClipboard.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lUploadClipboard.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;lUploadClipboard.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
   <data name="cLanguage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
@@ -1221,6 +1086,9 @@
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 8.25pt</value>
   </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
@@ -1320,112 +1188,19 @@
   <data name="updaterControl.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
+  <data name="updaterControl.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;updaterControl.Name" xml:space="preserve">
     <value>updaterControl</value>
   </data>
   <data name="&gt;&gt;updaterControl.Type" xml:space="preserve">
-    <value>wyDay.Controls.AutomaticUpdater, AutomaticUpdater, Version=2.6.16.0, Culture=neutral, PublicKeyToken=437887616030daaf</value>
+    <value>wyDay.Controls.AutomaticUpdater, AutomaticUpdater, Version=2.6.16.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;updaterControl.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;updaterControl.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="hkFile.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt</value>
-  </data>
-  <data name="hkFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 160</value>
-  </data>
-  <data name="hkFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 23</value>
-  </data>
-  <data name="hkFile.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;hkFile.Name" xml:space="preserve">
-    <value>hkFile</value>
-  </data>
-  <data name="&gt;&gt;hkFile.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.15.2231, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;hkFile.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;hkFile.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="hkScreen.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt</value>
-  </data>
-  <data name="hkScreen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 34</value>
-  </data>
-  <data name="hkScreen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 23</value>
-  </data>
-  <data name="hkScreen.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;hkScreen.Name" xml:space="preserve">
-    <value>hkScreen</value>
-  </data>
-  <data name="&gt;&gt;hkScreen.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.15.2231, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;hkScreen.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;hkScreen.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="hkClipboard.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt</value>
-  </data>
-  <data name="hkClipboard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 118</value>
-  </data>
-  <data name="hkClipboard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 23</value>
-  </data>
-  <data name="hkClipboard.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;hkClipboard.Name" xml:space="preserve">
-    <value>hkClipboard</value>
-  </data>
-  <data name="&gt;&gt;hkClipboard.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.15.2231, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;hkClipboard.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;hkClipboard.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="hkArea.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt</value>
-  </data>
-  <data name="hkArea.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 76</value>
-  </data>
-  <data name="hkArea.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 23</value>
-  </data>
-  <data name="hkArea.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;hkArea.Name" xml:space="preserve">
-    <value>hkArea</value>
-  </data>
-  <data name="&gt;&gt;hkArea.Type" xml:space="preserve">
-    <value>Fireball.UI.HotkeySelectControl, Fireball, Version=2012.5.15.2231, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;hkArea.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;hkArea.ZOrder" xml:space="preserve">
-    <value>6</value>
   </data>
 </root>

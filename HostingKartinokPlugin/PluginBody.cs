@@ -40,12 +40,13 @@ namespace Fireball.Plugin
                 { "upload_type", "standard" },
             });
 
-            const string searchPattern = "</label><input class=\"image-link\" type=\"text\" size=\"92\" onclick=\"this.select();\" value=\"";
+            //const string searchPattern = "</label><input class=\"image-link\" type=\"text\" size=\"92\" onclick=\"this.select();\" value=\"";
+	        const string searchPattern = "[URL=http://hostingkartinok.com][IMG]";
 
             int idx = response.IndexOf(searchPattern, StringComparison.Ordinal);
             if (idx != -1)
             {
-                int idx2 = response.IndexOf("\"", idx + searchPattern.Length, StringComparison.Ordinal);
+                int idx2 = response.IndexOf("[/IMG]", idx + searchPattern.Length, StringComparison.Ordinal);
 
                 if (idx2 != -1)
                 {

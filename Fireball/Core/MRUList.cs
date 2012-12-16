@@ -6,7 +6,7 @@ namespace Fireball.Core
 {
     class MRUList
     {
-        private const byte maxInQueue = 20;
+        private const byte MaxInQueue = 20;
         private Queue<String> container;
 
         public List<String> Items
@@ -23,13 +23,13 @@ namespace Fireball.Core
         {
             container = new Queue<string>(content);
 
-            while (container.Count >= maxInQueue)
+            while (container.Count >= MaxInQueue)
                 container.Dequeue();
         }
 
         public void Enqueue(string content)
         {
-            if (container.Count == maxInQueue)
+            if (container.Count == MaxInQueue)
             {
                 container.Dequeue();
             }

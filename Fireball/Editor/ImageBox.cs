@@ -97,6 +97,7 @@ namespace Fireball.Editor
                 drawabels.Reverse().ToList().ForEach(d => d.Draw(gfx, Point.Empty));
             }
 
+            image.Dispose();
             return rtnImage;
         }
 
